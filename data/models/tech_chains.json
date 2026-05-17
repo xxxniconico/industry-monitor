@@ -1,11 +1,28 @@
 {
   "updated_at": "2026-05-17",
   "tiers": {
-    "short": {"label": "短期 0-12月", "color": "#ef6060", "desc": "供应链瓶颈 · 产能爬坡 · 即刻机会"},
-    "medium": {"label": "中期 1-3年", "color": "#efc24e", "desc": "技术替代 · 渗透率拐点 · 布局窗口"},
-    "long": {"label": "长期 3-10年", "color": "#4ec2ef", "desc": "范式转换 · 基础研究 · 前瞻布局"}
+    "short": {
+      "label": "短期 0-12月",
+      "color": "#ef6060",
+      "desc": "供应链瓶颈 · 产能爬坡 · 即刻机会"
+    },
+    "medium": {
+      "label": "中期 1-3年",
+      "color": "#efc24e",
+      "desc": "技术替代 · 渗透率拐点 · 布局窗口"
+    },
+    "long": {
+      "label": "长期 3-10年",
+      "color": "#4ec2ef",
+      "desc": "范式转换 · 基础研究 · 前瞻布局"
+    }
   },
-  "industries": ["AI", "medical", "space", "drone"],
+  "industries": [
+    "AI",
+    "medical",
+    "space",
+    "drone"
+  ],
   "chains": [
     {
       "id": "short-cowos",
@@ -17,12 +34,25 @@
       "trl": 8.5,
       "bottleneck": "台积电独家供应，扩产速度跟不上 AI 芯片需求",
       "next_trigger": "台积电月产能突破 10 万片 → 芯片交付加速",
-      "trigger_keywords": ["CoWoS", "advanced packaging", "先进封装", "台积电", "封测", "产能"],
+      "trigger_keywords": [
+        "CoWoS",
+        "advanced packaging",
+        "先进封装",
+        "台积电",
+        "封测",
+        "产能"
+      ],
       "opportunity_signal": "CoWoS 是整个 AI 芯片链的「总阀门」——它一松，下游全部加速",
       "market_impact": "决定 GB200/GB300 交付节奏",
-      "drives": ["short-gpu-supply", "short-optical", "short-liquid-cooling", "short-copper"],
+      "drives": [
+        "short-gpu-supply",
+        "short-optical",
+        "short-liquid-cooling",
+        "short-copper"
+      ],
       "depends_on": [],
-      "risk": "地震/地缘风险中断台积电生产"
+      "risk": "地震/地缘风险中断台积电生产",
+      "status_description": "台积电 CoWoS 月产能约 8 万片，占全球先进封装产能 95%+。GB200 交付排队 9-12 个月，产能是 AI 芯片产业链最核心的物理瓶颈。"
     },
     {
       "id": "short-gpu-supply",
@@ -34,12 +64,29 @@
       "trl": 8.5,
       "bottleneck": "GB200 交付排队 9-12 个月；高端型号受出口管制",
       "next_trigger": "GB300 正式出货 → 交付周期缩短至 6 个月内",
-      "trigger_keywords": ["GB200", "GB300", "H200", "B200", "B300", "lead time", "allocation", "交付", "排队"],
+      "trigger_keywords": [
+        "GB200",
+        "GB300",
+        "H200",
+        "B200",
+        "B300",
+        "lead time",
+        "allocation",
+        "交付",
+        "排队"
+      ],
       "opportunity_signal": "GPU 供给缓解 → AI 算力成本下降 → 应用层爆发",
       "market_impact": "直接决定 AI 数据中心建设速度；每缓解一个月 = 多建一个万卡集群",
-      "drives": ["short-optical", "short-liquid-cooling", "short-copper"],
-      "depends_on": ["short-cowos"],
-      "risk": "美国出口管制收紧"
+      "drives": [
+        "short-optical",
+        "short-liquid-cooling",
+        "short-copper"
+      ],
+      "depends_on": [
+        "short-cowos"
+      ],
+      "risk": "美国出口管制收紧",
+      "status_description": "H200 已规模交付，GB200 供不应求排队至 2026H2，GB300 预计 2026Q3 出货。美国出口管制限制最先进芯片对华出口，但 H200 级别已获批。"
     },
     {
       "id": "short-optical",
@@ -51,12 +98,25 @@
       "trl": 8,
       "bottleneck": "1.6T 硅光良率爬坡；EML 激光器供应受限",
       "next_trigger": "1.6T 季出货突破 500 万只 → 替代 800G",
-      "trigger_keywords": ["1.6T", "800G", "3.2T", "optical module", "光模块", "transceiver", "硅光", "LPO"],
+      "trigger_keywords": [
+        "1.6T",
+        "800G",
+        "3.2T",
+        "optical module",
+        "光模块",
+        "transceiver",
+        "硅光",
+        "LPO"
+      ],
       "opportunity_signal": "GPU:光模块配比 1:3→1:4.5→1:8，光模块增速持续高于 GPU 增速",
       "market_impact": "配比扩张 = 放大器效应",
       "drives": [],
-      "depends_on": ["short-gpu-supply", "med-silicon-photonics"],
-      "risk": "CPO 提前商用替代可插拔"
+      "depends_on": [
+        "short-gpu-supply",
+        "med-silicon-photonics"
+      ],
+      "risk": "CPO 提前商用替代可插拔",
+      "status_description": "800G 硅光模块是当前主力（旭创全球市占 40%），1.6T 2026 年预计出货 2000 万只（+700% YoY）。GPU:光模块配比从 1:3 扩张至 1:4.5，ASIC 集群达 1:8。"
     },
     {
       "id": "short-liquid-cooling",
@@ -68,12 +128,23 @@
       "trl": 8,
       "bottleneck": "冷板式标准化不足；浸没式成本高",
       "next_trigger": "GB300 强制液冷出货 → 渗透率跳升至 40%+",
-      "trigger_keywords": ["liquid cooling", "液冷", "cold plate", "immersion", "GB300", "cooling", "散热"],
+      "trigger_keywords": [
+        "liquid cooling",
+        "液冷",
+        "cold plate",
+        "immersion",
+        "GB300",
+        "cooling",
+        "散热"
+      ],
       "opportunity_signal": "GB300 强制液冷 → 从可选变刚需 → 市场 300→1000 亿",
       "market_impact": "2026 年是液冷渗透率拐点年（25%→40%）",
       "drives": [],
-      "depends_on": ["short-gpu-supply"],
-      "risk": "冷板→浸没式路线切换"
+      "depends_on": [
+        "short-gpu-supply"
+      ],
+      "risk": "冷板→浸没式路线切换",
+      "status_description": "GB200 单机柜功耗突破 100kW，风冷物理极限 40kW 已彻底无法满足。GB300 强制液冷将推动渗透率从 25% 跳升至 40%+。英维克（大陆唯一英伟达 Tier 1）和高澜股份（浸没式龙头）是核心标的。"
     },
     {
       "id": "short-copper",
@@ -85,12 +156,24 @@
       "trl": 7.5,
       "bottleneck": "224G 信号完整性验证；安费诺+莫仕垄断 60%",
       "next_trigger": "224G AEC 大规模商用 → GB200 NVL72 批量交付",
-      "trigger_keywords": ["224G", "448G", "copper", "铜缆", "DAC", "AEC", "NVL72", "铜连接"],
+      "trigger_keywords": [
+        "224G",
+        "448G",
+        "copper",
+        "铜缆",
+        "DAC",
+        "AEC",
+        "NVL72",
+        "铜连接"
+      ],
       "opportunity_signal": "224G AEC 放量 → 国产替代窗口打开",
       "market_impact": "AEC 2026 需求 888 万条，CAGR 45%",
       "drives": [],
-      "depends_on": ["short-gpu-supply"],
-      "risk": "硅光成本降至铜缆 2 倍内"
+      "depends_on": [
+        "short-gpu-supply"
+      ],
+      "risk": "硅光成本降至铜缆 2 倍内",
+      "status_description": "GB200 NVL72 单机架铜缆用量超 2 公里，224G ACC/AEC 是 2026 年放量主力。安费诺+莫仕垄断 60% 市场，国产替代窗口正在打开（立讯精密 224G/448G 方案已发布）。"
     },
     {
       "id": "med-silicon-photonics",
@@ -102,12 +185,21 @@
       "trl": 7,
       "bottleneck": "硅光良率 95%→99%；激光器集成",
       "next_trigger": "硅光成本降至 InP 的 50% → 传统方案加速淘汰",
-      "trigger_keywords": ["silicon photonics", "硅光", "SiPh", "CMOS foundry", "硅基光电子"],
+      "trigger_keywords": [
+        "silicon photonics",
+        "硅光",
+        "SiPh",
+        "CMOS foundry",
+        "硅基光电子"
+      ],
       "opportunity_signal": "硅光主导 → 中国厂商成本优势质变（旭创自研硅光良率 95%）",
       "market_impact": "全球硅光市场 CAGR 44%，2028 达 6 亿美元",
-      "drives": ["short-optical"],
+      "drives": [
+        "short-optical"
+      ],
       "depends_on": [],
-      "risk": "InP 厂商反扑；良率天花板"
+      "risk": "InP 厂商反扑；良率天花板",
+      "status_description": "硅光用 CMOS 工艺替代传统 InP 材料，中际旭创自研硅光良率达 95%。全球硅光芯片市场 CAGR 44%，2028 年达 6 亿美元。硅光在 800G+ 市场市占率 72% 且仍在上升。"
     },
     {
       "id": "med-inference-cost",
@@ -119,12 +211,21 @@
       "trl": 7.5,
       "bottleneck": "推理优化尚未达到训练优化成熟度",
       "next_trigger": "推理成本降至当前 1/10 → 免费层成为可能",
-      "trigger_keywords": ["inference cost", "推理成本", "token cost", "量化", "distillation"],
+      "trigger_keywords": [
+        "inference cost",
+        "推理成本",
+        "token cost",
+        "量化",
+        "distillation"
+      ],
       "opportunity_signal": "推理→0 → AI 应用从「按次计费」变「免费基础设施」→ 应用层爆发",
       "market_impact": "每个数量级的成本下降打开新的应用类别",
-      "drives": ["med-ai-drug-clinical"],
+      "drives": [
+        "med-ai-drug-clinical"
+      ],
       "depends_on": [],
-      "risk": "用量增长快于成本下降，总账单不降"
+      "risk": "用量增长快于成本下降，总账单不降",
+      "status_description": "推理成本 2 年内下降 280 倍。每 18 个月再降 10 倍的趋势持续。当每 token 成本趋近于零时，AI 应用将从「按次计费」变成「免费基础设施」，打开全新应用层。"
     },
     {
       "id": "long-architecture",
@@ -136,13 +237,23 @@
       "trl": 4.5,
       "bottleneck": "新架构长上下文稳定性不足；生态不成熟",
       "next_trigger": "新架构在 2+ 主流基准上超越 Transformer",
-      "trigger_keywords": ["Mamba", "SSM", "state space", "linear attention", "RWKV", "新架构"],
+      "trigger_keywords": [
+        "Mamba",
+        "SSM",
+        "state space",
+        "linear attention",
+        "RWKV",
+        "新架构"
+      ],
       "opportunity_signal": "架构突破 → 推理效率飞跃 + 新能力边界（上一次：Attention 带来 LLM 时代）",
       "market_impact": "颠覆现有模型栈和硬件生态",
-      "drives": ["med-inference-cost"],
+      "drives": [
+        "med-inference-cost"
+      ],
       "depends_on": [],
       "risk": "Transformer 护城河太深",
-      "prediction": "若 2028 年 Mamba 类架构成熟 → 推理效率提升 5-10 倍 → 边缘 AI 设备全面普及 → 当前 $500B 的数据中心投资面临重构"
+      "prediction": "若 2028 年 Mamba 类架构成熟 → 推理效率提升 5-10 倍 → 边缘 AI 设备全面普及 → 当前 $500B 的数据中心投资面临重构",
+      "status_description": "Transformer 架构统治 NLP/CV 8 年。Mamba/SSM 等线性注意力架构在长序列任务上有理论优势，但生态系统远不如 Transformer 成熟。若突破，推理效率可提升 5-10 倍。"
     },
     {
       "id": "med-ai-drug-clinical",
@@ -154,12 +265,21 @@
       "trl": 6.5,
       "bottleneck": "AI 设计的药物尚未证明比传统方法更好",
       "next_trigger": "首个 AI 设计药物 Phase 3 阳性 → 行业认可",
-      "trigger_keywords": ["AI drug discovery", "AI-designed", "Phase 3", "AI 制药", "临床试验"],
+      "trigger_keywords": [
+        "AI drug discovery",
+        "AI-designed",
+        "Phase 3",
+        "AI 制药",
+        "临床试验"
+      ],
       "opportunity_signal": "Phase 3 阳性 → AI 从「辅助」变「核心引擎」→ 研发 10 年→3 年",
       "market_impact": "新药研发成本降 10 倍",
       "drives": [],
-      "depends_on": ["med-inference-cost"],
-      "risk": "Phase 3 失败 → 行业信任危机"
+      "depends_on": [
+        "med-inference-cost"
+      ],
+      "risk": "Phase 3 失败 → 行业信任危机",
+      "status_description": "多家 AI 制药公司的候选药物已进入临床 II/III 期。Isomorphic Labs（DeepMind 分拆）、Recursion、英矽智能等是主要玩家。首个 Phase 3 阳性结果将是行业里程碑。"
     },
     {
       "id": "med-mrna-scale",
@@ -171,12 +291,19 @@
       "trl": 7,
       "bottleneck": "个性化生产的批次间一致性；冷链成本",
       "next_trigger": "mRNA 癌症疫苗成本降至 $100/剂 → 医保覆盖",
-      "trigger_keywords": ["mRNA", "manufacturing", "cost reduction", "个性化", "降本"],
+      "trigger_keywords": [
+        "mRNA",
+        "manufacturing",
+        "cost reduction",
+        "个性化",
+        "降本"
+      ],
       "opportunity_signal": "$100/剂 → 从个体化变标准化产品 → 慢性病市场打开",
       "market_impact": "市场从传染病扩展到慢性病，扩大 50 倍",
       "drives": [],
       "depends_on": [],
-      "risk": "成本降不下来"
+      "risk": "成本降不下来",
+      "status_description": "COVID 疫苗验证了 mRNA 平台。Moderna/BioNTech 的癌症疫苗已进入 III 期。关键挑战是个性化生产的成本和周期——从 $1000/剂降至 $100/剂才能实现医保覆盖。"
     },
     {
       "id": "long-gene-editing",
@@ -188,13 +315,21 @@
       "trl": 6,
       "bottleneck": "体内递送技术（LNP/AAV）精准度不足",
       "next_trigger": "首个体内基因编辑疗法获批",
-      "trigger_keywords": ["in vivo", "gene editing", "体内编辑", "LNP", "AAV", "delivery"],
+      "trigger_keywords": [
+        "in vivo",
+        "gene editing",
+        "体内编辑",
+        "LNP",
+        "AAV",
+        "delivery"
+      ],
       "opportunity_signal": "体内编辑 → 从罕见病扩展到常见病 → 市场 10 倍+",
       "market_impact": "从「终身服药」到「一次性治愈」",
       "drives": [],
       "depends_on": [],
       "risk": "安全性事故 → 行业倒退",
-      "prediction": "若 2029 年体内 CRISPR 获批 → 镰刀型细胞贫血、β-地中海贫血等 20+ 遗传病获根治方案 → 每年 $200B 慢性病管理支出被颠覆"
+      "prediction": "若 2029 年体内 CRISPR 获批 → 镰刀型细胞贫血、β-地中海贫血等 20+ 遗传病获根治方案 → 每年 $200B 慢性病管理支出被颠覆",
+      "status_description": "Casgevy（CRISPR 疗法）2023 年获 FDA 批准，但需体外编辑后回输。体内编辑（in vivo）是下一个突破口——直接将编辑工具递送到患者体内，无需体外操作。"
     },
     {
       "id": "long-starship",
@@ -206,13 +341,22 @@
       "trl": 7.5,
       "bottleneck": "上面级回收未成功；热防护瓦",
       "next_trigger": "Starship 商用发射（上面级成功回收）",
-      "trigger_keywords": ["Starship", "星舰", "上面级", "回收", "Super Heavy"],
+      "trigger_keywords": [
+        "Starship",
+        "星舰",
+        "上面级",
+        "回收",
+        "Super Heavy"
+      ],
       "opportunity_signal": "$/kg $2,700→$200 → 太空制造/数据中心成为新产业",
       "market_impact": "发射成本再降 10 倍",
-      "drives": ["long-space-servicing"],
+      "drives": [
+        "long-space-servicing"
+      ],
       "depends_on": [],
       "risk": "试飞失败延误",
-      "prediction": "若 2027 年 Starship 商用 → 低轨运力从 100 吨/年跳至 1000 吨/年 → 在轨制造、太空太阳能、月球基地从科幻变工程问题"
+      "prediction": "若 2027 年 Starship 商用 → 低轨运力从 100 吨/年跳至 1000 吨/年 → 在轨制造、太空太阳能、月球基地从科幻变工程问题",
+      "status_description": "Starship 已多次试飞，上面级回收是最后技术难关。若成功商用，低轨运力从 100 吨/年跳至 1000+ 吨/年，发射成本从 $2,700/kg 降至 $200/kg。"
     },
     {
       "id": "long-space-servicing",
@@ -224,12 +368,20 @@
       "trl": 5.5,
       "bottleneck": "自主对接精度不够；缺商业闭环",
       "next_trigger": "首次商业在轨加注合同",
-      "trigger_keywords": ["on-orbit servicing", "refueling", "在轨服务", "燃料加注"],
+      "trigger_keywords": [
+        "on-orbit servicing",
+        "refueling",
+        "在轨服务",
+        "燃料加注"
+      ],
       "opportunity_signal": "商业加注 → 卫星寿命延长 2 倍 → 运营商成本降 30-50%",
       "market_impact": "GEO 卫星经济模型改变",
       "drives": [],
-      "depends_on": ["long-starship"],
-      "risk": "验证失败；保险不认可"
+      "depends_on": [
+        "long-starship"
+      ],
+      "risk": "验证失败；保险不认可",
+      "status_description": "在轨加注和维修可延长卫星寿命 2 倍。多个国家（美、中、欧、日）已启动技术验证项目。首个商业在轨加注合同是行业拐点信号。"
     },
     {
       "id": "med-ev-cert",
@@ -241,12 +393,21 @@
       "trl": 7,
       "bottleneck": "适航标准制定中；中美认证互认未达成",
       "next_trigger": "第二家 eVTOL 企业获适航证",
-      "trigger_keywords": ["eVTOL", "type certificate", "适航", "FAA", "CAAC", "EHang", "亿航"],
+      "trigger_keywords": [
+        "eVTOL",
+        "type certificate",
+        "适航",
+        "FAA",
+        "CAAC",
+        "EHang",
+        "亿航"
+      ],
       "opportunity_signal": "更多适航证 → 商业运营规模化 → 产业链订单爆发",
       "market_impact": "适航证是 eVTOL 的「FDA 时刻」",
       "drives": [],
       "depends_on": [],
-      "risk": "事故导致审批冻结"
+      "risk": "事故导致审批冻结",
+      "status_description": "亿航获全球首张无人驾驶载人适航证（2023，CAAC）。Joby/Archer 在美国 FAA 认证推进中。适航证是 eVTOL 行业的「FDA 时刻」——每多一张证，就多一个商业化市场。"
     },
     {
       "id": "long-solid-battery",
@@ -258,13 +419,24 @@
       "trl": 5.5,
       "bottleneck": "固态电解质界面稳定性；量产良率",
       "next_trigger": "400+ Wh/kg 量产车型发布",
-      "trigger_keywords": ["solid state", "固态电池", "400", "500", "Wh/kg", "丰田", "宁德时代"],
+      "trigger_keywords": [
+        "solid state",
+        "固态电池",
+        "400",
+        "500",
+        "Wh/kg",
+        "丰田",
+        "宁德时代"
+      ],
       "opportunity_signal": "400 Wh/kg → eVTOL 航程翻倍 → 城际飞行商业化",
       "market_impact": "解锁 300km 城市圈空中交通",
-      "drives": ["med-ev-cert"],
+      "drives": [
+        "med-ev-cert"
+      ],
       "depends_on": [],
       "risk": "量产反复跳票",
-      "prediction": "若 2028 年固态电池 400Wh/kg 量产 → eVTOL 航程从 50km→250km → 大湾区「空中出租车」从演示变日常通勤 → 每年替代 10 亿次地面出行"
+      "prediction": "若 2028 年固态电池 400Wh/kg 量产 → eVTOL 航程从 50km→250km → 大湾区「空中出租车」从演示变日常通勤 → 每年替代 10 亿次地面出行",
+      "status_description": "液态锂电池能量密度接近理论极限（300Wh/kg）。固态电池可突破至 400-500Wh/kg，但固态电解质界面稳定性和量产良率是核心瓶颈。丰田、宁德时代、比亚迪均在攻关。"
     }
   ]
 }

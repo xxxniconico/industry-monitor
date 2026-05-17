@@ -36,8 +36,14 @@ st.markdown("""<style>
 .tree-node .trl-tag { font-size:10px; margin-left:6px; padding:1px 6px; border-radius:6px; }
 .tree-node .score { float:right; font-size:20px; font-weight:bold; }
 .tree-node .trig { color:#a0a0b0; font-size:11px; margin:4px 0 0 18px; }
-.tree-node .deps { font-size:10px; color:#666688; margin:2px 0 0 18px; }
-.tree-node .deps span { color:#8888a0; }
+.tree-node .article-link { font-size:10px; margin:2px 0 0 18px; }
+.tree-node .article-link a { color:#8888cc; text-decoration:none; }
+.tree-node .article-link a:hover { color:#aaaadd; }
+.cred-badge { display:inline-block; padding:1px 5px; border-radius:4px; font-size:9px; font-weight:bold; margin-left:4px; }
+.cred-5 { background:#1a3a1a; color:#4ecf4e; }
+.cred-4 { background:#2a3a1a; color:#8ecf4e; }
+.cred-3 { background:#3a3a1a; color:#cfcf4e; }
+.cred-2 { background:#3a2a1a; color:#cf8e4e; }
 .tree-line { position:absolute; left:12px; top:0; bottom:0; width:0; border-left:1px solid #444466; }
 .tree-node:last-child > .tree-line { height:50%; }
 .tree-node .tree-branch { position:absolute; left:12px; top:24px; width:12px; height:0; border-top:1px solid #444466; }
@@ -105,9 +111,34 @@ def build_tree_html(chains, industry, items):
     
     rendered = set()
     
+    # Source credibility scoring
+    CRED = {"arxiv": 3, "clinicaltrials": 5, "launch_library": 4, "vc_news": 3}
+    FEED_CRED = {"WHO News": 5, "NASA Breaking News": 4, "STAT News": 4, "Stanford HAI": 4,
+                 "SpaceNews": 3, "MIT Technology Review": 3, "FierceBiotech": 3, "FiercePharma": 3,
+                 "OpenAI Blog": 2, "DroneDJ": 2, "ArXiv CS.AI": 3}
+    
+    def find_articles(chain, max_n=2):
+        """Find matching signal items with URLs for a chain."""
+        kw = chain.get("trigger_keywords", [])
+        ind = chain["industry"]
+        found = []
+        for s in items:
+            if s.get("industry") != ind: continue
+            text = (s.get("title","") + " " + s.get("summary","")).lower()
+            if any(k.lower() in text for k in kw):
+                url = s.get("url","")
+                if url and not any(f["url"] == url for f in found):
+                    coll = s.get("collector","")
+                    feed = s.get("source_feed","")
+                    cred = FEED_CRED.get(feed, CRED.get(coll, 3))
+                    stars = "⭐" * cred
+                    found.append({"title": s["title"][:60], "url": url, "cred": cred, "stars": stars, "collector": coll})
+                if len(found) >= max_n: break
+        return found
+    
     def render_node(chain, depth=0):
         if chain["id"] in rendered:
-            return ""  # dedup — already shown elsewhere
+            return ""  # dedup
         rendered.add(chain["id"])
         
         score, matches, cap = score_chain(chain, items)
@@ -117,8 +148,8 @@ def build_tree_html(chains, industry, items):
         role_color = t["color"] if chain["role"] == "primary" else "#8888a0"
         margin = depth * 24
         
-        # Detail lines
         trig = chain["next_trigger"][:85]
+        desc = chain.get("status_description", "")[:140]
         deps = [chain_map[d]["name"] for d in chain.get("depends_on",[]) if d in chain_map]
         driven = [chain_map[d]["name"] for d in chain.get("drives",[]) if d in all_ids]
         
@@ -127,29 +158,40 @@ def build_tree_html(chains, industry, items):
         if driven: dep_parts.append(f'<span>↓</span> {", ".join(driven)}')
         dep_str = " · ".join(dep_parts) if dep_parts else ""
         
+        # Find matching articles
+        articles = find_articles(chain)
+        
         node_class = "tree-node root-node" if is_root else "tree-node"
         
         html = f'<div class="{node_class}" style="margin-left:{margin}px;border-left-color:{t["color"]};">'
         if not is_root:
             html += '<div class="tree-line"></div><div class="tree-branch"></div>'
         
-        # Header row
+        # Header
         html += f'<span class="dot" style="background:{t["color"]};"></span>'
         html += f'<span style="color:{role_color};">{role_icon}</span> '
         html += f'<span class="cname">{chain["name"]}</span>'
         html += f'<span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">{t["label"]} · TRL {chain["trl"]:.1f}</span>'
         html += f'<span class="score" style="color:{t["color"]};">{score}</span>'
         
+        # Description
+        if desc:
+            html += f'<div class="trig">📝 {desc}{"…" if len(chain.get("status_description",""))>140 else ""}</div>'
+        
         # Trigger
         html += f'<div class="trig">🎯 {trig}{"…" if len(chain["next_trigger"])>85 else ""}</div>'
         
+        # Matching articles with credibility
+        if articles:
+            for a in articles:
+                html += f'<div class="article-link">📄 <a href="{a["url"]}" target="_blank">{a["title"]}</a><span class="cred-badge cred-{a["cred"]}">{a["stars"]}</span></div>'
+        
         # Deps
         if dep_str:
-            html += f'<div class="deps">{dep_str}</div>'
+            html += f'<div class="deps" style="font-size:10px;color:#666688;margin:2px 0 0 18px;">{dep_str}</div>'
         
         html += '</div>'
         
-        # Children
         children = [chain_map[d] for d in chain.get("drives",[]) if d in all_ids]
         for child in children:
             html += render_node(child, depth + 1)
