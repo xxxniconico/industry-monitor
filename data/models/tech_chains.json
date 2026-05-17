@@ -1,0 +1,175 @@
+{
+  "updated_at": "2026-05-17",
+  "chains": [
+    {
+      "id": "ai-inference-cost",
+      "name": "推理成本下降",
+      "chain": "GPU 3nm → 2nm → 光子芯片",
+      "industry": "AI",
+      "trl": 7.5,
+      "trl_history": [
+        {"date": "2023", "trl": 6, "event": "H100 4nm 量产"},
+        {"date": "2025", "trl": 7.5, "event": "3nm 量产，推理成本降 280 倍/2年"}
+      ],
+      "bottleneck": "2nm 良率不足，光子芯片在 TRL 4",
+      "next_trigger": "台积电/三星 2nm 量产公告",
+      "trigger_keywords": ["2nm", "GAA", "gate-all-around", "photonics", "光子芯片", "silicon photonics"],
+      "opportunity_signal": "每次制程升级 → 推理成本降 50%+ → 新应用层爆发（上一次：ChatGPT）",
+      "market_impact": "每代制程打开一个数量级的应用市场",
+      "risk": "2nm 量产延期；光子芯片替代路线不成熟"
+    },
+    {
+      "id": "ai-architecture",
+      "name": "模型架构演进",
+      "chain": "Transformer → Mamba/SSM → 新范式",
+      "industry": "AI",
+      "trl": 4.5,
+      "trl_history": [
+        {"date": "2017", "trl": 3, "event": "Transformer 论文发表"},
+        {"date": "2023", "trl": 4.5, "event": "Mamba 等 SSM 架构验证中"}
+      ],
+      "bottleneck": "长上下文稳定性不足，生态不如 Transformer 成熟",
+      "next_trigger": "新架构在 2+ 主流基准上超越 Transformer",
+      "trigger_keywords": ["Mamba", "SSM", "state space", "linear attention", "RWKV", "RetNet", "新架构"],
+      "opportunity_signal": "架构突破 = 推理效率飞跃 + 新能力边界（上一次：Attention 机制带来整个 LLM 时代）",
+      "market_impact": "颠覆现有模型栈，硬件适配需求重构",
+      "risk": "Transformer 护城河太深，新架构 3 年内难替代"
+    },
+    {
+      "id": "ai-agents",
+      "name": "代理系统",
+      "chain": "单 Agent → 多 Agent → 自主协作",
+      "industry": "AI",
+      "trl": 7.5,
+      "trl_history": [
+        {"date": "2024", "trl": 6, "event": "单 Agent 编码工具（Copilot/Codex）"},
+        {"date": "2025", "trl": 7.5, "event": "多 Agent 框架出现，SWE-bench ~70%"}
+      ],
+      "bottleneck": "多 Agent 协调可靠性低，长任务容易偏离目标",
+      "next_trigger": "SWE-bench 多 Agent >80% 或企业生产部署案例",
+      "trigger_keywords": ["multi-agent", "agent swarm", "autonomous", "SWE-bench", "agentic", "代理", "自主"],
+      "opportunity_signal": "Agent 可靠性突破 → 企业级自动化爆发（市场规模 >$100B）",
+      "market_impact": "替代知识工作者的重复性任务；每个 SaaS 都需要 Agent 层",
+      "risk": "可靠性长期不达标；安全问题导致监管收紧"
+    },
+    {
+      "id": "med-gene-editing",
+      "name": "基因编辑",
+      "chain": "CRISPR 1.0 → 碱基编辑 → 先导编辑",
+      "industry": "medical",
+      "trl": 8.5,
+      "trl_history": [
+        {"date": "2023", "trl": 8, "event": "Casgevy 首个 CRISPR 疗法 FDA 批准"},
+        {"date": "2025", "trl": 8.5, "event": "多个基因编辑疗法进入临床后期"}
+      ],
+      "bottleneck": "体内递送技术不成熟，脱靶效应风险",
+      "next_trigger": "首个体内基因编辑疗法获批（无需体外编辑再回输）",
+      "trigger_keywords": ["CRISPR", "base editing", "prime editing", "gene therapy", "in vivo", "基因编辑", "体内编辑"],
+      "opportunity_signal": "体内编辑获批 → 从罕见病扩展到常见病 → 市场扩大 10 倍+",
+      "market_impact": "通用遗传病治愈方案；治疗范式从「终身服药」变「一次性治愈」",
+      "risk": "安全性事故导致审批倒退；伦理争议"
+    },
+    {
+      "id": "med-ai-drug",
+      "name": "AI 制药",
+      "chain": "靶点发现 → 分子设计 → 临床预测",
+      "industry": "medical",
+      "trl": 6.5,
+      "trl_history": [
+        {"date": "2023", "trl": 5, "event": "AI 辅助发现的分子进入临床 I 期"},
+        {"date": "2025", "trl": 6.5, "event": "首个 AI 设计药物进入 Phase 2/3"}
+      ],
+      "bottleneck": "临床验证闭环未完成；没人知道 AI 设计的药是否真的更好",
+      "next_trigger": "AI 设计的药物 Phase 3 阳性结果",
+      "trigger_keywords": ["AI drug discovery", "AI-designed", "generative chemistry", "AlphaFold", "AI 制药", "分子生成"],
+      "opportunity_signal": "Phase 3 阳性 → AI 制药从「辅助工具」变「核心引擎」→ 研发周期从 10 年缩到 3 年",
+      "market_impact": "新药研发成本降 10 倍；适应症发现速度指数提升",
+      "risk": "Phase 3 失败可能导致行业信任危机"
+    },
+    {
+      "id": "med-mrna",
+      "name": "mRNA 平台",
+      "chain": "疫苗 → 癌症治疗 → 通用治疗平台",
+      "industry": "medical",
+      "trl": 7.5,
+      "trl_history": [
+        {"date": "2020", "trl": 8, "event": "COVID mRNA 疫苗紧急使用"},
+        {"date": "2025", "trl": 7.5, "event": "mRNA 癌症疫苗进入 III 期"}
+      ],
+      "bottleneck": "个性化生产的高成本和长周期",
+      "next_trigger": "mRNA 癌症疫苗 III 期阳性结果",
+      "trigger_keywords": ["mRNA", "cancer vaccine", "personalized", "Moderna", "BioNTech", "mRNA疫苗", "癌症疫苗"],
+      "opportunity_signal": "癌症疫苗成功 → 验证 mRNA 作为通用治疗平台的可行性",
+      "market_impact": "从传染病扩展到肿瘤、罕见病，市场扩大 50 倍",
+      "risk": "III 期失败；个性化生产成本无法降低"
+    },
+    {
+      "id": "space-reuse",
+      "name": "完全复用火箭",
+      "chain": "Falcon 9 部分复用 → Starship 完全复用",
+      "industry": "space",
+      "trl": 7.5,
+      "trl_history": [
+        {"date": "2015", "trl": 8, "event": "Falcon 9 首次回收成功"},
+        {"date": "2024", "trl": 7.5, "event": "Starship 多次试飞，上面级回收验证中"}
+      ],
+      "bottleneck": "Starship 上面级回收未成功；热防护瓦可靠性",
+      "next_trigger": "Starship 正式商用发射（上面级成功回收）",
+      "trigger_keywords": ["Starship", "Super Heavy", "reusable", "catch", "复用", "上面级", "星舰"],
+      "opportunity_signal": "Starship 商用 → 发射成本再降 10 倍 → 太空制造/太空数据中心成为可能",
+      "market_impact": "$/kg 从 $2,700 降到 $200 → 全新产业：在轨制造、太空旅游、月球基地",
+      "risk": "试飞失败导致进度延迟；FAA 监管收紧"
+    },
+    {
+      "id": "space-servicing",
+      "name": "在轨服务",
+      "chain": "燃料加注 → 维修 → 在轨组装",
+      "industry": "space",
+      "trl": 5.5,
+      "trl_history": [
+        {"date": "2023", "trl": 4, "event": "首次在轨加注技术验证"},
+        {"date": "2025", "trl": 5.5, "event": "多国启动在轨服务项目"}
+      ],
+      "bottleneck": "自主对接精度不够；缺乏商业闭环",
+      "next_trigger": "首次商业在轨加注合同签署",
+      "trigger_keywords": ["on-orbit servicing", "refueling", "docking", "在轨服务", "燃料加注", "轨道服务"],
+      "opportunity_signal": "商业在轨加注 → 卫星寿命延长 2 倍 → GEO 卫星经济模型改变",
+      "market_impact": "卫星运营商成本降 30-50%；太空垃圾问题得到缓解",
+      "risk": "技术验证失败；保险业不认可延寿带来的价值"
+    },
+    {
+      "id": "drone-battery",
+      "name": "电池能量密度",
+      "chain": "300 Wh/kg → 400 Wh/kg → 500 Wh/kg",
+      "industry": "drone",
+      "trl": 6.5,
+      "trl_history": [
+        {"date": "2023", "trl": 6, "event": "300 Wh/kg 量产"},
+        {"date": "2025", "trl": 6.5, "event": "固态电池样品达到 400 Wh/kg"}
+      ],
+      "bottleneck": "固态电池量产工艺不成熟；成本是液态锂电的 3 倍",
+      "next_trigger": "400+ Wh/kg 电池商用公告（宁德时代/比亚迪/丰田）",
+      "trigger_keywords": ["solid state", "400 Wh/kg", "500 Wh/kg", "固态电池", "能量密度", "宁德时代", "比亚迪"],
+      "opportunity_signal": "400 Wh/kg → eVTOL 航程翻倍 → 城际飞行从演示变商业运营",
+      "market_impact": "eVTOL 可运营航线从城市内扩展到 300km 城际圈",
+      "risk": "固态电池量产反复跳票；安全事故影响公众信任"
+    },
+    {
+      "id": "drone-autonomy",
+      "name": "自主飞行系统",
+      "chain": "辅助驾驶 → 条件自主 → 完全自主",
+      "industry": "drone",
+      "trl": 6.5,
+      "trl_history": [
+        {"date": "2024", "trl": 6, "event": "亿航获全球首张无人驾驶载人适航证"},
+        {"date": "2025", "trl": 6.5, "event": "多城市试点无安全驾驶员飞行"}
+      ],
+      "bottleneck": "城市复杂环境避障不可靠；多机协同未验证",
+      "next_trigger": "FAA/CAAC 批准无安全驾驶员商业运营",
+      "trigger_keywords": ["autonomous flight", "pilotless", "UTM", "autonomous", "自主飞行", "无人驾驶", "适航"],
+      "opportunity_signal": "无安全驾驶员批准 → 运营成本降 50% → 空中出行从奢侈品变大众交通",
+      "market_impact": "eVTOL 单程票价从 $5.73/英里降到 $2/英里以内",
+      "risk": "安全事故导致审批冻结；公众接受度低"
+    }
+  ]
+}

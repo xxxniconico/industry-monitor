@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Dependencies: streamlit, pandas
-"""Industry Monitor — 跨行业趋势监控看板 :8505"""
+"""Industry Monitor v2 — 技术链驱动的行业机会看板 :8505"""
 
 import json
 from datetime import datetime, timezone
@@ -12,223 +12,259 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent.parent
 PROCESSED = ROOT / "data" / "processed"
+MODELS = ROOT / "data" / "models"
 
-INDUSTRY_LABELS = {"AI": "AI", "medical": "医疗", "space": "航天", "drone": "低空经济"}
-SIGNAL_ORDER = ["技术链", "资本", "技术", "监管", "市场", "人才", "基建"]
-SIGNAL_EMOJI = {"技术链": "🧬", "资本": "💰", "技术": "🔬", "监管": "📋", "市场": "📊", "人才": "👥", "基建": "🏗️"}
-S_CURVE = {"AI": "早期大众 · 增长期", "medical": "早期采纳→早期大众", "space": "早期采纳 · 扩张", "drone": "创新者→早期采纳"}
+IND = {"AI": "🤖 AI", "medical": "🏥 医疗", "space": "🚀 航天", "drone": "🚁 低空"}
+S_CURVE = {"AI": "早期大众·增长期", "medical": "早期采纳→大众", "space": "早期采纳·扩张", "drone": "创新者→采纳"}
+SIG_EMOJI = {"技术链": "🧬", "资本": "💰", "技术": "🔬", "监管": "📋", "市场": "📊", "人才": "👥", "基建": "🏗️"}
+CHAIN_COLORS = {"AI": "#c2ef4e", "medical": "#4ec2ef", "space": "#ef8f4e", "drone": "#ef4ec2"}
 
-# ── Sentry dark theme ──
-DARK_BG = "#1f1633"
-GREEN = "#c2ef4e"
-CARD_BG = "#2a1f40"
-
+# ── Theme ──
 st.set_page_config(page_title="行业趋势监控", page_icon="📡", layout="wide")
-
-st.markdown(f"""
-<style>
-  .stApp {{ background: {DARK_BG}; }}
-  .conclusion-card {{
-    background: linear-gradient(135deg, #2a1f40, #1f1633);
-    border: 1px solid {GREEN};
-    border-radius: 12px; padding: 24px; margin-bottom: 20px;
-  }}
-  .conclusion-card h2 {{ color: {GREEN}; margin-top: 0; }}
-  .conclusion-card p {{ color: #c8c8d0; font-size: 15px; line-height: 1.7; }}
-  .industry-card {{
-    background: {CARD_BG}; border-radius: 10px;
-    padding: 18px; margin-bottom: 12px; border-left: 4px solid {GREEN};
-  }}
-  .industry-card h4 {{ color: {GREEN}; margin: 0 0 8px 0; }}
-  .industry-card .pos {{ color: #a0a0b0; font-size: 13px; }}
-  .alert-item {{ color: #f0a060; font-size: 14px; padding: 4px 0; }}
-  .metric-value {{ color: {GREEN}; font-size: 28px; font-weight: bold; }}
-  .metric-label {{ color: #8888a0; font-size: 12px; }}
-  .section-divider {{ border-top: 1px solid #333355; margin: 24px 0; }}
-</style>
-""", unsafe_allow_html=True)
+st.markdown(f"""<style>
+.stApp {{ background: #1f1633; }}
+.conclusion {{ background:linear-gradient(135deg,#2a1f40,#1f1633); border:1px solid #c2ef4e; border-radius:12px; padding:24px; margin-bottom:16px; }}
+.conclusion h2 {{ color:#c2ef4e; margin:0 0 8px 0; }}
+.conclusion p {{ color:#c8c8d0; font-size:14px; line-height:1.65; }}
+.chain-card {{ background:#2a1f40; border-radius:8px; padding:14px; margin:6px 0; }}
+.chain-card .name {{ color:#c2ef4e; font-weight:bold; font-size:14px; }}
+.chain-card .trig {{ color:#f0a060; font-size:12px; margin-top:4px; }}
+.bottleneck {{ background:#332040; border-left:3px solid #ef8f4e; padding:8px 12px; border-radius:4px; margin:6px 0; font-size:13px; color:#d0c0a0; }}
+.opp-card {{ background:#2a1f40; border-radius:8px; padding:16px; text-align:center; }}
+.opp-card .score {{ font-size:36px; font-weight:bold; }}
+.opp-card .label {{ color:#8888a0; font-size:12px; }}
+.alert-box {{ background:#332020; border-left:3px solid #ef6060; padding:10px 14px; border-radius:4px; margin:6px 0; }}
+.alert-box .title {{ color:#ef6060; font-weight:bold; }}
+.alert-box .body {{ color:#c8a0a0; font-size:13px; }}
+hr.divider {{ border-color:#333355; margin:20px 0; }}
+</style>""", unsafe_allow_html=True)
 
 
 @st.cache_data(ttl=60)
 def load_all():
-    signals_path = PROCESSED / "signals.json"
-    trl_path = PROCESSED / "trl_tracker.json"
-    if not signals_path.exists():
-        return None, None, None
-    signals = json.loads(signals_path.read_text())
-    trl = json.loads(trl_path.read_text()) if trl_path.exists() else {}
-    return signals, trl, signals.get("processed_at", "")
+    sp = PROCESSED / "signals.json"
+    tp = PROCESSED / "trl_tracker.json"
+    cp = MODELS / "tech_chains.json"
+    if not sp.exists():
+        return None, None, None, None
+    signals = json.loads(sp.read_text())
+    trl_data = json.loads(tp.read_text()) if tp.exists() else {}
+    chains = json.loads(cp.read_text()) if cp.exists() else {"chains": []}
+    return signals, trl_data, chains, signals.get("processed_at", "")
 
 
-def build_conclusion(signals: dict, trl: dict) -> str:
-    """Generate natural-language conclusion from signal data."""
-    items = signals.get("signals", [])
-    by_type = signals.get("by_type", {})
-    total = len(items)
+def compute_opportunity_score(chain, signals_list):
+    """Score = signal_intensity × TRL_impact × trigger_proximity"""
+    kw = chain.get("trigger_keywords", [])
+    items = [s for s in signals_list if s.get("industry") == chain["industry"]]
+    
+    # Signal intensity: how many items match keywords
+    matches = 0
+    capital_hits = 0
+    for s in items:
+        text = (s.get("title", "") + " " + s.get("summary", "")).lower()
+        if any(k.lower() in text for k in kw):
+            matches += 1
+            if s.get("signal_type") == "资本":
+                capital_hits += 1
+    
+    # Normalize to 0-100
+    signal_score = min(100, matches * 15)
+    capital_bonus = min(20, capital_hits * 5)
+    
+    # TRL impact: chains at TRL 5-7 have highest opportunity (not too early, not too late)
+    trl = chain["trl"]
+    if 5 <= trl <= 7:
+        trl_score = 100
+    elif 4 <= trl < 5 or 7 < trl <= 8:
+        trl_score = 70
+    elif trl < 4:
+        trl_score = 30
+    else:
+        trl_score = 50
+    
+    total = int((signal_score + capital_bonus) * 0.6 + trl_score * 0.4)
+    return min(100, max(5, total)), matches, capital_hits
 
-    # Industry breakdown
-    ind_counter = Counter(s.get("industry") for s in items)
-    ai_n = ind_counter.get("AI", 0)
-    med_n = ind_counter.get("medical", 0)
-    space_n = ind_counter.get("space", 0)
-    drone_n = ind_counter.get("drone", 0)
 
-    # Dominant signal types
-    top_types = sorted(by_type.items(), key=lambda x: -x[1])[:3]
-    type_str = " · ".join(f"{SIGNAL_EMOJI.get(t,'')} {t}({n}条)" for t, n in top_types)
-
-    # TRL snapshot
-    avg_trl = trl.get("industry_avg_trl", {})
-    trl_lines = []
-    for ind, label in [("AI", "AI"), ("space", "航天"), ("medical", "医疗"), ("drone", "低空")]:
-        v = avg_trl.get(ind)
-        trl_lines.append(f"{label} TRL {v:.1f}" if v is not None else f"{label} —")
-
-    # Growth signals (capital + tech chain both active = inflection)
-    capital_tech = len([s for s in items if s.get("signal_type") in ("资本", "技术链")])
-    regulation = by_type.get("监管", 0)
-
-    # Build conclusion
+def render_conclusion(signals, chains, items):
+    """Natural language conclusion with chain-specific insights."""
+    tc = Counter(s.get("signal_type") for s in items)
+    ic = Counter(s.get("industry") for s in items)
+    
+    # Find hottest chains
+    chain_scores = []
+    for c in chains["chains"]:
+        score, matches, cap = compute_opportunity_score(c, items)
+        chain_scores.append((c, score, matches))
+    chain_scores.sort(key=lambda x: -x[1])
+    hot = chain_scores[:3]
+    
     parts = [
-        f"**今日采集 {total} 条信号**，覆盖 AI({ai_n})、医疗({med_n})、航天({space_n})、低空经济({drone_n}) 四个行业。",
-        f"主导信号类型：{type_str}。",
-        f"行业技术就绪度：{' · '.join(trl_lines)}。",
+        f"**今日采集 {len(items)} 条信号。** 资本({tc.get('资本',0)})与技术({tc.get('技术',0)})信号活跃，监管信号{tc.get('监管',0)}条。",
+        "",
+        "### 🔥 最值得关注的技术链",
     ]
-
-    if capital_tech >= 15:
-        parts.append("⚠️ **资本 + 技术链信号活跃**——多个行业处于技术验证→产品化的关键跳跃期，值得重点关注。")
-    if regulation >= 30:
-        parts.append("📋 监管信号密集出现，政策窗口可能在打开。")
-
-    # Find converging signals
-    ai_cap = len([s for s in items if s.get("industry") == "AI" and s.get("signal_type") == "资本"])
-    space_infra = len([s for s in items if s.get("industry") == "space" and s.get("signal_type") == "基建"])
-    drone_reg = len([s for s in items if s.get("industry") == "drone" and s.get("signal_type") == "监管"])
-
-    alerts = []
-    if ai_cap >= 5:
-        alerts.append("🤖 AI 资本持续涌入，算力基础设施链仍是主战场。")
-    if space_infra >= 3:
-        alerts.append("🚀 航天基建信号增多，关注 Starship 商用节点和发射产能扩张。")
-    if drone_reg >= 3:
-        alerts.append("🚁 低空经济监管动作频繁，适航证和空域开放是关键催化剂。")
-
-    if alerts:
+    for c, score, matches in hot:
+        trl_bar = "█" * int(c["trl"]) + "░" * (9 - int(c["trl"]))
+        parts.append(f"- **{c['name']}** ({IND.get(c['industry'],'')}) — TRL {c['trl']:.1f} `{trl_bar}` — 信号匹配 {matches} 条 · 机会分 {score}")
+    
+    # Bottleneck alerts
+    stuck = [c for c in chains["chains"] if c["trl"] < 7 and c["trl"] >= 5]
+    if stuck:
         parts.append("")
-        parts.extend(alerts)
+        parts.append("### ⚠️ 卡在关键节点的技术链")
+        for c in stuck[:3]:
+            parts.append(f"- **{c['name']}**: {c['bottleneck']}")
+    
+    return "\n".join(parts)
 
-    parts.append(f"\n📌 **当前阶段判断：** AI 处于早期大众增长期（S曲线中段），医疗从早期采纳向大众过渡，航天处于扩张期，低空经济正在跨越从创新者到早期采纳的鸿沟。")
 
-    return "\n\n".join(parts)
+def render_chain_progress(chains, items):
+    """Visual progress bars for each technology chain."""
+    ind_order = ["AI", "medical", "space", "drone"]
+    
+    for ind in ind_order:
+        ind_chains = [c for c in chains["chains"] if c["industry"] == ind]
+        if not ind_chains:
+            continue
+            
+        st.markdown(f"#### {IND[ind]}")
+        
+        for c in ind_chains:
+            score, matches, cap_hits = compute_opportunity_score(c, items)
+            trl = c["trl"]
+            
+            # TRL progress bar
+            pct = trl / 9
+            color = CHAIN_COLORS.get(ind, "#c2ef4e")
+            
+            cols = st.columns([3, 1])
+            with cols[0]:
+                st.markdown(f"""
+                <div class="chain-card">
+                  <div class="name">{c['name']}</div>
+                  <div style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+                    <span style="color:#8888a0;font-size:12px;width:50px;">TRL {trl:.1f}</span>
+                    <div style="flex:1;height:8px;background:#333355;border-radius:4px;">
+                      <div style="width:{pct*100}%;height:8px;background:{color};border-radius:4px;"></div>
+                    </div>
+                    <span style="color:#8888a0;font-size:11px;">{c['chain']}</span>
+                  </div>
+                  <div class="trig">🎯 下一跳: {c['next_trigger']}</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with cols[1]:
+                st.markdown(f"""
+                <div class="opp-card">
+                  <div class="score" style="color:{color}">{score}</div>
+                  <div class="label">机会分</div>
+                  <div style="font-size:11px;color:#8888a0;">信号 {matches} · 资本 {cap_hits}</div>
+                </div>
+                """, unsafe_allow_html=True)
+            
+            # Bottleneck if stuck
+            if 5 <= trl < 7:
+                st.markdown(f'<div class="bottleneck">⚠️ 瓶颈: {c["bottleneck"]}</div>', unsafe_allow_html=True)
+
+
+def render_opportunity_matrix(chains, items):
+    """2D matrix: TRL (x) × Signal Intensity (y), bubble = market potential."""
+    rows = []
+    for c in chains["chains"]:
+        score, matches, cap = compute_opportunity_score(c, items)
+        rows.append({
+            "技术链": c["name"],
+            "行业": IND.get(c["industry"], c["industry"]),
+            "TRL": c["trl"],
+            "信号强度": score,
+            "资本匹配": cap,
+            "下一跳": c["next_trigger"][:40] + "…" if len(c["next_trigger"]) > 40 else c["next_trigger"],
+        })
+    
+    df = pd.DataFrame(rows).sort_values("信号强度", ascending=False)
+    
+    # Color-coded table
+    def color_score(val):
+        if val >= 70: return f'color:#c2ef4e;font-weight:bold'
+        if val >= 40: return 'color:#efc24e'
+        return 'color:#8888a0'
+    
+    def color_trl(val):
+        if 5 <= val <= 7: return f'color:#c2ef4e;font-weight:bold'
+        if val >= 8: return 'color:#4ec2ef'
+        return 'color:#8888a0'
+    
+    styled = df.style.map(color_score, subset=["信号强度"]).map(color_trl, subset=["TRL"])
+    st.dataframe(styled, use_container_width=True, hide_index=True)
+    
+    # Summary insights
+    hot_chains = df[df["信号强度"] >= 50]
+    sweet_spot = df[(df["TRL"] >= 5) & (df["TRL"] <= 7) & (df["信号强度"] >= 30)]
+    
+    c1, c2 = st.columns(2)
+    with c1:
+        st.metric("🔥 高热度链", len(hot_chains), help="信号强度 ≥ 50")
+    with c2:
+        st.metric("🎯 甜蜜点链", len(sweet_spot), help="TRL 5-7 且信号 ≥ 30——最值得关注")
+
+
+def render_bottleneck_alerts(chains):
+    """Highlight chains stuck at critical TRL junctions."""
+    stuck = [c for c in chains["chains"] if 5 <= c["trl"] < 7]
+    early = [c for c in chains["chains"] if c["trl"] < 5]
+    
+    for c in stuck:
+        st.markdown(f"""
+        <div class="alert-box">
+          <div class="title">⚠️ 瓶颈预警: {c['name']} — TRL {c['trl']:.1f}</div>
+          <div class="body">卡在: {c['bottleneck']}<br>触发条件: {c['next_trigger']}<br>一旦突破: {c['opportunity_signal']}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    if early:
+        st.markdown("---")
+        st.markdown("**🔭 早期跟踪（TRL < 5）：**")
+        for c in early:
+            st.markdown(f"- **{c['name']}** (TRL {c['trl']:.1f}): {c['next_trigger']}")
 
 
 def main():
-    signals, trl, processed_at = load_all()
-
-    # ── Header ──
-    st.markdown(f'<h1 style="color:{GREEN}">📡 行业趋势监控</h1>', unsafe_allow_html=True)
-    st.markdown(
-        f'<span style="color:#8888a0">AI · 医疗 · 航天 · 低空经济 ｜ 更新于 {processed_at[:16] if processed_at else "—"}</span>',
-        unsafe_allow_html=True,
-    )
-    st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-
+    signals, trl_data, chains, processed_at = load_all()
+    
+    st.markdown('<h1 style="color:#c2ef4e">📡 行业趋势监控 <span style="font-size:16px;color:#8888a0;font-weight:normal">技术链驱动的机会识别</span></h1>', unsafe_allow_html=True)
+    st.markdown(f'<span style="color:#8888a0">AI · 医疗 · 航天 · 低空经济 ｜ {processed_at[:16] if processed_at else "—"}</span>', unsafe_allow_html=True)
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    
     if not signals:
         st.warning("暂无数据。运行 `python processors/run_pipeline.py`")
         return
-
-    # ── CONCLUSION ──
-    conclusion = build_conclusion(signals, trl)
-    st.markdown(f"""
-    <div class="conclusion-card">
-      <h2>📊 综合研判</h2>
-      <p>{conclusion.replace(chr(10), '<br>')}</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # ── FOUR INDUSTRY CARDS ──
+    
     items = signals.get("signals", [])
-    avg_trl = trl.get("industry_avg_trl", {})
-    ind_items = {"AI": [], "space": [], "medical": [], "drone": []}
-    for s in items:
-        ind = s.get("industry", "")
-        if ind in ind_items:
-            ind_items[ind].append(s)
-
-    cols = st.columns(4)
-    for i, (ind, label) in enumerate([("AI", "🤖 AI"), ("medical", "🏥 医疗"), ("space", "🚀 航天"), ("drone", "🚁 低空经济")]):
-        its = ind_items[ind]
-        type_counts = Counter(s.get("signal_type") for s in its)
-        top3 = type_counts.most_common(3)
-        trl_val = avg_trl.get(ind)
-
-        with cols[i]:
-            st.markdown(f"""
-            <div class="industry-card">
-              <h4>{label}</h4>
-              <div class="pos">📍 {S_CURVE.get(ind, '—')}</div>
-              <div style="margin-top:10px;font-size:13px;color:#c8c8d0;">
-                {"<br>".join(f"{SIGNAL_EMOJI.get(t,'')} {t}: {n}" for t,n in top3) if top3 else "暂无信号"}
-              </div>
-              <div style="margin-top:8px;">
-                <span class="metric-value">{trl_val:.1f}</span>
-                <span class="metric-label"> avg TRL</span>
-              </div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-
-    # ── CROSS-SIGNAL TABLE ──
-    st.markdown(f'<h3 style="color:{GREEN}">⚡ 跨信号交叉分析</h3>', unsafe_allow_html=True)
-
-    cross_rows = []
-    for ind, label in [("AI", "AI"), ("space", "航天"), ("medical", "医疗"), ("drone", "低空")]:
-        its = ind_items[ind]
-        tc = Counter(s.get("signal_type") for s in its)
-        capital = tc.get("资本", 0)
-        tech = tc.get("技术", 0)
-        reg = tc.get("监管", 0)
-        infra = tc.get("基建", 0)
-        talent = tc.get("人才", 0)
-        tech_chain = tc.get("技术链", 0)
-
-        # Confluence check
-        signals_active = []
-        if capital >= 5: signals_active.append("💰资本")
-        if tech >= 20: signals_active.append("🔬技术")
-        if reg >= 5: signals_active.append("📋监管")
-        if infra >= 3: signals_active.append("🏗️基建")
-
-        confluence = "🟢 多信号共振" if len(signals_active) >= 3 else ("🟡 信号分散" if len(signals_active) >= 2 else "🔴 信号稀疏")
-
-        cross_rows.append({
-            "行业": label,
-            "💰资本": capital,
-            "🔬技术": tech,
-            "📋监管": reg,
-            "🏗️基建": infra,
-            "👥人才": talent,
-            "🧬技术链": tech_chain,
-            "交叉判断": f"{confluence} ({'+'.join(signals_active) if signals_active else '—'})",
-        })
-
-    cross_df = pd.DataFrame(cross_rows)
-    st.dataframe(cross_df, use_container_width=True, hide_index=True)
-
-    # ── HIGHLIGHTS ──
-    st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-    st.markdown(f'<h3 style="color:{GREEN}">🔔 重点信号</h3>', unsafe_allow_html=True)
-
-    high_conf = sorted(items, key=lambda x: x.get("confidence", 0), reverse=True)[:10]
-    for s in high_conf:
-        stype = s.get("signal_type", "")
-        emoji = SIGNAL_EMOJI.get(stype, "")
-        st.markdown(f'<div class="alert-item">{emoji} <b>[{INDUSTRY_LABELS.get(s.get("industry",""),"")}]</b> {s.get("title","")}</div>', unsafe_allow_html=True)
-
-    # ── FOOTER ──
-    st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-    st.caption("Hermes 行业趋势监控 · 框架 v3 · 信号刷新：运行 `python processors/run_pipeline.py`")
+    
+    # ── ROW 1: CONCLUSION ──
+    conclusion = render_conclusion(signals, chains, items)
+    st.markdown(f'<div class="conclusion"><h2>📊 综合研判</h2><p>{conclusion}</p></div>', unsafe_allow_html=True)
+    
+    # ── ROW 2: TECH CHAIN PROGRESS ──
+    st.markdown('<h3 style="color:#c2ef4e">🧬 技术链进度</h3>', unsafe_allow_html=True)
+    render_chain_progress(chains, items)
+    
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    
+    # ── ROW 3: OPPORTUNITY MATRIX ──
+    st.markdown('<h3 style="color:#c2ef4e">🎯 机会矩阵</h3>', unsafe_allow_html=True)
+    st.caption("TRL 5-7 是最佳窗口（技术验证完毕，市场尚未爆发）")
+    render_opportunity_matrix(chains, items)
+    
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    
+    # ── ROW 4: BOTTLENECKS ──
+    st.markdown('<h3 style="color:#c2ef4e">⚠️ 瓶颈预警</h3>', unsafe_allow_html=True)
+    render_bottleneck_alerts(chains)
+    
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    st.caption("Hermes 行业趋势监控 v2 · 框架 v3 · `python processors/run_pipeline.py` 刷新数据")
 
 
 if __name__ == "__main__":
