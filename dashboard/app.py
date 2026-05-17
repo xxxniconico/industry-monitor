@@ -126,7 +126,7 @@ def build_tree(chains, industry):
     
     # Add chains that don't fit in the tree (depend on outside)
     for c in non_roots:
-        if c not in roots and not any(c["id"] in chain_map[r].get("drives",[]) for r in roots):
+        if c not in roots and not any(c["id"] in chain_map[r["id"]].get("drives",[]) for r in roots):
             t = TIER[c["tier"]]
             bar = "█" * int(c["trl"]) + "░" * (9 - int(c["trl"]))
             ext_deps = [chain_map[d]["name"] for d in c.get("depends_on",[]) if d in chain_map and chain_map[d]["industry"] != industry]
