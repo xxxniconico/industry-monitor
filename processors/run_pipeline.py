@@ -59,7 +59,14 @@ def main() -> int:
     for name, data in paths.items():
         path = OUT_DIR / name
         path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"Wrote {path.relative_to(ROOT)} ({data.get('total', len(data.get('signals', data.get('events', data.get('items', [])))))} records)")
+        if name == "alerts.json":
+            n_ind = len(data.get("industry_alerts", []))
+            n_global = len(data.get("global_alerts", []))
+            n_chains = len(data.get("hot_chains", []))
+            print(f"Wrote {path.relative_to(ROOT)} ({n_ind} industries, {n_global} global, {n_chains} hot chains)")
+        else:
+            n = data.get("total", len(data.get("signals", data.get("events", data.get("items", [])))))
+            print(f"Wrote {path.relative_to(ROOT)} ({n} records)")
 
     print("\nSignal breakdown:")
     for t, n in sorted(signals_payload["by_type"].items(), key=lambda x: -x[1]):

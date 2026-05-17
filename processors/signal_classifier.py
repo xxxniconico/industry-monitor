@@ -26,33 +26,95 @@ RSS_FEED_SIGNAL = {
     "WHO News": "监管",
     "FierceBiotech": "市场",
     "FiercePharma": "市场",
+    # === Phase B 医疗扩源 (2026-05-17) ===
+    "Nature Biotechnology": "技术",
+    "Nature Medicine": "技术",
+    "Cell": "技术",
+    "GEN News": "技术",
+    "BioPharma Dive": "资本",
+    "Endpoints News": "资本",
+    "MobiHealthNews": "技术",
+    "The Medical Futurist": "技术",
     "SpaceNews": "市场",
     "NASA Breaking News": "市场",
     "DroneDJ": "市场",
+    # === Phase A 扩源 (2026-05-17) ===
+    "Semiconductor Engineering": "技术链",
+    "The Next Platform": "基建",
+    "TechCrunch": "资本",
+    "sUAS News": "市场",
+    "DroneXL": "市场",
+    "Space.com": "市场",
+    "Ars Technica": "技术",
+    # === Phase C 半导体/AI硬件扩源 (2026-05-17) ===
+    "Tom's Hardware": "技术链",
+    "Semiconductor Digest": "技术链",
+    "EE Times": "技术链",
+    "ServeTheHome": "基建",
+    "LightReading": "基建",
+    # 量子计算
+    "The Quantum Insider": "技术",
+    "Inside Quantum Technology": "技术",
+    # 制药工业
+    "Pharmaceutical Technology": "技术",
+    # 固态电池/eVTOL
+    "Electrive": "技术",
+    "Aviation Week": "市场",
+    # === Phase D 韩国半导体 (2026-05-17) ===
+    "SK Hynix Newsroom": "技术链",
+    "BusinessKorea": "资本",
+    "The Korea Times Tech": "技术链",
 }
 
 # Strong keyword overrides — only high-precision matches
 CAPITAL_KW = [
     "raised $", "funding round", "series a", "series b", "series c",
     "closed $", "valuation", "ipo", "acquires", "acquisition",
-    "融资", "亿元", "估值", "IPO", "上市",
+    "funding", "investor", "vc", "venture capital", "unicorn",
+    "startup raises", "secures $", "led by",
+    "融资", "亿元", "估值", "IPO", "上市", "投资", "A轮", "B轮", "C轮",
 ]
 REGULATION_KW = [
     "fda approved", "fda clearance", "fda clears", "regulatory approval",
     "banned", "sanction", "export control", "获批", "监管", "政策收紧",
+    "policy", "legislation", "compliance", "certification", "type certificate",
+    "airworthiness", "适航", "许可", "牌照", "办法", "条例",
 ]
 INFRA_KW = [
     "datacenter", "data center", "factory", "manufacturing plant",
     "fabrication", "launch complex", "spaceport", "ground station",
     "数据中心", "工厂", "发射场",
+    # Phase A 扩充 — HPC/基建
+    "hpc", "supercomputer", "supercomputing", "exascale",
+    "builds out", "buildout", "capacity expansion", "new facility",
+    "server rack", "power grid", "electricity capacity", "cooling system",
+    "gpu cluster", "training cluster", "compute cluster",
+    "fab", "foundry", "晶圆厂", "超级计算机", "算力中心",
 ]
 TALENT_KW = [
-    "appointed ceo", "hires", "hiring", "layoff", "layoffs", "resigns",
-    "任命", "离职", "裁员",
+    # 高管任命/离职 — 高精度
+    "appointed chief", "appointed ceo", "appointed president",
+    "new chief", "new ceo", "new president",
+    "layoff", "layoffs", "job cuts",
+    "departs", "stepping down", "resigns",
+    "executive moves", "comings and goings",
+    "任命", "离职", "裁员", "挖角", "跳槽",
+    # 中精度 — 阈值抑制假阳性
+    "workforce reduction", "restructuring",
+    "headcount", "brain drain",
 ]
 TECH_CHAIN_KW = [
     "supply chain", "chip shortage", "shortage", "bottleneck",
     "供应链", "产能不足", "供不应求",
+    # Phase A 扩充 — 半导体/技术链
+    "yield rate", "node", "lithography", "wafer", "process technology",
+    "advanced packaging", "chiplets", "interposer",
+    "cowos", "hbm", "high bandwidth memory",
+    "capacity ramp", "production ramp", "volume production",
+    "lead time", "allocation", "backlog",
+    "n3", "n2", "3nm", "2nm", "euv", "high-na",
+    "chiplet", "silicon photonics", "cpo", "lpo",
+    "台积电", "三星", "中芯", "良率", "制程", "产能", "封装",
 ]
 
 def item_id(item: dict) -> str:
@@ -96,9 +158,18 @@ def classify_item(item: dict) -> dict:
         elif any(kw.lower() in text_lower for kw in TECH_CHAIN_KW):
             override, override_conf = "技术链", 0.70
     else:
-        # RSS — feed name is authoritative; only override for capital
-        if any(kw.lower() in text_lower for kw in ["raised $", "funding round", "series a", "series b", "series c", "closed $", "ipo", "acquisition", "并购"]):
+        # RSS — feed name is authoritative; keyword override for all signal types
+        # Higher confidence for RSS (0.85) to avoid false positives from noisy feed text
+        if any(kw.lower() in text_lower for kw in CAPITAL_KW):
             override, override_conf = "资本", 0.85
+        elif any(kw.lower() in text_lower for kw in TALENT_KW):
+            override, override_conf = "人才", 0.85
+        elif any(kw.lower() in text_lower for kw in REGULATION_KW):
+            override, override_conf = "监管", 0.85
+        elif any(kw.lower() in text_lower for kw in INFRA_KW):
+            override, override_conf = "基建", 0.80
+        elif any(kw.lower() in text_lower for kw in TECH_CHAIN_KW):
+            override, override_conf = "技术链", 0.80
     
     if override and override_conf > base_confidence + 0.10:
         signal_type = override

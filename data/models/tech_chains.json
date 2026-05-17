@@ -52,7 +52,8 @@
       ],
       "depends_on": [],
       "risk": "地震/地缘风险中断台积电生产",
-      "status_description": "台积电 CoWoS 月产能约 8 万片，占全球先进封装产能 95%+。GB200 交付排队 9-12 个月，产能是 AI 芯片产业链最核心的物理瓶颈。"
+      "status_description": "台积电 CoWoS 月产能约 8 万片，占全球先进封装产能 95%+。GB200 交付排队 9-12 个月，产能是 AI 芯片产业链最核心的物理瓶颈。",
+      "backbone": false
     },
     {
       "id": "short-gpu-supply",
@@ -80,13 +81,15 @@
       "drives": [
         "short-optical",
         "short-liquid-cooling",
-        "short-copper"
+        "short-copper",
+        "med-inference-cost"
       ],
       "depends_on": [
         "short-cowos"
       ],
       "risk": "美国出口管制收紧",
-      "status_description": "H200 已规模交付，GB200 供不应求排队至 2026H2，GB300 预计 2026Q3 出货。美国出口管制限制最先进芯片对华出口，但 H200 级别已获批。"
+      "status_description": "H200 已规模交付，GB200 供不应求排队至 2026H2，GB300 预计 2026Q3 出货。美国出口管制限制最先进芯片对华出口，但 H200 级别已获批。",
+      "backbone": false
     },
     {
       "id": "short-optical",
@@ -116,7 +119,8 @@
         "med-silicon-photonics"
       ],
       "risk": "CPO 提前商用替代可插拔",
-      "status_description": "800G 硅光模块是当前主力（旭创全球市占 40%），1.6T 2026 年预计出货 2000 万只（+700% YoY）。GPU:光模块配比从 1:3 扩张至 1:4.5，ASIC 集群达 1:8。"
+      "status_description": "800G 硅光模块是当前主力（旭创全球市占 40%），1.6T 2026 年预计出货 2000 万只（+700% YoY）。GPU:光模块配比从 1:3 扩张至 1:4.5，ASIC 集群达 1:8。",
+      "backbone": false
     },
     {
       "id": "short-liquid-cooling",
@@ -144,7 +148,8 @@
         "short-gpu-supply"
       ],
       "risk": "冷板→浸没式路线切换",
-      "status_description": "GB200 单机柜功耗突破 100kW，风冷物理极限 40kW 已彻底无法满足。GB300 强制液冷将推动渗透率从 25% 跳升至 40%+。英维克（大陆唯一英伟达 Tier 1）和高澜股份（浸没式龙头）是核心标的。"
+      "status_description": "GB200 单机柜功耗突破 100kW，风冷物理极限 40kW 已彻底无法满足。GB300 强制液冷将推动渗透率从 25% 跳升至 40%+。英维克（大陆唯一英伟达 Tier 1）和高澜股份（浸没式龙头）是核心标的。",
+      "backbone": false
     },
     {
       "id": "short-copper",
@@ -168,12 +173,15 @@
       ],
       "opportunity_signal": "224G AEC 放量 → 国产替代窗口打开",
       "market_impact": "AEC 2026 需求 888 万条，CAGR 45%",
-      "drives": [],
+      "drives": [
+        "med-inference-cost"
+      ],
       "depends_on": [
         "short-gpu-supply"
       ],
       "risk": "硅光成本降至铜缆 2 倍内",
-      "status_description": "GB200 NVL72 单机架铜缆用量超 2 公里，224G ACC/AEC 是 2026 年放量主力。安费诺+莫仕垄断 60% 市场，国产替代窗口正在打开（立讯精密 224G/448G 方案已发布）。"
+      "status_description": "GB200 NVL72 单机架铜缆用量超 2 公里，224G ACC/AEC 是 2026 年放量主力。安费诺+莫仕垄断 60% 市场，国产替代窗口正在打开（立讯精密 224G/448G 方案已发布）。",
+      "backbone": false
     },
     {
       "id": "med-silicon-photonics",
@@ -195,11 +203,13 @@
       "opportunity_signal": "硅光主导 → 中国厂商成本优势质变（旭创自研硅光良率 95%）",
       "market_impact": "全球硅光市场 CAGR 44%，2028 达 6 亿美元",
       "drives": [
-        "short-optical"
+        "short-optical",
+        "med-inference-cost"
       ],
       "depends_on": [],
       "risk": "InP 厂商反扑；良率天花板",
-      "status_description": "硅光用 CMOS 工艺替代传统 InP 材料，中际旭创自研硅光良率达 95%。全球硅光芯片市场 CAGR 44%，2028 年达 6 亿美元。硅光在 800G+ 市场市占率 72% 且仍在上升。"
+      "status_description": "硅光用 CMOS 工艺替代传统 InP 材料，中际旭创自研硅光良率达 95%。全球硅光芯片市场 CAGR 44%，2028 年达 6 亿美元。硅光在 800G+ 市场市占率 72% 且仍在上升。",
+      "backbone": false
     },
     {
       "id": "med-inference-cost",
@@ -225,7 +235,8 @@
       ],
       "depends_on": [],
       "risk": "用量增长快于成本下降，总账单不降",
-      "status_description": "推理成本 2 年内下降 280 倍。每 18 个月再降 10 倍的趋势持续。当每 token 成本趋近于零时，AI 应用将从「按次计费」变成「免费基础设施」，打开全新应用层。"
+      "status_description": "推理成本 2 年内下降 280 倍。每 18 个月再降 10 倍的趋势持续。当每 token 成本趋近于零时，AI 应用将从「按次计费」变成「免费基础设施」，打开全新应用层。",
+      "backbone": true
     },
     {
       "id": "long-architecture",
@@ -253,7 +264,8 @@
       "depends_on": [],
       "risk": "Transformer 护城河太深",
       "prediction": "若 2028 年 Mamba 类架构成熟 → 推理效率提升 5-10 倍 → 边缘 AI 设备全面普及 → 当前 $500B 的数据中心投资面临重构",
-      "status_description": "Transformer 架构统治 NLP/CV 8 年。Mamba/SSM 等线性注意力架构在长序列任务上有理论优势，但生态系统远不如 Transformer 成熟。若突破，推理效率可提升 5-10 倍。"
+      "status_description": "Transformer 架构统治 NLP/CV 8 年。Mamba/SSM 等线性注意力架构在长序列任务上有理论优势，但生态系统远不如 Transformer 成熟。若突破，推理效率可提升 5-10 倍。",
+      "backbone": true
     },
     {
       "id": "med-ai-drug-clinical",
@@ -279,7 +291,8 @@
         "med-inference-cost"
       ],
       "risk": "Phase 3 失败 → 行业信任危机",
-      "status_description": "多家 AI 制药公司的候选药物已进入临床 II/III 期。Isomorphic Labs（DeepMind 分拆）、Recursion、英矽智能等是主要玩家。首个 Phase 3 阳性结果将是行业里程碑。"
+      "status_description": "多家 AI 制药公司的候选药物已进入临床 II/III 期。Isomorphic Labs（DeepMind 分拆）、Recursion、英矽智能等是主要玩家。首个 Phase 3 阳性结果将是行业里程碑。",
+      "backbone": true
     },
     {
       "id": "med-mrna-scale",
@@ -303,7 +316,8 @@
       "drives": [],
       "depends_on": [],
       "risk": "成本降不下来",
-      "status_description": "COVID 疫苗验证了 mRNA 平台。Moderna/BioNTech 的癌症疫苗已进入 III 期。关键挑战是个性化生产的成本和周期——从 $1000/剂降至 $100/剂才能实现医保覆盖。"
+      "status_description": "COVID 疫苗验证了 mRNA 平台。Moderna/BioNTech 的癌症疫苗已进入 III 期。关键挑战是个性化生产的成本和周期——从 $1000/剂降至 $100/剂才能实现医保覆盖。",
+      "backbone": true
     },
     {
       "id": "long-gene-editing",
@@ -329,7 +343,8 @@
       "depends_on": [],
       "risk": "安全性事故 → 行业倒退",
       "prediction": "若 2029 年体内 CRISPR 获批 → 镰刀型细胞贫血、β-地中海贫血等 20+ 遗传病获根治方案 → 每年 $200B 慢性病管理支出被颠覆",
-      "status_description": "Casgevy（CRISPR 疗法）2023 年获 FDA 批准，但需体外编辑后回输。体内编辑（in vivo）是下一个突破口——直接将编辑工具递送到患者体内，无需体外操作。"
+      "status_description": "Casgevy（CRISPR 疗法）2023 年获 FDA 批准，但需体外编辑后回输。体内编辑（in vivo）是下一个突破口——直接将编辑工具递送到患者体内，无需体外操作。",
+      "backbone": true
     },
     {
       "id": "long-starship",
@@ -356,7 +371,8 @@
       "depends_on": [],
       "risk": "试飞失败延误",
       "prediction": "若 2027 年 Starship 商用 → 低轨运力从 100 吨/年跳至 1000 吨/年 → 在轨制造、太空太阳能、月球基地从科幻变工程问题",
-      "status_description": "Starship 已多次试飞，上面级回收是最后技术难关。若成功商用，低轨运力从 100 吨/年跳至 1000+ 吨/年，发射成本从 $2,700/kg 降至 $200/kg。"
+      "status_description": "Starship 已多次试飞，上面级回收是最后技术难关。若成功商用，低轨运力从 100 吨/年跳至 1000+ 吨/年，发射成本从 $2,700/kg 降至 $200/kg。",
+      "backbone": true
     },
     {
       "id": "long-space-servicing",
@@ -381,7 +397,8 @@
         "long-starship"
       ],
       "risk": "验证失败；保险不认可",
-      "status_description": "在轨加注和维修可延长卫星寿命 2 倍。多个国家（美、中、欧、日）已启动技术验证项目。首个商业在轨加注合同是行业拐点信号。"
+      "status_description": "在轨加注和维修可延长卫星寿命 2 倍。多个国家（美、中、欧、日）已启动技术验证项目。首个商业在轨加注合同是行业拐点信号。",
+      "backbone": true
     },
     {
       "id": "med-ev-cert",
@@ -407,7 +424,8 @@
       "drives": [],
       "depends_on": [],
       "risk": "事故导致审批冻结",
-      "status_description": "亿航获全球首张无人驾驶载人适航证（2023，CAAC）。Joby/Archer 在美国 FAA 认证推进中。适航证是 eVTOL 行业的「FDA 时刻」——每多一张证，就多一个商业化市场。"
+      "status_description": "亿航获全球首张无人驾驶载人适航证（2023，CAAC）。Joby/Archer 在美国 FAA 认证推进中。适航证是 eVTOL 行业的「FDA 时刻」——每多一张证，就多一个商业化市场。",
+      "backbone": true
     },
     {
       "id": "long-solid-battery",
@@ -436,7 +454,255 @@
       "depends_on": [],
       "risk": "量产反复跳票",
       "prediction": "若 2028 年固态电池 400Wh/kg 量产 → eVTOL 航程从 50km→250km → 大湾区「空中出租车」从演示变日常通勤 → 每年替代 10 亿次地面出行",
-      "status_description": "液态锂电池能量密度接近理论极限（300Wh/kg）。固态电池可突破至 400-500Wh/kg，但固态电解质界面稳定性和量产良率是核心瓶颈。丰田、宁德时代、比亚迪均在攻关。"
+      "status_description": "液态锂电池能量密度接近理论极限（300Wh/kg）。固态电池可突破至 400-500Wh/kg，但固态电解质界面稳定性和量产良率是核心瓶颈。丰田、宁德时代、比亚迪均在攻关。",
+      "backbone": true
+    },
+    {
+      "id": "med-ai-agent",
+      "name": "AI Agent 平台化",
+      "chain": "单任务Agent → 多Agent协作 → 自主Agent平台",
+      "industry": "AI",
+      "tier": "medium",
+      "role": "primary",
+      "trl": 6.0,
+      "bottleneck": "Agent 可靠性不足（幻觉/循环）；多Agent协调协议未标准化；企业安全边界未建立",
+      "next_trigger": "主流 Agent 框架标准化，单 Agent 任务成功率 >90%",
+      "trigger_keywords": [
+        "agentic",
+        "agent",
+        "multi-agent",
+        "tool use",
+        "function calling",
+        "OpenClaw",
+        "agent platform",
+        "autonomous agent",
+        "agent framework",
+        "AI agent",
+        "智能体",
+        "Agent"
+      ],
+      "opportunity_signal": "Agent 可靠性突破 → AI 从「工具」变「劳动力」→ 企业级部署爆发",
+      "market_impact": "决定 AI 商业化从 Copilot（辅助）到 Autopilot（自主）的跨越节奏",
+      "drives": [
+        "med-inference-cost"
+      ],
+      "depends_on": [
+        "long-model-arch"
+      ],
+      "risk": "Agent 失控事件引发监管刹车；开源 Agent 安全漏洞",
+      "prediction": "若 2027 年 Agent 成功率突破 90% → AI 从「回答问题」进化到「完成任务」→ 客服/编程/数据分析 3 个职业首当其冲 → 全球 2 亿知识工作者工作流重构",
+      "status_description": "2025-2026 年 Agent 成为 AI 主战场。Nvidia OpenClaw、OpenAI Operator、Anthropic MCP 三大阵营竞争。当前瓶颈不在模型能力而在工程可靠性：幻觉导致任务链断裂，多 Agent 协调缺乏标准协议。",
+      "backbone": true
+    },
+    {
+      "id": "long-quantum",
+      "name": "量子计算实用化",
+      "chain": "NISQ → 量子-经典混合 → 实用量子优势",
+      "industry": "AI",
+      "tier": "long",
+      "role": "primary",
+      "trl": 4.5,
+      "bottleneck": "量子比特错误率高；纠错开销 1000:1；低温环境成本极高",
+      "next_trigger": "量子-经典混合在 2+ 实际问题上超越纯经典最优解",
+      "trigger_keywords": [
+        "quantum",
+        "qubit",
+        "superconducting",
+        "quantum-classical",
+        "NISQ",
+        "quantum advantage",
+        "quantum supremacy",
+        "error correction",
+        "logical qubit",
+        "量子"
+      ],
+      "opportunity_signal": "实用量子优势 → 药物发现/材料设计模拟时间从天→秒",
+      "market_impact": "重新定义计算范式：药物研发、密码学、金融优化",
+      "drives": [],
+      "depends_on": [],
+      "risk": "量子冬天（投资回报周期远超预期）；经典算法追赶缩小差距",
+      "prediction": "若 2029 年实现实用量子优势 → 新药分子模拟周期从 3 年→3 个月 → 催化 AI 制药和材料科学双赛道爆发 → 每年新增 500+ 候选药物进入临床",
+      "status_description": "IBM 发布量子-经典 HPC 混合蓝图，Google Willow 芯片实现 below-threshold 纠错。但实用性仍限于少数演示场景（蛋白质折叠、分子模拟）。从 NISQ 到容错量子计算至少还需 5-8 年。",
+      "backbone": true
+    },
+    {
+      "id": "short-hbm",
+      "name": "HBM 高带宽内存",
+      "chain": "HBM3e → HBM4 16层 → HBM4e 24层",
+      "industry": "AI",
+      "tier": "short",
+      "role": "primary",
+      "trl": 8.0,
+      "bottleneck": "HBM 堆叠层数增加导致良率下降；仅 SK海力士/三星/美光三家供应，产能严重不足",
+      "next_trigger": "HBM4 量产出货，堆叠层数 16→24，带宽突破 2TB/s",
+      "trigger_keywords": [
+        "HBM",
+        "high bandwidth memory",
+        "SOCAMM",
+        "LPDDR5X",
+        "memory bandwidth",
+        "HBM4",
+        "HBM3e",
+        "DRAM stacking",
+        "内存带宽",
+        "高带宽"
+      ],
+      "opportunity_signal": "HBM 产能决定 GPU 出货量——每缓解 10% = 多建一个万卡集群",
+      "market_impact": "HBM 是 AI 芯片链的第二物理瓶颈（仅次于 CoWoS），直接决定 GB300/Rubin 交付量",
+      "drives": [
+        "short-gpu-supply",
+        "med-inference-cost"
+      ],
+      "depends_on": [
+        "short-cowos"
+      ],
+      "risk": "地缘风险中断韩国/美国内存供应链；HBM 价格暴涨挤压 GPU 利润",
+      "prediction": "若 2026 年 HBM4 量产 → GPU 内存墙瓶颈缓解 30% → GB300 交付周期从 12 月→6 月 → 万卡集群建设加速，推理成本再降 5×",
+      "status_description": "HBM 是 AI GPU 的「内存墙」。GB200 搭载 HBM3e（8层），GB300 计划搭载 HBM4（16层）。SK海力士独占 50%+ 份额，产能已锁定至 2027。SOCAMM2 新标准将 LPDDR5X 引入 AI 服务器，可能部分替代 HBM 在推理场景的需求。",
+      "backbone": false
+    },
+    {
+      "id": "med-leo-constellation",
+      "name": "低轨星座组网",
+      "chain": "百星 → 千星 → 万星星座",
+      "industry": "space",
+      "tier": "medium",
+      "role": "primary",
+      "trl": 8.5,
+      "bottleneck": "发射成本仍高（Falcon 9 $2,700/kg）；频率资源争夺；空间碎片风险",
+      "next_trigger": "Starship 商用后单次部署 100+ 卫星，星座成本降至 $500/kg",
+      "trigger_keywords": [
+        "starlink",
+        "satellite constellation",
+        "mega-constellation",
+        "oneweb",
+        "kuiper",
+        "qianfan",
+        "千帆",
+        "星网",
+        "LEO",
+        "low earth orbit satellite",
+        "direct-to-cell"
+      ],
+      "opportunity_signal": "星座成本破 $500/kg → 手机直连卫星 → 全球无死角覆盖",
+      "market_impact": "决定 5 亿偏远人口首次接入互联网的速度；手机直连卫星每年增量市场 $300 亿",
+      "drives": [],
+      "depends_on": [
+        "long-starship"
+      ],
+      "risk": "SpaceX 垄断 60% 在轨卫星 → 各国主权星座碎片化；Kessler 综合征风险",
+      "prediction": "若 2027 年单次发射部署 100+ 卫星 → 星座建设周期从 5 年→2 年 → 手机直连卫星覆盖全球 → 每年新增 5000 万偏远地区用户接入互联网",
+      "status_description": "Starlink 已部署 6000+ 卫星，OneWeb/Amazon Kuiper/中国星网/千帆星座追赶中。Falcon 9 仍是主力运力，Starship 商用后将改变星座经济学。手机直连卫星（Direct-to-Cell）是下一爆发点。",
+      "backbone": true
+    },
+    {
+      "id": "long-artemis",
+      "name": "Artemis 月球基地",
+      "chain": "Artemis 2 绕月 → Artemis 3 登月 → 月球南极基地",
+      "industry": "space",
+      "tier": "long",
+      "role": "primary",
+      "trl": 5.0,
+      "bottleneck": "SLS 发射成本 $20 亿/次且年产能 1 发；Starship HLS 月球着陆器仍在测试中",
+      "next_trigger": "Artemis 3 载人登月成功（当前规划 2027）",
+      "trigger_keywords": [
+        "artemis",
+        "lunar",
+        "moon",
+        "gateway",
+        "orion",
+        "SLS",
+        "moon base",
+        "lunar lander",
+        "lunar surface",
+        "月球",
+        "登月",
+        "嫦娥",
+        "chang'e",
+        "ILRS"
+      ],
+      "opportunity_signal": "月球南极基地开工 → 验证原位资源利用(ISRU) → 开启地月经济",
+      "market_impact": "若 ISRU 验证成功，月球水冰→推进剂生产→深空探测成本降至 1/10",
+      "drives": [
+        "long-inorbit"
+      ],
+      "depends_on": [
+        "long-starship"
+      ],
+      "risk": "SLS 预算超支被取消；中国嫦娥工程先于 Artemis 建成月球基地",
+      "prediction": "若 2028 年 Artemis 3 成功登月南极 → 月球水冰开采验证 → 地月运输经济模型成立 → 2030s 开启月球商业采矿和深空中转站时代",
+      "status_description": "Artemis 2 将于 2026 年执行载人绕月，Artemis 3 计划 2027 年载人登月南极。SLS+Orion 组合成本高但进度稳定。中国嫦娥七号/八号将在 2028 年前后验证月球南极探测，中美月球竞赛已实质展开。",
+      "backbone": true
+    },
+    {
+      "id": "med-cgt",
+      "name": "细胞基因治疗 (CGT)",
+      "chain": "ex vivo 基因编辑 → in vivo 体内编辑 → 通用型细胞治疗",
+      "industry": "medical",
+      "tier": "medium",
+      "role": "primary",
+      "trl": 6.5,
+      "bottleneck": "体内递送效率低（LNP/AAV限制）；脱靶风险；单次治疗 $200 万+ 定价不可持续",
+      "next_trigger": "首个体内(in vivo)基因编辑疗法获批（FDA/EMA）",
+      "trigger_keywords": [
+        "crispr",
+        "car-t",
+        "car t",
+        "cell therapy",
+        "gene therapy",
+        "gene editing",
+        "allogeneic",
+        "autologous",
+        "基因治疗",
+        "细胞治疗",
+        "CAR-T",
+        "基因编辑"
+      ],
+      "opportunity_signal": "体内基因编辑获批 → 镰刀细胞/地贫一次性治愈 → 从罕见病变常见病",
+      "market_impact": "全球基因治疗市场 2030 年 $500 亿；通用型 CAR-T 将价格从 $50万→$5万",
+      "drives": [
+        "med-mrna-cost"
+      ],
+      "depends_on": [
+        "med-ai-drug"
+      ],
+      "risk": "CRISPR 脱靶导致致癌突变；伦理争议限制种系编辑",
+      "prediction": "若 2028 年体内 CRISPR 首次获批 → 镰刀细胞贫血从终身管理变一次性治愈 → 每年 30 万新生患儿受益 → 催化 CAR-T 实体瘤突破",
+      "status_description": "Casgevy（ex vivo CRISPR）2023 年获批治疗镰刀细胞/β地贫。体内编辑（in vivo）是下一跳：Intellia/Beam/Editas 在研。通用型（异体）CAR-T 可解决自体 CAR-T $50 万定价和 3 周制备周期的瓶颈。",
+      "backbone": true
+    },
+    {
+      "id": "short-glp1",
+      "name": "GLP-1/代谢药物",
+      "chain": "注射GLP-1 → 口服GLP-1 → 多靶点代谢药物",
+      "industry": "medical",
+      "tier": "short",
+      "role": "primary",
+      "trl": 9.0,
+      "bottleneck": "产能不足（全球缺货）；副作用（肌肉流失/胃肠不适）；停药反弹",
+      "next_trigger": "口服 GLP-1 获批（免注射），年处方量突破 2 亿",
+      "trigger_keywords": [
+        "glp-1",
+        "glp1",
+        "ozempic",
+        "wegovy",
+        "mounjaro",
+        "obesity",
+        "weight loss",
+        "semaglutide",
+        "tirzepatide",
+        "司美格鲁肽",
+        "减肥药",
+        "代谢"
+      ],
+      "opportunity_signal": "口服 GLP-1 + 产能翻倍 → 处方量从 5000 万→2 亿 → 重塑食品/健身/保险行业",
+      "market_impact": "2030 年全球 GLP-1 市场 $1500 亿；每年减少 10 万+ 肥胖相关死亡",
+      "drives": [],
+      "depends_on": [],
+      "risk": "长期副作用未知（甲状腺癌风险）；医保拒绝覆盖导致市场天花板",
+      "prediction": "若 2027 年口服 GLP-1 上市 + 产能翻倍 → 全球 10 亿肥胖人口中 2 亿获处方 → 年消费从 $200 亿→$1000 亿 → 食品饮料行业被迫「低糖低卡」转型",
+      "status_description": "诺和诺德司美格鲁肽（Ozempic/Wegovy）和礼来替尔泊肽（Mounjaro/Zepbound）统治市场。2026 年产能缺口仍达 30-50%。口服剂型（Rybelsus 已上市但生物利用度低）是下一关键节点。中国信达/恒瑞/华东医药加速追赶。",
+      "backbone": false
     }
   ]
 }

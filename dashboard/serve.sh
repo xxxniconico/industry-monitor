@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# Static HTML dashboard — works without Streamlit (recommended on WSL)
-# Open: http://localhost:8505/dashboard/static/index.html
+# Streamlit dashboard — dynamic with live TRL + auto conclusion :8505
+# Open: http://localhost:8505
+set -euo pipefail
 cd "$(dirname "$0")/.."
+
+VENV_PYTHON="$HOME/.hermes/hermes-agent/venv/bin/python"
+
 echo ""
-echo "  Industry Monitor (static)"
-echo "  Open in browser:"
-echo "    http://localhost:8505/dashboard/static/index.html"
+echo "  📡 Industry Monitor v6 (Streamlit)"
+echo "  http://localhost:8505"
 echo ""
-echo "  Press Ctrl+C to stop."
-echo ""
-exec python3 -m http.server 8505 --bind 127.0.0.1
+
+exec "$VENV_PYTHON" -m streamlit run dashboard/app.py \
+  --server.port 8505 \
+  --server.headless true \
+  --server.address 0.0.0.0

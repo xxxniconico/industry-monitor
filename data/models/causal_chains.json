@@ -1,0 +1,4662 @@
+{
+  "updated_at": "2026-05-17",
+  "chains": [
+    {
+      "id": "cowos_cascade",
+      "label": "CoWoS 产能 → AI 应用爆发",
+      "industry": "AI",
+      "seed_node": "cowos_10k",
+      "nodes": [
+        {
+          "id": "cowos_10k",
+          "label": "CoWoS 月产能突破10万片",
+          "description": "台积电 CoWoS 先进封装月产能从 8 万片扩至 10 万片，两年翻倍。AI 芯片链「总阀门」首次实质性缓解。",
+          "trigger_keywords": [
+            "CoWoS",
+            "10万",
+            "台积电",
+            "月产能",
+            "先进封装",
+            "产能突破",
+            "TSMC",
+            "CoWoS-S",
+            "CoWoS-L",
+            "CoWoS-R"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "gb200_accel",
+              "lag": 2
+            },
+            {
+              "node": "hbm4_ramp",
+              "lag": 2
+            }
+          ],
+          "opportunity": "台积电独家供应95%+先进封装，月产能每+1万片=多建一批万卡集群。英伟达GB200/GB300交付节奏的核心瓶颈。",
+          "tech_breakthroughs": [
+            {
+              "tech": "CoWoS-L → CoWoS-R",
+              "impact": "中介层面积×2，单片封装更多HBM",
+              "maturity": {
+                "trl": 8.5,
+                "market": "$12B",
+                "cagr": "25%",
+                "deploy": "台积电独家95%+",
+                "note": "中介层面积翻倍"
+              }
+            },
+            {
+              "tech": "硅中介层 → 玻璃基板",
+              "impact": "信号完整性↑，功耗↓30%",
+              "maturity": {
+                "trl": 6.5,
+                "market": "$3B",
+                "cagr": "40%",
+                "deploy": "Intel/三星研发中",
+                "note": "信号完整性提升"
+              }
+            },
+            {
+              "tech": "HBM4 16层堆叠量产",
+              "impact": "单颗带宽突破2TB/s",
+              "maturity": {
+                "trl": 8.0,
+                "market": "$18B",
+                "cagr": "30%",
+                "deploy": "SK海力士独家HBM3e→HBM4",
+                "note": "2026Q3量产目标"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "先进封装设备",
+              "ticker": "ASMPT(0522.HK)/北方华创(002371)",
+              "tam": "$12B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "HBM测试设备",
+              "ticker": "Advantest(6857.T)/Teradyne(TER)",
+              "tam": "$3B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "玻璃基板供应链",
+              "ticker": "Corning(GLW)/旭硝子(5201.T)",
+              "tam": "$3B",
+              "cagr": "40%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "gb200_accel",
+          "label": "GB200 交付排队从12月缩短至6月",
+          "description": "英伟达 GB200 NVL72 交付周期大幅缩短，hyperscaler 从「排队等货」变为「按需下单」。",
+          "trigger_keywords": [
+            "GB200",
+            "NVL72",
+            "交付",
+            "SuperMicro",
+            "GB200 NVL72",
+            "delivery timeline",
+            "shipment",
+            "order fulfillment"
+          ],
+          "lag_months": 2,
+          "children": [
+            {
+              "node": "cluster_ramp",
+              "lag": 3
+            },
+            {
+              "node": "optical_1t6",
+              "lag": 3
+            },
+            {
+              "node": "liquid_40pct",
+              "lag": 2
+            }
+          ],
+          "opportunity": "GB200交付缩短→hyperscaler追加订单→AI算力供给从「稀缺」变「充裕」。光模块/液冷/铜连接同步受益。",
+          "tech_breakthroughs": [
+            {
+              "tech": "NVL72 → NVL144 机架级互联",
+              "impact": "单机架GPU密度翻倍",
+              "maturity": {
+                "trl": 8.0,
+                "market": "$8B",
+                "cagr": "45%",
+                "deploy": "GB200 NVL72已规模部署",
+                "note": "机架GPU密度翻倍"
+              }
+            },
+            {
+              "tech": "铜缆224G → 448G AEC",
+              "impact": "机架内带宽×2",
+              "maturity": {
+                "trl": 7.0,
+                "market": "$2B",
+                "cagr": "50%",
+                "deploy": "Amphenol/Molex主导",
+                "note": "2027商用目标"
+              }
+            },
+            {
+              "tech": "1.6T光模块规模出货",
+              "impact": "季度出货突破500万只",
+              "maturity": {
+                "trl": 7.5,
+                "market": "$6B",
+                "cagr": "60%",
+                "deploy": "旭创/Coherent 2026Q2",
+                "note": "季出货目标500万只"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI服务器ODM",
+              "ticker": "鸿海(2317.TW)/广达(2382.TW)",
+              "tam": "$80B",
+              "cagr": "35%",
+              "stage": "growth"
+            },
+            {
+              "theme": "铜缆互联",
+              "ticker": "Amphenol(APH)/立讯精密(002475)",
+              "tam": "$2B",
+              "cagr": "50%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "1.6T光模块",
+              "ticker": "中际旭创(300308)/Coherent(COHR)",
+              "tam": "$6B",
+              "cagr": "60%",
+              "stage": "emerging"
+            }
+          ]
+        },
+        {
+          "id": "hbm4_ramp",
+          "label": "HBM4 量产出货，带宽突破 2TB/s",
+          "description": "SK海力士 HBM4（16层堆叠）量产出货。内存墙瓶颈首次实质性缓解，单颗带宽 2TB/s+。",
+          "trigger_keywords": [
+            "HBM4",
+            "HBM",
+            "SK海力士",
+            "三星",
+            "美光",
+            "2TB",
+            "堆叠",
+            "量产",
+            "HBM4 16层",
+            "HBM4 量产",
+            "HBM4 mass production",
+            "2TB/s bandwidth"
+          ],
+          "lag_months": 2,
+          "children": [
+            {
+              "node": "cluster_ramp",
+              "lag": 2
+            }
+          ],
+          "opportunity": "HBM4量产出货→GPU内存墙缓解→GB300/Rubin平台不受内存瓶颈限制。SK海力士独占50%份额，产能锁定至2027。",
+          "tech_breakthroughs": [
+            {
+              "tech": "HBM3e → HBM4 16层",
+              "impact": "带宽1.2→2TB/s",
+              "maturity": {
+                "trl": 8.0,
+                "market": "$18B",
+                "cagr": "30%",
+                "deploy": "HBM3e→HBM4过渡中",
+                "note": "带宽1.2→2TB/s"
+              }
+            },
+            {
+              "tech": "SOCAMM LPDDR5X",
+              "impact": "推理场景替代HBM，成本↓50%",
+              "maturity": {
+                "trl": 7.0,
+                "market": "$5B",
+                "cagr": "35%",
+                "deploy": "三星/美光推进中",
+                "note": "推理场景替代HBM"
+              }
+            },
+            {
+              "tech": "HBM4e 24层预研",
+              "impact": "下一代带宽目标4TB/s",
+              "maturity": {
+                "trl": 5.0,
+                "market": "$25B",
+                "cagr": "—",
+                "deploy": "2030目标",
+                "note": "下一代带宽4TB/s"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "HBM制造",
+              "ticker": "SK海力士(000660.KS)/三星(005930.KS)",
+              "tam": "$18B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "HBM封装",
+              "ticker": "Amkor(AMKR)/长电科技(600584)",
+              "tam": "$5B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "LPDDR5X推理替代",
+              "ticker": "美光(MU)/三星",
+              "tam": "$5B",
+              "cagr": "35%",
+              "stage": "emerging"
+            }
+          ]
+        },
+        {
+          "id": "cluster_ramp",
+          "label": "万卡/十万卡集群建设加速",
+          "description": "GPU+HBM 双瓶颈缓解 → hyperscaler 追加 AI 集群订单。万卡集群从「标杆工程」变「标准化基建」。",
+          "trigger_keywords": [
+            "万卡",
+            "十万卡",
+            "集群",
+            "Meta",
+            "xAI",
+            "GPU cluster",
+            "100K GPU",
+            "H100 cluster",
+            "B200 cluster",
+            "算力集群",
+            "AI supercomputer",
+            "AI training cluster",
+            "GPU datacenter build",
+            "H200 deployment"
+          ],
+          "lag_months": 5,
+          "children": [
+            {
+              "node": "inference_10x",
+              "lag": 6
+            }
+          ],
+          "opportunity": "万卡集群标准化→万卡→十万卡跃升。每建一个万卡集群=4000-8000颗GPU+等量光模块+液冷系统。直接拉动硬件订单。",
+          "tech_breakthroughs": [
+            {
+              "tech": "万卡 → 十万卡互联",
+              "impact": "训练集群规模×10",
+              "maturity": {
+                "trl": 7.5,
+                "market": "$30B",
+                "cagr": "40%",
+                "deploy": "xAI/Meta十万卡集群",
+                "note": "2026H2部署"
+              }
+            },
+            {
+              "tech": "800G → 1.6T 交换机",
+              "impact": "集群网络带宽翻倍",
+              "maturity": {
+                "trl": 8.0,
+                "market": "$12B",
+                "cagr": "35%",
+                "deploy": "Arista/Broadcom",
+                "note": "集群网络带宽翻倍"
+              }
+            },
+            {
+              "tech": "分布式训练框架优化",
+              "impact": "万卡线性加速比>90%",
+              "maturity": {
+                "trl": 8.0,
+                "market": "—",
+                "cagr": "—",
+                "deploy": "PyTorch FSDP/FSDP2",
+                "note": "万卡加速比>90%"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI数据中心REITs",
+              "ticker": "Digital Realty(DLR)/Equinix(EQIX)",
+              "tam": "$50B",
+              "cagr": "20%",
+              "stage": "growth"
+            },
+            {
+              "theme": "800G交换机",
+              "ticker": "Arista(ANET)/新华三",
+              "tam": "$12B",
+              "cagr": "35%",
+              "stage": "growth"
+            },
+            {
+              "theme": "液冷基础设施",
+              "ticker": "Vertiv(VRT)/英维克(002837)",
+              "tam": "$5B",
+              "cagr": "45%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "optical_1t6",
+          "label": "1.6T 光模块季度出货突破 500 万只",
+          "description": "GPU 集群规模化驱动 1.6T 光模块放量。GPU:光模块配比从 1:4.5 向 1:8 扩张。",
+          "trigger_keywords": [
+            "1.6T",
+            "800G",
+            "3.2T",
+            "光模块",
+            "optical module",
+            "transceiver",
+            "旭创",
+            "1.6T光模块",
+            "1.6T optical",
+            "1.6T transceiver",
+            "中际旭创"
+          ],
+          "lag_months": 5,
+          "children": [
+            {
+              "node": "optical_ratio",
+              "lag": 6
+            }
+          ],
+          "opportunity": "1.6T光模块2026年出货预计2000万只(+700% YoY)。中际旭创全球市占40%，是配比扩张最大受益方。",
+          "tech_breakthroughs": [
+            {
+              "tech": "800G → 1.6T EML/硅光",
+              "impact": "单通道速率翻倍",
+              "maturity": {
+                "trl": 7.5,
+                "market": "$6B",
+                "cagr": "60%",
+                "deploy": "Lumentum/源杰科技",
+                "note": "单通道速率翻倍"
+              }
+            },
+            {
+              "tech": "3.2T 光模块预研",
+              "impact": "2028年目标商用",
+              "maturity": {
+                "trl": 5.0,
+                "market": "$10B",
+                "cagr": "—",
+                "deploy": "2028年目标商用",
+                "note": "下一代目标"
+              }
+            },
+            {
+              "tech": "硅光1.6T良率突破",
+              "impact": "旭创自研良率95%→99%",
+              "maturity": {
+                "trl": 7.0,
+                "market": "$4B",
+                "cagr": "50%",
+                "deploy": "旭创95%→99%良率",
+                "note": "中国厂商领先"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "1.6T光模块龙头",
+              "ticker": "中际旭创(300308)/新易盛(300502)",
+              "tam": "$6B",
+              "cagr": "60%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "EML激光器",
+              "ticker": "Lumentum(LITE)/源杰科技(688498)",
+              "tam": "$2B",
+              "cagr": "40%",
+              "stage": "growth"
+            },
+            {
+              "theme": "硅光芯片",
+              "ticker": "Intel(INTC)/Broadcom(AVGO)",
+              "tam": "$4B",
+              "cagr": "50%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "liquid_40pct",
+          "label": "液冷渗透率从 25% 跳升至 40%+",
+          "description": "GB300 强制液冷出货，液冷从「可选项」变「刚需」。冷板式液冷成为万卡集群标配。",
+          "trigger_keywords": [
+            "liquid cooling",
+            "液冷",
+            "GB300",
+            "cold plate",
+            "immersion",
+            "英维克",
+            "高澜",
+            "liquid cooling adoption",
+            "冷板式液冷",
+            "液冷渗透",
+            "GB300液冷",
+            "NVL72 cooling"
+          ],
+          "lag_months": 4,
+          "children": [],
+          "opportunity": "GB300强制液冷→从可选变刚需→2026年是渗透率拐点年(25%→40%)。英维克(英伟达Tier1)+高澜股份(浸没式龙头)。",
+          "tech_breakthroughs": [
+            {
+              "tech": "冷板 → 浸没式液冷",
+              "impact": "单机柜200kW→500kW",
+              "maturity": {
+                "trl": 7.0,
+                "market": "$3B",
+                "cagr": "45%",
+                "deploy": "曙光数创/3M",
+                "note": "单机柜200kW突破"
+              }
+            },
+            {
+              "tech": "CDU冷却分配单元标准化",
+              "impact": "液冷从定制→标准化",
+              "maturity": {
+                "trl": 7.5,
+                "market": "$2B",
+                "cagr": "40%",
+                "deploy": "Vertiv/CoolIT",
+                "note": "液冷从定制→标准化"
+              }
+            },
+            {
+              "tech": "两相冷却技术成熟",
+              "impact": "PUE降至1.05",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$1B",
+                "cagr": "50%",
+                "deploy": "实验室→试点",
+                "note": "PUE降至1.05"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "液冷温控龙头",
+              "ticker": "英维克(002837)/高澜股份(300499)",
+              "tam": "$3B",
+              "cagr": "45%",
+              "stage": "early"
+            },
+            {
+              "theme": "浸没式液冷",
+              "ticker": "曙光数创(872808)/3M(MMM)",
+              "tam": "$1B",
+              "cagr": "50%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "CDU冷却分配",
+              "ticker": "Vertiv(VRT)/CoolIT",
+              "tam": "$2B",
+              "cagr": "40%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "optical_ratio",
+          "label": "GPU:光模块配比从 1:4.5 跃升至 1:8",
+          "description": "ASIC 集群（TPU/Trainium）推动配比进一步扩张。光模块市场规模超越 GPU 市场增速。",
+          "trigger_keywords": [
+            "1:8",
+            "ASIC",
+            "TPU",
+            "Trainium",
+            "silicon photonics",
+            "GPU optical ratio",
+            "光模块配比",
+            "1:8 ratio",
+            "ASIC cluster"
+          ],
+          "lag_months": 11,
+          "children": [
+            {
+              "node": "inference_10x",
+              "lag": 4
+            }
+          ],
+          "opportunity": "ASIC集群(TPU/Trainium)配比达1:8→光模块市场超越GPU市场增速。硅光CMOS工艺替代InP→中国厂商成本优势质变。",
+          "tech_breakthroughs": [
+            {
+              "tech": "GPU:光模块 1:4.5→1:8",
+              "impact": "ASIC集群推动配比扩张",
+              "maturity": {
+                "trl": 7.0,
+                "market": "$15B",
+                "cagr": "40%",
+                "deploy": "ASIC集群(TPU/Trainium)",
+                "note": "配比扩张放大光模块需求"
+              }
+            },
+            {
+              "tech": "硅光CMOS 800G市占72→95%+",
+              "impact": "InP方案退守400G以下",
+              "maturity": {
+                "trl": 7.5,
+                "market": "$4B",
+                "cagr": "50%",
+                "deploy": "旭创/Coherent主导",
+                "note": "InP方案退守400G以下"
+              }
+            },
+            {
+              "tech": "CPO共封装预商用",
+              "impact": "光引擎+交换芯片合封",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$3B",
+                "cagr": "60%",
+                "deploy": "Broadcom/Intel方案",
+                "note": "光引擎+交换芯片合封"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "光模块扩张受益",
+              "ticker": "天孚通信(300394)/Coherent",
+              "tam": "$15B",
+              "cagr": "40%",
+              "stage": "growth"
+            },
+            {
+              "theme": "ASIC集群建设",
+              "ticker": "博通(AVGO)/Marvell(MRVL)",
+              "tam": "$20B",
+              "cagr": "45%",
+              "stage": "early"
+            },
+            {
+              "theme": "硅光CMOS代工",
+              "ticker": "台积电(TSM)/格芯(GFS)",
+              "tam": "$4B",
+              "cagr": "50%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "inference_10x",
+          "label": "AI 推理成本再降 10 倍",
+          "description": "算力供给过剩 + 推理优化成熟 → 推理成本降至当前 1/10。AI 从「按次计费」接近「零边际成本」。",
+          "trigger_keywords": [
+            "inference cost",
+            "推理成本",
+            "token cost",
+            "量化",
+            "distillation",
+            "inference cost reduction",
+            "推理价格",
+            "token price",
+            "API price cut",
+            "模型降价"
+          ],
+          "lag_months": 11,
+          "children": [
+            {
+              "node": "agent_90pct",
+              "lag": 6
+            }
+          ],
+          "opportunity": "推理成本每18个月降10倍→逼近零边际成本。AI应用从「按次计费」变「免费基础设施」→应用层爆发。",
+          "tech_breakthroughs": [
+            {
+              "tech": "FP8→FP4量化推理",
+              "impact": "模型体积↓50%，精度无损",
+              "maturity": {
+                "trl": 8.0,
+                "market": "—",
+                "cagr": "—",
+                "deploy": "Nvidia H200/B200支持",
+                "note": "模型体积↓50%精度无损"
+              }
+            },
+            {
+              "tech": "稀疏注意力+投机解码",
+              "impact": "推理延迟↓70%",
+              "maturity": {
+                "trl": 7.5,
+                "market": "—",
+                "cagr": "—",
+                "deploy": "vLLM/SGLang实现",
+                "note": "推理延迟↓70%"
+              }
+            },
+            {
+              "tech": "MoE推理优化",
+              "impact": "每token成本再降5×",
+              "maturity": {
+                "trl": 7.0,
+                "market": "—",
+                "cagr": "—",
+                "deploy": "DeepSeek/Qwen MoE",
+                "note": "每token成本再降5×"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI应用SaaS",
+              "ticker": "Salesforce(CRM)/ServiceNow(NOW)",
+              "tam": "$100B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "推理芯片ASIC",
+              "ticker": "博通/寒武纪(688256)",
+              "tam": "$25B",
+              "cagr": "45%",
+              "stage": "early"
+            },
+            {
+              "theme": "AI编程工具",
+              "ticker": "GitHub Copilot/Cursor",
+              "tam": "$10B",
+              "cagr": "40%",
+              "stage": "growth"
+            }
+          ]
+        },
+        {
+          "id": "agent_90pct",
+          "label": "AI Agent 成功率突破 90%，Copilot→Autopilot",
+          "description": "推理成本趋零 + 可靠性突破 → Agent 从「辅助工具」进化到「自主劳动力」。客服/编程/数据分析率先被重构。",
+          "trigger_keywords": [
+            "autonomous",
+            "autopilot",
+            "自主",
+            "AI agent platform",
+            "agent reliability",
+            "agent orchestration",
+            "multi-agent coordination",
+            "autonomous coding agent",
+            "Manus",
+            "Devin"
+          ],
+          "lag_months": 17,
+          "children": [],
+          "opportunity": "Agent可靠性突破90%→从Copilot变Autopilot→客服/编程/数据分析3个职业首当其冲→全球2亿知识工作者工作流重构。",
+          "tech_breakthroughs": [
+            {
+              "tech": "MCP协议标准化",
+              "impact": "Agent工具调用互操作",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$5B",
+                "cagr": "80%",
+                "deploy": "Anthropic主导,OpenAI跟随",
+                "note": "Agent工具调用互操作"
+              }
+            },
+            {
+              "tech": "多Agent编排框架",
+              "impact": "复杂任务分解+并行",
+              "maturity": {
+                "trl": 5.5,
+                "market": "$3B",
+                "cagr": "70%",
+                "deploy": "LangGraph/AutoGen/CrewAI",
+                "note": "复杂任务分解+并行"
+              }
+            },
+            {
+              "tech": "Agent安全沙箱",
+              "impact": "企业级部署的前提条件",
+              "maturity": {
+                "trl": 5.0,
+                "market": "$2B",
+                "cagr": "60%",
+                "deploy": "企业级部署前提",
+                "note": "安全审计+访问控制"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI Agent平台",
+              "ticker": "Nvidia/OpenAI/Anthropic",
+              "tam": "$20B",
+              "cagr": "80%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "企业自动化",
+              "ticker": "UiPath(PATH)/ServiceNow(NOW)",
+              "tam": "$50B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "AI客服",
+              "ticker": "Zendesk/Intercom",
+              "tam": "$15B",
+              "cagr": "30%",
+              "stage": "growth"
+            }
+          ]
+        }
+      ],
+      "thesis": "AI芯片链「总阀门」CoWoS一旦松动，从GPU→光模块→液冷→推理→Agent应用全链路加速。配比扩张是放大器：GPU:光模块每从1:4.5→1:8，光模块市场增速超过GPU。"
+    },
+    {
+      "id": "silicon_photonics_cascade",
+      "label": "硅光技术 → 光互连替代 InP",
+      "industry": "AI",
+      "seed_node": "siph_yield_95",
+      "nodes": [
+        {
+          "id": "siph_yield_95",
+          "label": "CMOS 硅光良率突破 99%",
+          "description": "硅光芯片用 CMOS 工艺替代 InP 材料。良率从 95% 突破至 99%，成本逼近 InP 的 50%。",
+          "trigger_keywords": [
+            "silicon photonics",
+            "硅光",
+            "SiPh",
+            "CMOS foundry",
+            "良率",
+            "硅基光电子",
+            "silicon photonics yield",
+            "CMOS photonics",
+            "硅光量产",
+            "硅光良率99%"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "siph_cost_half",
+              "lag": 6
+            },
+            {
+              "node": "siph_800g_std",
+              "lag": 4
+            }
+          ],
+          "opportunity": "旭创自研硅光良率95%→领先全球。CPO共封装光引擎→功耗降50%延迟降10倍。",
+          "tech_breakthroughs": [
+            {
+              "tech": "CMOS兼容硅光工艺",
+              "impact": "用现有Fab量产光子芯片",
+              "maturity": {
+                "trl": 7.0,
+                "market": "$6B",
+                "cagr": "44%",
+                "deploy": "台积电/格芯推进中",
+                "note": "用现有Fab量产光子芯片"
+              }
+            },
+            {
+              "tech": "硅光激光器集成",
+              "impact": "片上光源突破",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$1B",
+                "cagr": "50%",
+                "deploy": "Intel/Ayar Labs",
+                "note": "片上光源突破"
+              }
+            },
+            {
+              "tech": "硅光PDK标准化",
+              "impact": "设计→流片周期从月→周",
+              "maturity": {
+                "trl": 6.5,
+                "market": "—",
+                "cagr": "—",
+                "deploy": "Tower/GF提供PDK",
+                "note": "设计周期从月→周"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "硅光代工",
+              "ticker": "台积电(TSM)/格芯(GFS)",
+              "tam": "$4B",
+              "cagr": "50%",
+              "stage": "early"
+            },
+            {
+              "theme": "硅光设计IP",
+              "ticker": "Ayar Labs/OpenLight",
+              "tam": "$1B",
+              "cagr": "60%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "硅光测试设备",
+              "ticker": "Keysight(KEYS)/Advantest",
+              "tam": "$1B",
+              "cagr": "45%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "siph_cost_half",
+          "label": "硅光成本降至 InP 的 50%",
+          "description": "CMOS 量产优势显现 → 硅光模块成本击穿 InP 方案。传统光模块厂商被迫转型或出局。",
+          "trigger_keywords": [
+            "silicon photonics",
+            "硅光",
+            "成本",
+            "cost",
+            "旭创",
+            "中际旭创",
+            "silicon photonics cost",
+            "旭创硅光",
+            "硅光成本",
+            "InP replacement"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "cpo_production",
+              "lag": 12
+            }
+          ],
+          "opportunity": "硅光成本击穿InP方案→传统光模块厂商(Finisar/Lumentum)被迫转型。",
+          "tech_breakthroughs": [
+            {
+              "tech": "300mm晶圆硅光量产",
+              "impact": "单芯片成本↓60%",
+              "maturity": {
+                "trl": 6.5,
+                "market": "$4B",
+                "cagr": "50%",
+                "deploy": "GF 300mm硅光平台",
+                "note": "单芯片成本↓60%"
+              }
+            },
+            {
+              "tech": "InP方案加速淘汰",
+              "impact": "传统光模块厂商被迫转型",
+              "maturity": {
+                "trl": 7.5,
+                "market": "—",
+                "cagr": "-15%",
+                "deploy": "Finisar/Lumentum转型",
+                "note": "传统方案退守400G以下"
+              }
+            },
+            {
+              "tech": "硅光中国企业(旭创/光迅)成本优势",
+              "impact": "全球市占从40→60%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "中国硅光龙头",
+              "ticker": "中际旭创/光迅科技(002281)",
+              "tam": "$3B",
+              "cagr": "55%",
+              "stage": "early"
+            },
+            {
+              "theme": "硅光芯片设计",
+              "ticker": "思瑞浦(688536)/纳芯微(688052)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "传统光模块被替代",
+              "ticker": "做空Finisar/II-VI",
+              "tam": "$8B",
+              "cagr": "-10%",
+              "stage": "declining"
+            }
+          ]
+        },
+        {
+          "id": "siph_800g_std",
+          "label": "800G 硅光模块成为数据中心唯一标准",
+          "description": "硅光在 800G+ 市场市占率从 72% 升至 95%+。InP 方案退守 400G 以下市场。",
+          "trigger_keywords": [
+            "800G",
+            "silicon photonics",
+            "硅光",
+            "市占",
+            "旭创",
+            "module",
+            "800G silicon photonics",
+            "silicon photonics market share"
+          ],
+          "lag_months": 4,
+          "children": [
+            {
+              "node": "cpo_production",
+              "lag": 14
+            }
+          ],
+          "tech_breakthroughs": [
+            {
+              "tech": "800G硅光模块唯一标准",
+              "impact": "数据中心100%采用硅光",
+              "maturity": {
+                "trl": 7.5,
+                "market": "$5B",
+                "cagr": "50%",
+                "deploy": "数据中心100%硅光",
+                "note": "标准统一"
+              }
+            },
+            {
+              "tech": "1.6T硅光预商用",
+              "impact": "下一代标准已确定",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$8B",
+                "cagr": "60%",
+                "deploy": "2027目标商用",
+                "note": "下一代标准已确定"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "800G硅光模块",
+              "ticker": "旭创/Coherent/Lumentum",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "数据中心光互连",
+              "ticker": "Arista(ANET)/思科(CSCO)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "cpo_production",
+          "label": "CPO 共封装光模块量产",
+          "description": "光引擎与交换芯片共封装 → 功耗降 50%、延迟降 10 倍。光互连从机架级扩展到芯片级。",
+          "trigger_keywords": [
+            "CPO",
+            "co-packaged",
+            "共封装",
+            "optical engine",
+            "光引擎",
+            "Broadcom",
+            "co-packaged optics",
+            "CPO量产",
+            "共封装光学"
+          ],
+          "lag_months": 20,
+          "children": [
+            {
+              "node": "optical_interconnect_chip",
+              "lag": 24
+            }
+          ],
+          "opportunity": "CPO量产→光互连从机架级→芯片级。Broadcom/Intel/Ayar Labs主战场，中国厂商追赶窗口。",
+          "tech_breakthroughs": [
+            {
+              "tech": "CPO光引擎量产",
+              "impact": "交换芯片+光模块共封装",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$3B",
+                "cagr": "60%",
+                "deploy": "博通/Intel 2028",
+                "note": "交换芯片+光模块共封装"
+              }
+            },
+            {
+              "tech": "光互连功耗↓50%",
+              "impact": "每比特能耗突破1pJ",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$5B",
+                "cagr": "55%",
+                "deploy": "每比特<1pJ",
+                "note": "能效突破"
+              }
+            },
+            {
+              "tech": "Broadcom/Intel CPO方案",
+              "impact": "交换机架构重构",
+              "maturity": {
+                "trl": 6.0,
+                "market": "$3B",
+                "cagr": "60%",
+                "deploy": "交换机架构重构",
+                "note": "2028商用目标"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "CPO交换机",
+              "ticker": "博通/Intel/Marvell",
+              "tam": "$3B",
+              "cagr": "60%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "光引擎封装",
+              "ticker": "日月光/Amkor",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "共封装测试",
+              "ticker": "Teradyne/FormFactor",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "optical_interconnect_chip",
+          "label": "芯片级光互连取代电互联",
+          "description": "CPO 成熟 + 硅光成本足够低 → 光互连进入芯片封装内部。彻底打破内存墙和 IO 瓶颈。",
+          "trigger_keywords": [
+            "optical interconnect",
+            "光互连",
+            "chip-scale",
+            "chiplet",
+            "die-to-die",
+            "optical die-to-die",
+            "chip-scale optical",
+            "photonic interconnect",
+            "光互连芯片"
+          ],
+          "lag_months": 44,
+          "children": [],
+          "opportunity": "芯片级光互连→彻底打破内存墙和IO瓶颈→重新定义计算架构。",
+          "tech_breakthroughs": [
+            {
+              "tech": "芯片级光互连",
+              "impact": "die-to-die光通信",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "内存墙被打破",
+              "impact": "CPU-GPU带宽×100",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "新计算架构(光计算)",
+              "impact": "冯诺依曼瓶颈被绕过",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "芯片级光互连",
+              "ticker": "Ayar Labs/Lightmatter",
+              "tam": "$5B",
+              "cagr": "70%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "光子计算",
+              "ticker": "Lightmatter/Celestial AI",
+              "tam": "$2B",
+              "cagr": "80%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "新计算架构",
+              "ticker": "Nvidia光子/Intel光子",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "硅光用CMOS工艺替代InP材料→成本降至1/2后传统方案加速淘汰。中国厂商(旭创自研良率95%)成本优势质变，全球硅光市场CAGR 44%，2028年达6亿美元。"
+    },
+    {
+      "id": "architecture_quantum_cascade",
+      "label": "模型架构范式 → 量子计算实用化",
+      "industry": "AI",
+      "seed_node": "new_arch_beat_transformer",
+      "nodes": [
+        {
+          "id": "new_arch_beat_transformer",
+          "label": "新架构在 2+ 主流基准超越 Transformer",
+          "description": "Mamba/SSM/RWKV 等线性注意力架构在多个基准上稳定超越 Transformer，生态开始迁移。",
+          "trigger_keywords": [
+            "Mamba",
+            "SSM",
+            "state space",
+            "linear attention",
+            "RWKV",
+            "新架构",
+            "超越",
+            "beats transformer",
+            "beyond transformer",
+            "Mamba outperforms",
+            "SSM benchmark",
+            "linear attention SOTA"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "edge_ai_boom",
+              "lag": 12
+            }
+          ],
+          "opportunity": "架构突破→推理效率飞跃+新能力边界。上一次Attention机制带来了整个LLM时代。",
+          "tech_breakthroughs": [
+            {
+              "tech": "Mamba/SSM 线性注意力",
+              "impact": "长序列推理O(n)→O(1)",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "RWKV/H3/Griffin 混合架构",
+              "impact": "训练+推理双优",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "新架构生态建设(Triton/XLA)",
+              "impact": "硬件适配周期2年→6月",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "Mamba/SSM生态",
+              "ticker": "Cartesia/Core ML",
+              "tam": "$1B",
+              "cagr": "100%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "新架构芯片适配",
+              "ticker": "Groq/Cerebras/SambaNova",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "Transformer替代",
+              "ticker": "做空Nvidia训练垄断",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "edge_ai_boom",
+          "label": "边缘 AI 设备全面普及",
+          "description": "新架构推理效率提升 5-10 倍 → 手机/汽车/可穿戴设备本地运行大模型。边缘 AI 芯片市场爆发。",
+          "trigger_keywords": [
+            "edge AI",
+            "边缘",
+            "on-device",
+            "NPU",
+            "端侧",
+            "本地运行",
+            "on-device LLM",
+            "edge inference",
+            "NPU inference",
+            "端侧大模型",
+            "本地推理"
+          ],
+          "lag_months": 12,
+          "children": [
+            {
+              "node": "datacenter_restructure",
+              "lag": 18
+            }
+          ],
+          "opportunity": "NPU+新架构→手机/汽车/可穿戴本地运行大模型→边缘AI芯片市场爆发。高通/苹果/联发科主战场。",
+          "tech_breakthroughs": [
+            {
+              "tech": "NPU推理性能×10",
+              "impact": "手机运行70B模型",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "端侧量化(INT4/INT2)",
+              "impact": "模型体积↓90%精度无损",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "Apple/高通/联发科NPU竞赛",
+              "impact": "每代NPU性能×3",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "边缘AI芯片",
+              "ticker": "高通(QCOM)/联发科(2454.TW)",
+              "tam": "$30B",
+              "cagr": "35%",
+              "stage": "growth"
+            },
+            {
+              "theme": "终端AI",
+              "ticker": "苹果(AAPL)/三星",
+              "tam": "$50B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "NPU IP授权",
+              "ticker": "ARM/芯原股份(688521)",
+              "tam": "$5B",
+              "cagr": "30%",
+              "stage": "growth"
+            }
+          ]
+        },
+        {
+          "id": "datacenter_restructure",
+          "label": "$500B 数据中心投资面临重构",
+          "description": "边缘推理分流 40%+ 算力需求 → 超大规模数据中心 ROI 下降。硬件生态从训练优先转向推理优先。",
+          "trigger_keywords": [
+            "datacenter",
+            "数据中心",
+            "capex",
+            "资本开支",
+            "ROI",
+            "投资回报",
+            "datacenter capex cut",
+            "AI infrastructure ROI",
+            "推理优先",
+            "training to inference shift"
+          ],
+          "lag_months": 30,
+          "children": [
+            {
+              "node": "quantum_advantage",
+              "lag": 36
+            }
+          ],
+          "opportunity": "$500B投资从训练优先→推理优先→超大规模数据中心ROI下降。硬件生态重构。",
+          "tech_breakthroughs": [
+            {
+              "tech": "训练→推理硬件架构转变",
+              "impact": "GPU→ASIC/FPGA占比上升",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "边缘数据中心兴起",
+              "impact": "推理延迟从云→边↓10×",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "$500B投资重新分配",
+              "impact": "训练集群缩减+边缘扩展",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "推理ASIC",
+              "ticker": "博通(AVGO)/Marvell(MRVL)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "边缘数据中心",
+              "ticker": "Equinix/Akamai",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "AI投资拐点做空",
+              "ticker": "做空Nvidia/AMD",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "quantum_advantage",
+          "label": "量子-经典混合在 2+ 实际问题上超越经典最优解",
+          "description": "量子计算从「展示量子优越性」进化到「解决实际问题」。新药分子模拟、材料设计率先受益。",
+          "trigger_keywords": [
+            "quantum advantage",
+            "quantum supremacy",
+            "logical qubit",
+            "error correction",
+            "量子",
+            "Willow",
+            "practical quantum advantage",
+            "quantum error correction milestone",
+            "fault-tolerant qubit",
+            "量子纠错",
+            "logical qubit breakthrough"
+          ],
+          "lag_months": 66,
+          "children": [
+            {
+              "node": "drug_discovery_revolution",
+              "lag": 12
+            }
+          ],
+          "opportunity": "实用量子优势→药物发现/材料设计模拟时间从天→秒→重新定义计算范式。",
+          "tech_breakthroughs": [
+            {
+              "tech": "量子纠错逻辑量子比特",
+              "impact": "从100物理→1逻辑量子比特",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "量子-经典HPC混合",
+              "impact": "IBM Quantum System Two",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "超导→拓扑量子比特",
+              "impact": "错误率指数级降低",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "量子计算硬件",
+              "ticker": "IBM/Google/IONQ",
+              "tam": "$3B",
+              "cagr": "35%",
+              "stage": "early"
+            },
+            {
+              "theme": "量子软件",
+              "ticker": "D-Wave/QCI/Zapata",
+              "tam": "$1B",
+              "cagr": "50%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "后量子密码",
+              "ticker": "NIST/Arqit",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "drug_discovery_revolution",
+          "label": "新药分子模拟周期从 3 年→3 个月",
+          "description": "量子-经典混合 + AI 制药 → 候选药物筛选从数千个→数百万个。催化 AI 制药和材料科学双赛道爆发。",
+          "trigger_keywords": [
+            "drug discovery",
+            "molecular simulation",
+            "量子制药",
+            "AI pharmaceutical",
+            "分子模拟",
+            "quantum molecular simulation",
+            "量子分子模拟",
+            "AI quantum drug discovery"
+          ],
+          "lag_months": 78,
+          "children": [],
+          "tech_breakthroughs": [
+            {
+              "tech": "量子分子动力学模拟",
+              "impact": "候选药物筛选>106",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "AI+量子联合药物设计",
+              "impact": "分子模拟从天→秒",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "材料基因组计划加速",
+              "impact": "电池/催化材料发现×100",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "量子制药",
+              "ticker": "薛定谔(SDGR)/D-Wave",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "AI+量子材料",
+              "ticker": "Citrine/Materials Project",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "新药研发加速",
+              "ticker": "Moderna/Recursion",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "Transformer统治8年后，下一代架构(Mamba/SSM)若突破→推理效率5-10倍提升→边缘AI普及→$500B数据中心投资面临重构。量子计算同步进化→新药分子模拟周期3年→3月。"
+    },
+    {
+      "id": "ai_drug_cascade",
+      "label": "AI 制药临床 → 研发周期从 10 年→3 年",
+      "industry": "medical",
+      "seed_node": "ai_drug_phase3",
+      "nodes": [
+        {
+          "id": "ai_drug_phase3",
+          "label": "首个 AI 设计药物 Phase 3 阳性",
+          "description": "AI 从头设计的候选药物在 III 期临床达到主要终点。行业从「AI 辅助」变「AI 驱动」。",
+          "trigger_keywords": [
+            "AI drug",
+            "Phase 3",
+            "Isomorphic",
+            "Recursion",
+            "英矽智能",
+            "阳性",
+            "AI-designed drug",
+            "Phase 3 positive",
+            "AI discovered molecule",
+            "Insilico Medicine",
+            "Isomorphic Labs",
+            "Recursion phase 3"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "ai_engine_core",
+              "lag": 3
+            },
+            {
+              "node": "fda_ai_framework",
+              "lag": 6
+            }
+          ],
+          "opportunity": "Isomorphic Labs(DeepMind分拆)+Recursion+英矽智能是主要玩家。Phase 3阳性是行业「ChatGPT时刻」。",
+          "tech_breakthroughs": [
+            {
+              "tech": "AlphaFold3+扩散模型药物设计",
+              "impact": "蛋白-配体结合预测精度↑",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "AI临床试验患者筛选",
+              "impact": "入组成功率↑40%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "自动化实验室(机器人+AI)",
+              "impact": "合成通量×100",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI制药龙头",
+              "ticker": "Recursion(RXRX)/薛定谔(SDGR)",
+              "tam": "$5B",
+              "cagr": "40%",
+              "stage": "early"
+            },
+            {
+              "theme": "AI CRO替代",
+              "ticker": "药明康德(603259)/查尔斯河(CRL)",
+              "tam": "$50B",
+              "cagr": "20%",
+              "stage": "growth"
+            },
+            {
+              "theme": "AI制药中国",
+              "ticker": "英矽智能/晶泰科技",
+              "tam": "$2B",
+              "cagr": "50%",
+              "stage": "emerging"
+            }
+          ]
+        },
+        {
+          "id": "ai_engine_core",
+          "label": "AI 从「辅助工具」变「核心引擎」",
+          "description": "药企将 AI 从补充管线升格为一级研发策略。传统 CRO 模式（Covance/药明）面临降维打击。",
+          "trigger_keywords": [
+            "AI drug",
+            "pipeline",
+            "研发管线",
+            "AI 制药",
+            "CRO",
+            "AI-first drug discovery",
+            "AI driven pipeline",
+            "computational drug design",
+            "pharma AI strategy",
+            "big pharma AI partnership",
+            "药企AI合作"
+          ],
+          "lag_months": 3,
+          "children": [
+            {
+              "node": "pipeline_30pct",
+              "lag": 24
+            }
+          ],
+          "opportunity": "药企将AI从补充管线升格为一级研发策略→传统CRO模式面临降维打击。",
+          "tech_breakthroughs": [
+            {
+              "tech": "AI制药平台化(SaaS)",
+              "impact": "中小药企也能用AI研发",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "生成式分子设计",
+              "impact": "de novo药物从罕见变常规",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "CRO→AI-CRO转型",
+              "impact": "药明康德/Recursion模式之争",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI制药SaaS",
+              "ticker": "BenevolentAI/Absci",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "AI药物管线并购",
+              "ticker": "辉瑞/默克/罗氏",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "传统CRO转型",
+              "ticker": "药明生物(2269.HK)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "fda_ai_framework",
+          "label": "FDA 建立 AI 设计药物专项审批框架",
+          "description": "监管跟进技术：AI 设计药物的临床证据标准、模型可解释性要求、上市后监测体系正式出台。",
+          "trigger_keywords": [
+            "FDA",
+            "AI drug",
+            "approval framework",
+            "审批",
+            "guidance",
+            "regulatory",
+            "FDA AI guidance",
+            "AI drug regulation",
+            "regulatory framework AI drug",
+            "AI clinical trial"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "pipeline_30pct",
+              "lag": 18
+            }
+          ],
+          "opportunity": "监管框架出台→AI制药从「灰色地带」变「正式通道」→资本大量涌入。",
+          "tech_breakthroughs": [
+            {
+              "tech": "AI药物真实世界证据标准",
+              "impact": "审批不需要传统RCT",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "模型可解释性工具",
+              "impact": "监管审查周期从年→月",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "数字孪生临床试验",
+              "impact": "虚拟对照片替代真人",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI审批监管科技",
+              "ticker": "Veeva(VEEV)/Medidata",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "AI临床试验",
+              "ticker": "Science37/Medable",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "真实世界证据",
+              "ticker": "Tempus(TEM)/Flatiron",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "pipeline_30pct",
+          "label": "AI 制药管线占临床总数 30%+",
+          "description": "AI 设计的新分子实体占 FDA 新药申请的 30%+。全球新药研发周期从 10 年压缩至 3 年。",
+          "trigger_keywords": [
+            "pipeline",
+            "IND",
+            "NDA",
+            "新药申请",
+            "AI-designed",
+            "AI-designed IND",
+            "AI drug NDA",
+            "AI pharmaceutical pipeline share",
+            "AI-discovered molecule IND",
+            "AI pharma pipeline percentage",
+            "AI NDA submission",
+            "AI药研管线占比"
+          ],
+          "lag_months": 24,
+          "children": [
+            {
+              "node": "rnd_cost_10x",
+              "lag": 12
+            }
+          ],
+          "opportunity": "AI设计新分子实体占FDA新药申请30%+→全球新药研发周期从10年→3年。",
+          "tech_breakthroughs": [
+            {
+              "tech": "AI设计NME占比30%+",
+              "impact": "每3个新药1个AI设计",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "老药新用AI筛选",
+              "impact": "已批药物新适应症发现×10",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "AI制药IPO/并购潮",
+              "impact": "Isomorphic估值>$50B",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI制药指数",
+              "ticker": "关注ARKG/IBB",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "AI NME龙头",
+              "ticker": "Isomorphic/Recursion/Insilico",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "AI药物CDMO",
+              "ticker": "药明康德/三星生物",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "rnd_cost_10x",
+          "label": "新药研发每分子成本降至 1/10",
+          "description": "AI + 自动化实验室 → 从靶点发现到 IND 的成本从 $10 亿降至 $1 亿。罕见病药物经济学彻底改变。",
+          "trigger_keywords": [
+            "R&D cost",
+            "研发成本",
+            "cost per drug",
+            "自动化实验室",
+            "AI lab",
+            "drug R&D cost reduction",
+            "AI lab automation",
+            "automated drug discovery",
+            "研发成本降低"
+          ],
+          "lag_months": 36,
+          "children": [],
+          "opportunity": "新药研发成本$10亿→$1亿→罕见病药物经济学彻底改变→200+罕见病首次有药可治。",
+          "tech_breakthroughs": [
+            {
+              "tech": "AI全自动实验室",
+              "impact": "从靶点到IND无人干预",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "罕见病AI药物经济学",
+              "impact": "200+罕见病首次有药",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "制药业摩尔定律",
+              "impact": "每18月研发成本减半",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "AI自动化实验室",
+              "ticker": "Arctoris/Transcriptic",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "罕见病AI药物",
+              "ticker": "Vertex/Biomarin",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "制药摩尔定律",
+              "ticker": "长期做多AI制药ETF",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "首个AI设计药物Phase 3阳性→AI从「辅助」变「核心引擎」→新药研发10年→3年→研发成本降至1/10。CRO模式(Covance/药明)面临降维打击。"
+    },
+    {
+      "id": "mrna_cascade",
+      "label": "mRNA 降本 → 个性化医疗普及",
+      "industry": "medical",
+      "seed_node": "mrna_cost_100",
+      "nodes": [
+        {
+          "id": "mrna_cost_100",
+          "label": "mRNA 癌症疫苗成本降至 $100/剂",
+          "description": "个性化生产标准化 + 冷链成熟 → 成本从 $1000 降至 $100。医保覆盖的经济门槛被打破。",
+          "trigger_keywords": [
+            "mRNA",
+            "cancer vaccine",
+            "成本",
+            "cost",
+            "Moderna",
+            "BioNTech",
+            "降本",
+            "mRNA manufacturing cost",
+            "mRNA cost reduction",
+            "personalized cancer vaccine cost"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "mrna_insurance",
+              "lag": 6
+            },
+            {
+              "node": "mrna_chronic",
+              "lag": 12
+            }
+          ],
+          "opportunity": "Moderna/BioNTech癌症疫苗III期推进中。成本降至$100/剂→经济门槛被打破。",
+          "tech_breakthroughs": [
+            {
+              "tech": "mRNA个性化生产自动化",
+              "impact": "从定制→标准化",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "LNP递送效率×5",
+              "impact": "剂量↓80%效果不变",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA冷链稳定方案",
+              "impact": "-20°C→4°C存储",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "mRNA龙头",
+              "ticker": "Moderna(MRNA)/BioNTech(BNTX)",
+              "tam": "$30B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "LNP递送",
+              "ticker": "Arbutus(ABUS)/Acuitas",
+              "tam": "$5B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "mRNA CDMO",
+              "ticker": "Catalent/药明生物",
+              "tam": "$10B",
+              "cagr": "35%",
+              "stage": "growth"
+            }
+          ]
+        },
+        {
+          "id": "mrna_insurance",
+          "label": "mRNA 癌症疫苗获医保全面覆盖",
+          "description": "成本降至 $100/剂 → 中美欧医保体系纳入。个性化治疗从「富人专属」变「公共卫生工具」。",
+          "trigger_keywords": [
+            "mRNA",
+            "insurance",
+            "医保",
+            "Medicare",
+            "coverage",
+            "reimbursement",
+            "mRNA Medicare coverage",
+            "cancer vaccine reimbursement",
+            "mRNA医保"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "mrna_standard",
+              "lag": 18
+            }
+          ],
+          "opportunity": "中美欧医保纳入→个性化治疗从「富人专属」变「公共卫生工具」。",
+          "tech_breakthroughs": [
+            {
+              "tech": "mRNA癌症疫苗NCCN指南纳入",
+              "impact": "从可选→标准方案",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "医保覆盖个性化治疗",
+              "impact": "精准医疗从富人→全民",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA生产GMP标准化",
+              "impact": "全球200+生产基地",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "mRNA医保受益",
+              "ticker": "Moderna/BioNTech",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "癌症疫苗商业化",
+              "ticker": "默克(Keytruda+Moderna)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "mRNA中国龙头",
+              "ticker": "沃森生物(300142)/康希诺",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "mrna_chronic",
+          "label": "mRNA 平台从传染病扩展到慢性病",
+          "description": "个性化癌症疫苗验证后，mRNA 技术向心血管、自身免疫、代谢疾病扩展。市场从传染病扩大 50 倍。",
+          "trigger_keywords": [
+            "mRNA",
+            "chronic",
+            "慢性病",
+            "cardiovascular",
+            "autoimmune",
+            "metabolic",
+            "mRNA cardiovascular",
+            "mRNA autoimmune",
+            "mRNA chronic disease",
+            "mRNA metabolic"
+          ],
+          "lag_months": 12,
+          "children": [
+            {
+              "node": "mrna_standard",
+              "lag": 12
+            }
+          ],
+          "opportunity": "从传染病→心血管/自身免疫/代谢病→市场扩大50倍。",
+          "tech_breakthroughs": [
+            {
+              "tech": "mRNA心血管适应症",
+              "impact": "PCSK9/Lp(a)疫苗",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA自身免疫病",
+              "impact": "多发性硬化/类风湿疫苗",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA代谢病",
+              "impact": "糖尿病/肥胖治疗性疫苗",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "mRNA心血管",
+              "ticker": "Moderna/Verona Pharma",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "mRNA自免病",
+              "ticker": "BioNTech/CureVac",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "mRNA代谢病",
+              "ticker": "看好mRNA跨界应用",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "mrna_standard",
+          "label": "个性化癌症疫苗成为标准疗法",
+          "description": "术后 mRNA 疫苗纳入 NCCN/CSCO 指南。从「可选辅助」变「标准方案」，覆盖 20+ 癌种。",
+          "trigger_keywords": [
+            "mRNA",
+            "standard of care",
+            "NCCN",
+            "指南",
+            "standard therapy",
+            "cancer vaccine",
+            "NCCN mRNA",
+            "standard of care cancer vaccine",
+            "mRNA adjuvant therapy"
+          ],
+          "lag_months": 24,
+          "children": [
+            {
+              "node": "vaccine_market_50x",
+              "lag": 24
+            }
+          ],
+          "opportunity": "术后mRNA疫苗纳入NCCN/CSCO指南→覆盖20+癌种。",
+          "tech_breakthroughs": [
+            {
+              "tech": "术后mRNA辅助治疗",
+              "impact": "20+癌种标准方案",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA新抗原预测AI",
+              "impact": "个性化疫苗设计<24h",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA+免疫检查点联合",
+              "impact": "冷肿瘤→热肿瘤",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "术后mRNA辅助",
+              "ticker": "Moderna-默克联合",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "mRNA新抗原预测",
+              "ticker": "Gritstone/GENentech",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "免疫检查点联合",
+              "ticker": "默克(MRK)/BMS",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "vaccine_market_50x",
+          "label": "全球疫苗市场从 $100B 扩大至 $500B",
+          "description": "个性化 + 慢性病双轮驱动。传统疫苗（流感/HPV）mRNA 化 + 治疗性疫苗成为最大品类。",
+          "trigger_keywords": [
+            "vaccine market",
+            "疫苗市场",
+            "mRNA market",
+            "market size",
+            "Moderna revenue",
+            "mRNA market forecast",
+            "therapeutic vaccine market",
+            "治疗性疫苗市场"
+          ],
+          "lag_months": 48,
+          "children": [],
+          "tech_breakthroughs": [
+            {
+              "tech": "治疗性疫苗平台化",
+              "impact": "mRNA/LNP/DNA/病毒载体",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "mRNA流感疫苗替代传统",
+              "impact": "每年10亿剂市场",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "全球mRNA产能100亿剂/年",
+              "impact": "大流行120天响应",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "mRNA平台指数",
+              "ticker": "ARKG/XBI",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "mRNA流感替代",
+              "ticker": "做多Moderna/辉瑞(PFE)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "全球mRNA产能",
+              "ticker": "看好生物制造设备",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "mRNA平台从COVID验证→癌症疫苗获批→成本$1000→$100/剂→医保覆盖→从传染病扩展到慢性病。全球疫苗市场$100B→$500B，个性化治疗从富人专属变公共卫生工具。"
+    },
+    {
+      "id": "gene_editing_cascade",
+      "label": "基因编辑体内递送 → 一次性治愈时代",
+      "industry": "medical",
+      "seed_node": "in_vivo_approved",
+      "nodes": [
+        {
+          "id": "in_vivo_approved",
+          "label": "首个体内(in vivo)基因编辑疗法获批",
+          "description": "无需体外操作的体内 CRISPR 疗法获 FDA/EMA 批准。从「抽血→编辑→回输」升级为「一针治愈」。",
+          "trigger_keywords": [
+            "in vivo",
+            "gene editing",
+            "体内编辑",
+            "FDA approved",
+            "获批",
+            "CRISPR",
+            "Intellia",
+            "in vivo CRISPR approved",
+            "in vivo gene editing FDA",
+            "体内基因编辑获批",
+            "Intellia approved",
+            "Verve approved"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "sickle_cured",
+              "lag": 6
+            },
+            {
+              "node": "allogeneic_cart",
+              "lag": 12
+            }
+          ],
+          "opportunity": "Intellia/Beam/Editas在研体内编辑疗法。获批=基因编辑的「iPhone时刻」→从体外变体内。",
+          "tech_breakthroughs": [
+            {
+              "tech": "LNP靶向肝脏递送",
+              "impact": "PCSK9/ATTR体内编辑",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "AAV衣壳定向进化",
+              "impact": "组织特异性递送×10",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "碱基编辑/先导编辑",
+              "impact": "CRISPR 2.0精准度↑100×",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "体内编辑龙头",
+              "ticker": "Intellia(NTLA)/Verve(VERV)",
+              "tam": "$3B",
+              "cagr": "45%",
+              "stage": "early"
+            },
+            {
+              "theme": "LNP/AAV递送",
+              "ticker": "Beam(BEAM)/Editas(EDIT)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "碱基编辑",
+              "ticker": "Beam Therapeutics",
+              "tam": "$2B",
+              "cagr": "50%",
+              "stage": "emerging"
+            }
+          ]
+        },
+        {
+          "id": "sickle_cured",
+          "label": "镰刀细胞贫血/β地贫获一次性根治方案",
+          "description": "Casgevy（ex vivo）已验证路径，体内编辑让 30 万+ 新生患儿每年获益。从终身管理变一次性治愈。",
+          "trigger_keywords": [
+            "sickle cell",
+            "thalassemia",
+            "镰刀",
+            "地贫",
+            "CRISPR",
+            "Casgevy",
+            "Vertex",
+            "sickle cell cure",
+            "beta-thalassemia gene therapy",
+            "Casgevy expansion",
+            "镰刀细胞治愈"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "common_disease_edit",
+              "lag": 36
+            }
+          ],
+          "opportunity": "镰刀细胞/β地贫30万+新生患儿每年受益→从终身管理变一次性治愈。",
+          "tech_breakthroughs": [
+            {
+              "tech": "ex vivo→in vivo编辑",
+              "impact": "从3周体外操作→一针",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "Casgevy适应症扩展",
+              "impact": "镰刀细胞→β地贫→血友病",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "体外编辑自动化",
+              "impact": "成本$2M→$200K",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "基因治疗商业化",
+              "ticker": "Vertex(VRTX)/CRISPR(CRSP)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "地贫市场",
+              "ticker": "bluebird bio(BLUE)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "基因编辑CDMO",
+              "ticker": "药明康德/龙沙(LONN.SW)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "allogeneic_cart",
+          "label": "通用型 CAR-T 价格从 $50 万降至 $5 万",
+          "description": "异体（通用型）CAR-T 量产 → 无需为每个患者单独制备。CAR-T 从血液肿瘤扩展到实体瘤。",
+          "trigger_keywords": [
+            "allogeneic",
+            "异体",
+            "通用型",
+            "cell therapy",
+            "细胞治疗",
+            "实体瘤",
+            "allogeneic CAR-T approved",
+            "off-the-shelf CAR-T",
+            "通用型CAR-T获批",
+            "allogeneic cell therapy"
+          ],
+          "lag_months": 12,
+          "children": [
+            {
+              "node": "common_disease_edit",
+              "lag": 30
+            }
+          ],
+          "opportunity": "异体CAR-T无需为每个患者单独制备→成本$50万→$5万→CAR-T从血液肿瘤扩展到实体瘤。",
+          "tech_breakthroughs": [
+            {
+              "tech": "iPSC衍生CAR-T",
+              "impact": "无限供应的通用型细胞",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "CAR-T实体瘤突破",
+              "impact": "肝癌/胃癌/胰腺癌",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "体内CAR-T(不取血)",
+              "impact": "患者体内直接编程T细胞",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "通用型CAR-T",
+              "ticker": "Allogene(ALLO)/CRISPR",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "CAR-T实体瘤",
+              "ticker": "Autolus/Gilead(KITE)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "iPSC-NK细胞",
+              "ticker": "Fate(FATE)/Century(IPSC)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "common_disease_edit",
+          "label": "体内编辑从罕见病扩展到常见病",
+          "description": "安全性验证后，体内编辑进入高胆固醇、高血压、阿尔茨海默等常见病。市场从 $10B 跳到 $200B。",
+          "trigger_keywords": [
+            "gene editing",
+            "common disease",
+            "常见病",
+            "PCSK9",
+            "Alzheimer",
+            "chronic",
+            "PCSK9 gene editing",
+            "gene editing cholesterol",
+            "体内编辑常见病",
+            "in vivo common disease"
+          ],
+          "lag_months": 42,
+          "children": [
+            {
+              "node": "chronic_spend_disrupted",
+              "lag": 24
+            }
+          ],
+          "opportunity": "体内编辑进入高胆固醇/高血压/阿尔茨海默→市场$10B→$200B。",
+          "tech_breakthroughs": [
+            {
+              "tech": "PCSK9体内编辑降胆固醇",
+              "impact": "一次性替代终身他汀",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "阿尔茨海默APOE4编辑",
+              "impact": "预防性基因治疗",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "体内编辑平台化",
+              "impact": "肝/肌肉/CNS多组织",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "PCSK9体内编辑",
+              "ticker": "Verve(VERV)/Intellia",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "阿尔茨海默预防",
+              "ticker": "长期布局基因治疗",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "体内编辑平台",
+              "ticker": "做多Intellia/Editas",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "chronic_spend_disrupted",
+          "label": "慢性病管理支出 $200B/年被颠覆",
+          "description": "一次性治愈替代终身服药 → 药企商业模式被迫从「卖药」转「卖治愈」。保险精算模型重写。",
+          "trigger_keywords": [
+            "chronic disease",
+            "spending",
+            "支出",
+            "one-time cure",
+            "商业模式",
+            "one-time gene therapy cost",
+            "curative gene therapy economics",
+            "gene therapy replaces chronic drugs"
+          ],
+          "lag_months": 66,
+          "children": [],
+          "opportunity": "一次性治愈替代终身服药→药企商业模式被迫从「卖药」转「卖治愈」→保险精算模型重写。",
+          "tech_breakthroughs": [
+            {
+              "tech": "一次性治愈替代慢性用药",
+              "impact": "药企商业模式重构",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "基因治疗价值定价模型",
+              "impact": "按治愈价值付费",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "保险精算重置",
+              "impact": "长期药费→一次性支付",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "治愈型药企",
+              "ticker": "Vertex/Spark/bluebird",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "替代传统药企",
+              "ticker": "做空慢性病药企",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "基因治疗保险",
+              "ticker": "保险科技/再保险",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "Casgevy(2023获批)验证ex vivo路径→体内编辑(in vivo)是下一跳→从抽血编辑回输升级到一针治愈。通用型CAR-T价格$50万→$5万→从血液肿瘤扩展到实体瘤。"
+    },
+    {
+      "id": "glp1_cascade",
+      "label": "GLP-1 口服 → 代谢健康重塑",
+      "industry": "medical",
+      "seed_node": "oral_glp1_approved",
+      "nodes": [
+        {
+          "id": "oral_glp1_approved",
+          "label": "口服 GLP-1 获批，免注射时代到来",
+          "description": "口服剂型生物利用度突破 → 每日一片替代每周注射。GLP-1 从「需要勇气」变「吃片药」。",
+          "trigger_keywords": [
+            "oral GLP-1",
+            "口服",
+            "orforglipron",
+            "司美格鲁肽",
+            "替尔泊肽",
+            "oral semaglutide approved",
+            "orforglipron approved",
+            "口服司美格鲁肽获批",
+            "口服GLP-1获批"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "glp1_capacity_2x",
+              "lag": 6
+            }
+          ],
+          "opportunity": "诺和诺德orforglipron+礼来orforglipron口服剂型→免注射时代→处方量从5000万→2亿。",
+          "tech_breakthroughs": [
+            {
+              "tech": "口服多肽递送技术",
+              "impact": "生物利用度5%→20%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "GLP-1/GIP双靶点",
+              "impact": "减重效果15%→25%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "GLP-1非酒精性脂肪肝",
+              "impact": "NASH第一个获批药",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "GLP-1双雄",
+              "ticker": "诺和诺德(NVO)/礼来(LLY)",
+              "tam": "$150B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "口服多肽技术",
+              "ticker": "看好口服递送平台",
+              "tam": "$20B",
+              "cagr": "40%",
+              "stage": "early"
+            },
+            {
+              "theme": "NASH第一个药",
+              "ticker": "Madrigal(MDGL)/Intercept",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "glp1_capacity_2x",
+          "label": "产能翻倍，全球缺货终结",
+          "description": "诺和诺德+礼来产能扩张完成（各 $10B+ 投资）。年处方量从 5000 万跳升至 2 亿。",
+          "trigger_keywords": [
+            "GLP-1",
+            "capacity",
+            "产能",
+            "Novo Nordisk",
+            "Eli Lilly",
+            "supply",
+            "GLP-1 capacity expansion",
+            "Novo Nordisk manufacturing",
+            "tirzepatide supply",
+            "semaglutide产能"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "glp1_200B_to_1000B",
+              "lag": 12
+            }
+          ],
+          "opportunity": "诺和诺德+礼来各$10B+产能投资→全球缺货终结→供给瓶颈解除。",
+          "tech_breakthroughs": [
+            {
+              "tech": "GLP-1连续流生产",
+              "impact": "产能↑300%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "多肽合成自动化",
+              "impact": "从月→天级生产周期",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "GLP-1生物类似药",
+              "impact": "2028专利到期→价格↓80%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "GLP-1制造设备",
+              "ticker": "Sartorius/赛多利斯",
+              "tam": "$8B",
+              "cagr": "35%",
+              "stage": "growth"
+            },
+            {
+              "theme": "多肽CDMO",
+              "ticker": "药明康德/Bachem(BCM.SW)",
+              "tam": "$15B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "GLP-1仿制药",
+              "ticker": "2028专利悬崖受益者",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "glp1_200B_to_1000B",
+          "label": "全球 GLP-1 市场从 $200 亿→$1000 亿/年",
+          "description": "口服+产能释放 → 10 亿肥胖人群中 2 亿获处方。GLP-1 成为史上最大单品药物类别。",
+          "trigger_keywords": [
+            "GLP-1",
+            "market",
+            "revenue",
+            "营收",
+            "Wegovy",
+            "Ozempic",
+            "Mounjaro",
+            "Zepbound",
+            "GLP-1 market forecast",
+            "obesity drug market",
+            "weight loss drug revenue",
+            "减肥药市场"
+          ],
+          "lag_months": 18,
+          "children": [
+            {
+              "node": "food_industry_shift",
+              "lag": 12
+            }
+          ],
+          "opportunity": "GLP-1成为史上最大单品药物类别→2030年$1500亿市场。",
+          "tech_breakthroughs": [
+            {
+              "tech": "GLP-1多适应症扩展",
+              "impact": "肥胖+糖尿病+NASH+AD",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "GLP-1联用方案",
+              "impact": "联合SGLT2/GIP/胰淀素",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "GLP-1市场规模>$1T预测",
+              "impact": "史上最大药物品类",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "GLP-1指数",
+              "ticker": "IBB/XLV",
+              "tam": "$150B",
+              "cagr": "30%",
+              "stage": "growth"
+            },
+            {
+              "theme": "中国市场",
+              "ticker": "信达生物(1801.HK)/恒瑞(600276)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "GLP-1多适应症",
+              "ticker": "长期做多NVO/LLY",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "food_industry_shift",
+          "label": "食品饮料行业被迫「低糖低卡」转型",
+          "description": "2 亿 GLP-1 用户食欲下降 30% → 零食/含糖饮料/快餐需求结构性萎缩。食品巨头被迫重构产品线。",
+          "trigger_keywords": [
+            "food industry",
+            "食品",
+            "低糖",
+            "low sugar",
+            "snack",
+            "food industry GLP-1 impact",
+            "snack sales decline",
+            "sugar consumption decline",
+            "低糖转型"
+          ],
+          "lag_months": 30,
+          "children": [
+            {
+              "node": "obesity_death_decline",
+              "lag": 36
+            }
+          ],
+          "opportunity": "2亿用户食欲下降30%→零食/含糖饮料/快餐结构性萎缩→食品巨头被迫重构产品线。",
+          "tech_breakthroughs": [
+            {
+              "tech": "GLP-1友好食品开发",
+              "impact": "高蛋白/低糖/控食欲",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "食品巨头并购GLP-1赛道",
+              "impact": "雀巢/百事投资代谢健康",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "餐饮业菜单重构",
+              "impact": "小份/高蛋白/代餐",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "健康食品",
+              "ticker": "雀巢/达能/农夫山泉(9633.HK)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "代餐/蛋白",
+              "ticker": "BellRing(BRBR)/Simply",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "减糖赛道",
+              "ticker": "做多代糖/做空传统糖",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "obesity_death_decline",
+          "label": "肥胖相关死亡每年减少 10 万+",
+          "description": "GLP-1 大规模使用 → 心血管/糖尿病/脂肪肝/睡眠呼吸暂停发病率断崖下降。公共卫生史最大转折之一。",
+          "trigger_keywords": [
+            "obesity",
+            "肥胖",
+            "mortality",
+            "死亡",
+            "cardiovascular",
+            "心血管",
+            "public health",
+            "GLP-1 mortality reduction",
+            "obesity mortality decline",
+            "肥胖死亡下降",
+            "cardiovascular mortality GLP-1"
+          ],
+          "lag_months": 66,
+          "children": [],
+          "opportunity": "心血管/糖尿病/脂肪肝发病率断崖下降→公共卫生史最大转折之一。",
+          "tech_breakthroughs": [
+            {
+              "tech": "GLP-1心血管获益RCT",
+              "impact": "MACE↓20%/死亡率↓15%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "肥胖=疾病认知转变",
+              "impact": "从生活方式→慢性病管理",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "GLP-1肾脏保护",
+              "impact": "CKD进展延迟50%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "肥胖治疗范式",
+              "ticker": "看好GLP-1长期",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "心血管获益",
+              "ticker": "做多NVO/LLY",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "肥胖药物经济学",
+              "ticker": "公共卫生支出重构",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "口服GLP-1获批→从每周注射变每日口服→产能翻倍消除缺货→年消费$200亿→$1000亿。10亿肥胖人口中2亿获处方→食品饮料行业被迫低糖转型→每年减10万+肥胖死亡。"
+    },
+    {
+      "id": "starship_cascade",
+      "label": "Starship 商用 → 地月经济开启",
+      "industry": "space",
+      "seed_node": "starship_commercial",
+      "nodes": [
+        {
+          "id": "starship_commercial",
+          "label": "Starship 上面级回收成功 + 商业发射",
+          "description": "SpaceX Starship 实现上面级（第二级）回收，完成首次商业载荷发射。发射成本从 $2,700/kg 降至 $200/kg。",
+          "trigger_keywords": [
+            "Starship",
+            "星舰",
+            "上面级",
+            "回收",
+            "commercial launch",
+            "SpaceX",
+            "Super Heavy",
+            "Starship upper stage recovery",
+            "Starship commercial payload",
+            "星舰商业发射",
+            "Starship booster catch"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "leo_capacity_10x",
+              "lag": 3
+            },
+            {
+              "node": "leo_100_sats",
+              "lag": 6
+            }
+          ],
+          "opportunity": "Starship商用发射=航天业的「集装箱革命」→发射成本降10倍→解锁在轨制造/太空旅游/月球基地。",
+          "tech_breakthroughs": [
+            {
+              "tech": "全流量分级燃烧引擎",
+              "impact": "Raptor 3推力330吨",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "上面级热防护瓦",
+              "impact": "再入温度耐受1650°C",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "空中捕获回收",
+              "impact": "Mechazilla塔架捕获",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "SpaceX(非上市)",
+              "ticker": "关注IPO/二级市场",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "航天供应链",
+              "ticker": "L3Harris(LHX)/Northrop(NOC)",
+              "tam": "$50B",
+              "cagr": "15%",
+              "stage": "growth"
+            },
+            {
+              "theme": "太空ETF",
+              "ticker": "ARKX/UFO/ROKT",
+              "tam": "$10B",
+              "cagr": "20%",
+              "stage": "growth"
+            }
+          ]
+        },
+        {
+          "id": "leo_capacity_10x",
+          "label": "低轨年运力从 100 吨跳至 1000+ 吨",
+          "description": "Starship 每周一发的节奏确立。单次 100-150 吨 LEO 运力 × 50 发/年 → 年运力突破千吨。",
+          "trigger_keywords": [
+            "Starship",
+            "运力",
+            "capacity",
+            "LEO",
+            "launch cadence",
+            "cadence",
+            "发射频率",
+            "Starship launch cadence",
+            "weekly Starship launch",
+            "Starship 每周发射"
+          ],
+          "lag_months": 3,
+          "children": [
+            {
+              "node": "orbital_manufacturing",
+              "lag": 18
+            }
+          ],
+          "opportunity": "低轨运力100→1000吨/年→太空从稀缺资源变充裕基建→卫星制造成本同步下降。",
+          "tech_breakthroughs": [
+            {
+              "tech": "Starship快速复用(<24h)",
+              "impact": "单枚火箭年发射>50次",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "轨道加注技术",
+              "impact": "LEO运力100→1000吨",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "不锈钢箭体成本革命",
+              "impact": "$/kg $2700→$200",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "发射经济爆发",
+              "ticker": "Rocket Lab(RKLB)/Astra",
+              "tam": "$20B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "卫星制造",
+              "ticker": "Terran Orbital/Redwire",
+              "tam": "$15B",
+              "cagr": "20%",
+              "stage": "growth"
+            },
+            {
+              "theme": "太空基建",
+              "ticker": "关注轨道加注/空间站",
+              "tam": "$30B",
+              "cagr": "30%",
+              "stage": "early"
+            }
+          ]
+        },
+        {
+          "id": "leo_100_sats",
+          "label": "Starship 单次部署 100+ 卫星",
+          "description": "Starlink V3 卫星通过 Starship 批量部署。星座建设周期从 5 年压缩至 2 年。",
+          "trigger_keywords": [
+            "Starship",
+            "Starlink",
+            "satellite",
+            "卫星",
+            "deployment",
+            "部署",
+            "batch",
+            "Starship Starlink deployment",
+            "Starlink V3 launch",
+            "100 satellite batch"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "direct_to_cell",
+              "lag": 12
+            }
+          ],
+          "opportunity": "Starlink V3批量部署→星座周期5年→2年→全球覆盖加速。",
+          "tech_breakthroughs": [
+            {
+              "tech": "Starlink V3卫星",
+              "impact": "单星容量1Tbps",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "卫星批量制造",
+              "impact": "日产10颗卫星",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "平板卫星堆叠发射",
+              "impact": "单次部署100+颗",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "卫星天线",
+              "ticker": "Gilat/ST Engineering",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "星载芯片",
+              "ticker": "AMD(XLNX)/Microchip",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "太阳能电池",
+              "ticker": "SolAero/ Spectrolab",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "orbital_manufacturing",
+          "label": "在轨制造/太空数据中心成为新产业",
+          "description": "运力过剩 + 成本暴跌 → 在轨 3D 打印、太空制药、轨道数据中心从科幻变工程问题。",
+          "trigger_keywords": [
+            "orbital manufacturing",
+            "在轨制造",
+            "space data center",
+            "in-space",
+            "ISAM",
+            "in-space manufacturing",
+            "orbital factory"
+          ],
+          "lag_months": 21,
+          "children": [
+            {
+              "node": "lunar_base_groundbreak",
+              "lag": 24
+            }
+          ],
+          "opportunity": "太空3D打印/制药/数据中心→全新产业诞生→$500B太空经济从政府项目变商业生态。",
+          "tech_breakthroughs": [
+            {
+              "tech": "太空3D打印",
+              "impact": "在轨制造无需从地面发射",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "微重力制药",
+              "impact": "蛋白结晶纯度↑100×",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "轨道数据中心",
+              "impact": "太空太阳能24/7+自然冷却",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "太空制造",
+              "ticker": "Redwire(RDW)/Varda",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "太空制药",
+              "ticker": "Merck ISS实验/Space Tango",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "轨道服务",
+              "ticker": "SpaceLogistics/Northrop",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "direct_to_cell",
+          "label": "手机直连卫星全球商用",
+          "description": "Starlink Direct-to-Cell + AST SpaceMobile → 普通手机无需改装即可连接卫星。无信号区成为历史。",
+          "trigger_keywords": [
+            "direct-to-cell",
+            "direct to cell",
+            "手机直连",
+            "AST SpaceMobile",
+            "Starlink D2C",
+            "卫星直连",
+            "direct-to-cell commercial",
+            "Starlink mobile service",
+            "AST SpaceMobile commercial",
+            "卫星直连商用"
+          ],
+          "lag_months": 18,
+          "children": [],
+          "opportunity": "手机直连卫星→普通手机无需改装→无信号区成为历史→5亿偏远人口首次接入互联网。",
+          "tech_breakthroughs": [
+            {
+              "tech": "Direct-to-Cell星载天线",
+              "impact": "25m²相控阵天线",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "4G/5G NTN标准",
+              "impact": "普通手机直连卫星",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "T-Mobile/AST商用",
+              "impact": "覆盖美国100%领土",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "卫星直连",
+              "ticker": "AST SpaceMobile(ASTS)",
+              "tam": "$10B",
+              "cagr": "40%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "手机卫星芯片",
+              "ticker": "高通(QCOM)/联发科",
+              "tam": "$5B",
+              "cagr": "35%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "T-Mobile受益",
+              "ticker": "TMUS/Verizon/AT&T",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "lunar_base_groundbreak",
+          "label": "月球南极基地开工 + 地月运输经济模型成立",
+          "description": "Starship HLS 着陆器 + 运力成本降低 → NASA/中国月球基地同步开工。月球水冰开采验证 → 推进剂在轨生产。",
+          "trigger_keywords": [
+            "lunar base",
+            "月球基地",
+            "Artemis",
+            "ILRS",
+            "嫦娥",
+            "moon mining",
+            "lunar south pole",
+            "Artemis lunar base",
+            "ILRS construction",
+            "lunar south pole base",
+            "moon base construction",
+            "月球基地建设"
+          ],
+          "lag_months": 45,
+          "children": [
+            {
+              "node": "cislunar_economy",
+              "lag": 60
+            }
+          ],
+          "opportunity": "月球南极基地开工→水冰开采验证→推进剂在轨生产→深空探测成本降至1/10。",
+          "tech_breakthroughs": [
+            {
+              "tech": "Starship HLS月球着陆器",
+              "impact": "100吨物资运至月面",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "月球水冰→推进剂",
+              "impact": "ISRU原位资源利用",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "月面3D打印居住舱",
+              "impact": "月壤烧结技术",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "月球基建",
+              "ticker": "Intuitive(LUNR)/Lunar",
+              "tam": "$5B",
+              "cagr": "50%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "ISRU资源利用",
+              "ticker": "航天工程/材料",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "月球通信",
+              "ticker": "Nokia/ Lockheed",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "cislunar_economy",
+          "label": "2030s 地月经济成形：采矿+中转+旅游",
+          "description": "月球水冰→推进剂→深空探测成本降至 1/10。地月空间从「政府项目」变「商业生态」。",
+          "trigger_keywords": [
+            "cislunar",
+            "地月",
+            "space economy",
+            "太空经济",
+            "lunar mining",
+            "space tourism",
+            "cislunar economy",
+            "space mining commercial",
+            "太空采矿",
+            "lunar tourism",
+            "月球旅游"
+          ],
+          "lag_months": 105,
+          "children": [],
+          "opportunity": "月球采矿+中转+旅游→2030s $500B地月经济成形。",
+          "tech_breakthroughs": [
+            {
+              "tech": "月球采矿(稀土/氦3)",
+              "impact": "月球→地月L1→地球",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "地月运输常态化",
+              "impact": "每月1班月球航班",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "太空旅游(绕月)",
+              "impact": "DearMoon之后商业绕月",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "地月经济",
+              "ticker": "2030s大主题",
+              "tam": "$50B",
+              "cagr": "—",
+              "stage": "vision"
+            },
+            {
+              "theme": "太空旅游",
+              "ticker": "SpaceX/Virgin Galactic",
+              "tam": "$10B",
+              "cagr": "30%",
+              "stage": "early"
+            },
+            {
+              "theme": "太空采矿",
+              "ticker": "AstroForge/TransAstra",
+              "tam": "$5B",
+              "cagr": "—",
+              "stage": "vision"
+            }
+          ]
+        }
+      ],
+      "thesis": "Starship上面级回收成功→发射成本$2,700→$200/kg→低轨年运力100→1000+吨。在轨制造/太空数据中心从科幻变工程→月球南极基地开工→2030s地月经济成形。"
+    },
+    {
+      "id": "leo_constellation_cascade",
+      "label": "低轨星座 → 全球无死角连接",
+      "industry": "space",
+      "seed_node": "leo_1000_sats_batch",
+      "nodes": [
+        {
+          "id": "leo_1000_sats_batch",
+          "label": "星座建设成本降至 $500/kg，千星批量部署",
+          "description": "Starship 商用 + 卫星批量制造 → 单次发射部署 100+ 卫星，星座建设周期从 5 年压缩至 2 年。",
+          "trigger_keywords": [
+            "Starlink",
+            "千帆",
+            "星网",
+            "Kuiper",
+            "OneWeb",
+            "constellation",
+            "星座",
+            "satellite batch",
+            "thousand satellite constellation",
+            "千帆星座",
+            "Starlink 万颗",
+            "国网星座"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "leo_global_cover",
+              "lag": 24
+            }
+          ],
+          "opportunity": "Starlink+千帆+星网+Kuiper→万颗卫星组网→星座建设周期5年→2年。",
+          "tech_breakthroughs": [
+            {
+              "tech": "激光星间链路",
+              "impact": "星座内延迟<20ms全球",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "电推进氪工质",
+              "impact": "卫星寿命5→10年",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "卫星自主避撞AI",
+              "impact": "万颗卫星安全共存",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "中国星座",
+              "ticker": "中国卫星(600118)/航天电子",
+              "tam": "$15B",
+              "cagr": "40%",
+              "stage": "early"
+            },
+            {
+              "theme": "卫星互联网",
+              "ticker": "Starlink(非上市)/OneWeb",
+              "tam": "$30B",
+              "cagr": "25%",
+              "stage": "growth"
+            },
+            {
+              "theme": "星座ETF",
+              "ticker": "ARKX/UFO",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "leo_global_cover",
+          "label": "低轨互联网覆盖全球 100% 陆地",
+          "description": "万颗卫星组网完成 → 赤道/极地/海洋全覆盖。5 亿偏远人口首次接入互联网。",
+          "trigger_keywords": [
+            "Starlink",
+            "coverage",
+            "global",
+            "全球",
+            "satellite internet",
+            "卫星互联网",
+            "Starlink global coverage",
+            "satellite internet global",
+            "卫星全球覆盖"
+          ],
+          "lag_months": 24,
+          "children": [
+            {
+              "node": "direct_to_cell_2",
+              "lag": 12
+            },
+            {
+              "node": "new_users_50M",
+              "lag": 12
+            }
+          ],
+          "opportunity": "万颗卫星组网→赤道/极地/海洋全覆盖→数字鸿沟以蛙跳方式填补。",
+          "tech_breakthroughs": [
+            {
+              "tech": "极轨+中轨混合星座",
+              "impact": "100%地表覆盖",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "星载计算+边缘节点",
+              "impact": "卫星不只是中继是服务器",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "多轨道协同(VLEO+LEO+MEO)",
+              "impact": "延迟<5ms+高带宽",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "卫星互联网运营",
+              "ticker": "Starlink IPO关注",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "偏远地区连接",
+              "ticker": "连接即服务",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "卫星地面终端",
+              "ticker": "Gilat/Ubiquiti",
+              "tam": "$5B",
+              "cagr": "30%",
+              "stage": "growth"
+            }
+          ]
+        },
+        {
+          "id": "direct_to_cell_2",
+          "label": "手机直连卫星成为手机标配功能",
+          "description": "从「专用设备」到「普通手机」→ iPhone/Android 旗舰内置卫星直连。每年 5 亿部新手机自带卫星通信。",
+          "trigger_keywords": [
+            "direct-to-cell",
+            "手机直连",
+            "satellite",
+            "iPhone",
+            "Android",
+            "卫星通信",
+            "T-Mobile",
+            "satellite direct-to-device",
+            "satellite smartphone",
+            "iPhone satellite",
+            "Android satellite messaging"
+          ],
+          "lag_months": 36,
+          "children": [
+            {
+              "node": "telecom_disrupted",
+              "lag": 24
+            }
+          ],
+          "opportunity": "iPhone/Android内置卫星直连→每年5亿部新手机自带卫星通信→卫星通信从专用装备变消费标配。",
+          "tech_breakthroughs": [
+            {
+              "tech": "3GPP Release 19 NTN",
+              "impact": "卫星直连标准化",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "手机卫星芯片集成",
+              "impact": "高通X85内置卫星",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "紧急SOS→宽带数据",
+              "impact": "从求救信号→视频通话",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "卫星通信芯片",
+              "ticker": "高通/联发科/展锐",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "Apple卫星功能",
+              "ticker": "Apple(AAPL)/Globalstar",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "3GPP NTN标准",
+              "ticker": "5G卫星融合",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "new_users_50M",
+          "label": "每年新增 5000 万偏远地区互联网用户",
+          "description": "非洲/南美/东南亚/大洋洲偏远地区 → 跳过光纤直连卫星。数字鸿沟以「蛙跳」方式填补。",
+          "trigger_keywords": [
+            "digital divide",
+            "数字鸿沟",
+            "Africa",
+            "remote",
+            "rural",
+            "connectivity",
+            "Starlink",
+            "Starlink Africa",
+            "satellite internet rural",
+            "digital divide satellite",
+            "偏远地区卫星"
+          ],
+          "lag_months": 36,
+          "children": [
+            {
+              "node": "telecom_disrupted",
+              "lag": 24
+            }
+          ],
+          "opportunity": "非洲/南美/东南亚偏远地区跳过光纤直连卫星→每年5000万新用户。",
+          "tech_breakthroughs": [
+            {
+              "tech": "低成本卫星终端<$100",
+              "impact": "非洲/南亚家庭可负担",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "卫星+地面混合网络",
+              "impact": "无缝切换+最优路径",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "数字教育/远程医疗",
+              "impact": "卫星互联网→社会基建",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "新兴市场互联网",
+              "ticker": "Jumia(JMIA)/Sea(SE)",
+              "tam": "$20B",
+              "cagr": "35%",
+              "stage": "early"
+            },
+            {
+              "theme": "数字支付",
+              "ticker": "M-Pesa/ Paytm",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "远程教育/医疗",
+              "ticker": "Coursera/Teladoc",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "telecom_disrupted",
+          "label": "传统电信运营商地面网络被边缘化",
+          "description": "卫星直连在覆盖/延迟/成本上全面逼近 5G → 农村基站建设停摆。运营商被迫从「建塔」转「租星」。",
+          "trigger_keywords": [
+            "telecom",
+            "disrupted",
+            "边缘化",
+            "5G vs satellite",
+            "satellite vs fiber",
+            "satellite vs telecom",
+            "direct-to-cell disruption",
+            "卫星替代基站",
+            "telecom disruption satellite"
+          ],
+          "lag_months": 60,
+          "children": [],
+          "opportunity": "卫星在覆盖/延迟/成本逼近5G→农村基站停摆→运营商从建塔转租星。",
+          "tech_breakthroughs": [
+            {
+              "tech": "卫星直连替代农村基站",
+              "impact": "铁塔公司(TowerCo)贬值",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "运营商从MNO→卫星分销商",
+              "impact": "T-Mobile+Starlink模式",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "频谱共享6G",
+              "impact": "地面+卫星统一频谱",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "电信运营商压力",
+              "ticker": "做空传统运营商",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "铁塔公司重估",
+              "ticker": "American Tower(AMT)/SBA",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "频谱6G",
+              "ticker": "看好卫星频谱运营商",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "星座成本$500/kg→千星批量部署→全球100%陆地覆盖→手机直连卫星→5亿偏远人口首次上网→电信运营商被迫从「建塔」转「租星」。"
+    },
+    {
+      "id": "evtol_cascade",
+      "label": "固态电池 → eVTOL 城际飞行商业化",
+      "industry": "drone",
+      "seed_node": "solid_battery_400",
+      "nodes": [
+        {
+          "id": "solid_battery_400",
+          "label": "固态电池 400Wh/kg 量产车型发布",
+          "description": "丰田/宁德时代固态电池量产 → 能量密度从 300→400Wh/kg。电动汽车续航突破 1000km，eVTOL 航程翻倍。",
+          "trigger_keywords": [
+            "solid state",
+            "固态电池",
+            "400Wh",
+            "Toyota",
+            "宁德时代",
+            "CATL",
+            "量产",
+            "energy density",
+            "solid-state battery production",
+            "固态电池量产车",
+            "400Wh/kg vehicle",
+            "全固态电池搭载"
+          ],
+          "lag_months": 0,
+          "children": [
+            {
+              "node": "evtol_range_250",
+              "lag": 6
+            }
+          ],
+          "opportunity": "丰田/宁德时代固态电池量产→能量密度300→400Wh/kg→电动车续航1000km+eVTOL航程翻倍。",
+          "tech_breakthroughs": [
+            {
+              "tech": "硫化物固态电解质",
+              "impact": "离子电导率>10mS/cm",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "锂金属负极",
+              "impact": "能量密度理论极限500Wh/kg",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "干法电极工艺",
+              "impact": "成本↓40%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "固态电池龙头",
+              "ticker": "丰田(TM)/宁德时代(300750)",
+              "tam": "$8B",
+              "cagr": "50%",
+              "stage": "early"
+            },
+            {
+              "theme": "固态电解质",
+              "ticker": "QuantumScape(QS)/辉能",
+              "tam": "$3B",
+              "cagr": "55%",
+              "stage": "early"
+            },
+            {
+              "theme": "锂金属负极",
+              "ticker": "SES(SES)/Solid Power(SLDP)",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "evtol_range_250",
+          "label": "eVTOL 航程从 50km 跳升至 250km",
+          "description": "固态电池能量密度翻倍 → eVTOL 从「城市内短途」升级到「城际飞行」。大湾区/长三角空中出租车网络可行。",
+          "trigger_keywords": [
+            "eVTOL",
+            "航程",
+            "250km",
+            "固态电池",
+            "solid state",
+            "Joby",
+            "Archer",
+            "eVTOL 250km range",
+            "eVTOL solid-state battery",
+            "Joby range extension",
+            "Archer range"
+          ],
+          "lag_months": 6,
+          "children": [
+            {
+              "node": "second_tc",
+              "lag": 6
+            }
+          ],
+          "opportunity": "航程50→250km→深圳→广州15分钟→大湾区空中出租车网络可行。",
+          "tech_breakthroughs": [
+            {
+              "tech": "倾转旋翼+eVTOL",
+              "impact": "巡航效率↑50%",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "分布式电推进(DEP)",
+              "impact": "冗余安全+噪音↓",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "eVTOL航电系统",
+              "impact": "自主飞行+感知避让",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "eVTOL主机厂",
+              "ticker": "Joby(JOBY)/Archer(ACHR)",
+              "tam": "$15B",
+              "cagr": "45%",
+              "stage": "early"
+            },
+            {
+              "theme": "中国eVTOL",
+              "ticker": "亿航(EH)/峰飞",
+              "tam": "$5B",
+              "cagr": "50%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "电机/电控",
+              "ticker": "赛峰/Honeywell",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "second_tc",
+          "label": "第二家 eVTOL 企业获适航证（TC）",
+          "description": "亿航后再一家获 CAAC/FAA 适航证 → 行业从「特例」变「品类」。适航标准成熟，审批加速。",
+          "trigger_keywords": [
+            "eVTOL",
+            "type certificate",
+            "适航",
+            "FAA",
+            "CAAC",
+            "Joby",
+            "Archer",
+            "亿航",
+            "EHang",
+            "Joby type certificate",
+            "Archer FAA certification",
+            "第二张适航证",
+            "Volocopter TC"
+          ],
+          "lag_months": 12,
+          "children": [
+            {
+              "node": "air_taxi_commercial",
+              "lag": 12
+            }
+          ],
+          "opportunity": "亿航后再一家获适航证→行业从特例变品类→适航标准成熟→审批加速。",
+          "tech_breakthroughs": [
+            {
+              "tech": "eVTOL适航标准成熟",
+              "impact": "FAA Part 21.17(b)",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "Joby S4/Archer Midnight",
+              "impact": "5座量产型eVTOL",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "亿航EH216-S无人驾驶TC",
+              "impact": "全球首个无人驾驶适航",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "eVTOL指数",
+              "ticker": "关注eVTOL ETF",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "适航服务",
+              "ticker": "适航认证/检测",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "eVTOL供应链",
+              "ticker": "赛峰/霍尼韦尔/Garmin",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "air_taxi_commercial",
+          "label": "大湾区「空中出租车」从演示变日常通勤",
+          "description": "深圳→广州 15 分钟、上海→杭州 25 分钟。票价从 $300 降至 $60，与高铁竞争。",
+          "trigger_keywords": [
+            "air taxi",
+            "空中出租车",
+            "commercial operation",
+            "商业运营",
+            "eVTOL route",
+            "航线",
+            "air taxi commercial route",
+            "eVTOL passenger service",
+            "空中出租车运营",
+            "Shenzhen air taxi"
+          ],
+          "lag_months": 24,
+          "children": [
+            {
+              "node": "evtol_replace_trips",
+              "lag": 24
+            }
+          ],
+          "opportunity": "票价$300→$60与高铁竞争→深圳广州15分钟→每年替代10亿次地面出行。",
+          "tech_breakthroughs": [
+            {
+              "tech": "eVTOL垂直起降机场",
+              "impact": "城市楼顶+停车场改造",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "低空交通管理系统(UTM)",
+              "impact": "无人机+直升机+eVTOL协同",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "电池快换系统",
+              "impact": "停机时间15→3分钟",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "城市空中交通",
+              "ticker": "Joby/Archer/亿航",
+              "tam": "$30B",
+              "cagr": "40%",
+              "stage": "early"
+            },
+            {
+              "theme": "垂直起降机场",
+              "ticker": "机场基建/地产",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "低空管理系统",
+              "ticker": "UTM/空管软件",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "evtol_replace_trips",
+          "label": "每年替代 10 亿次地面出行",
+          "description": "eVTOL 成为城际交通第三极（高铁+航空+eVTOL）。中国 50+ 城市开通空中出租车航线，全球复制。",
+          "trigger_keywords": [
+            "eVTOL",
+            "urban air mobility",
+            "UAM",
+            "空中交通",
+            "fleet",
+            "机队",
+            "城市空中",
+            "UAM commercial fleet",
+            "eVTOL fleet order",
+            "urban air mobility deployment",
+            "城市空中交通"
+          ],
+          "lag_months": 48,
+          "children": [
+            {
+              "node": "autonomous_evtol",
+              "lag": 36
+            }
+          ],
+          "tech_breakthroughs": [
+            {
+              "tech": "eVTOL机队管理",
+              "impact": "滴滴/Uber空中版",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "城市空中航线网络",
+              "impact": "50+城市300+航线",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "eVTOL制造规模效应",
+              "impact": "单价$2M→$500K",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "空中出租车平台",
+              "ticker": "滴滴/ Uber 空中版",
+              "tam": "$20B",
+              "cagr": "50%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "eVTOL租赁",
+              "ticker": "飞机租赁模式",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "城市航线运营",
+              "ticker": "区域交通运营商",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        },
+        {
+          "id": "autonomous_evtol",
+          "label": "无人驾驶 eVTOL 获商业运营许可",
+          "description": "亿航 EH216-S 已验证无人驾驶模式。全自主飞行 + 远程监控 → 运营成本再降 50%，安全记录超传统直升机。",
+          "trigger_keywords": [
+            "autonomous eVTOL",
+            "无人驾驶",
+            "EHang",
+            "self-flying",
+            "remote pilot",
+            "autonomous eVTOL certified",
+            "EHang autonomous approval",
+            "self-flying air taxi",
+            "无人驾驶eVTOL获批"
+          ],
+          "lag_months": 84,
+          "children": [],
+          "opportunity": "无人驾驶eVTOL获商业运营许可→运营成本再降50%→安全记录超传统直升机。",
+          "tech_breakthroughs": [
+            {
+              "tech": "L4自动驾驶eVTOL",
+              "impact": "无飞行员运营",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "城市空中交通自动调度",
+              "impact": "AI调度器替代ATC",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            },
+            {
+              "tech": "eVTOL安全冗余认证",
+              "impact": "10^-9/小时失效概率",
+              "maturity": {
+                "trl": "—",
+                "market": "—",
+                "cagr": "—",
+                "deploy": "—"
+              }
+            }
+          ],
+          "investable_themes": [
+            {
+              "theme": "无人驾驶eVTOL",
+              "ticker": "亿航(EH)/Wisk",
+              "tam": "$10B",
+              "cagr": "60%",
+              "stage": "emerging"
+            },
+            {
+              "theme": "自主飞行软件",
+              "ticker": "Daedalean/Skyryse",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            },
+            {
+              "theme": "城市空中安全",
+              "ticker": "低空安防/雷达",
+              "tam": "—",
+              "cagr": "—",
+              "stage": "—"
+            }
+          ]
+        }
+      ],
+      "thesis": "固态电池400Wh/kg量产→eVTOL航程50→250km→城际飞行商业化→大湾区空中出租车→每年替代10亿次地面出行→中国50+城市开通航线。"
+    }
+  ]
+}
