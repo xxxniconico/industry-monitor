@@ -27,12 +27,17 @@ st.markdown("""<style>
 .conclusion .body { color:#c8c8d0; font-size:14px; line-height:1.65; }
 .ind-section { margin:20px 0; }
 .ind-title { color:#c2ef4e; font-size:22px; font-weight:bold; margin-bottom:2px; border-bottom:1px solid #333355; padding-bottom:6px; }
-.tree { font-family: 'Courier New', monospace; font-size:13px; color:#a0a0b0; line-height:1.8; margin:12px 0; padding:14px; background:#1f1830; border-radius:8px; border:1px solid #2a2540; }
-.tree .root { color:#c2ef4e; font-weight:bold; }
-.tree .primary { color:#ffffff; }
-.tree .secondary { color:#a0a0b0; }
-.tree .arrow { color:#666688; }
-.tree .trl { font-size:11px; }
+.tree-container { padding: 8px 0; }
+.tree-node { position:relative; padding:6px 10px 6px 28px; margin:2px 0; border-radius:6px; background:#221b35; border-left:3px solid transparent; font-size:13px; }
+.tree-node.root-node { background:#251e38; font-weight:bold; padding-left:16px; }
+.tree-node .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:middle; }
+.tree-node .name { color:#d0d0d0; }
+.tree-node.root-node .name { color:#e8e8e8; }
+.tree-node .trl-tag { font-size:10px; margin-left:6px; padding:1px 6px; border-radius:6px; }
+.tree-node .score { float:right; font-size:16px; font-weight:bold; margin-left:12px; }
+.tree-line { position:absolute; left:12px; top:0; bottom:0; width:0; border-left:1px solid #444466; }
+.tree-node:last-child .tree-line { height:50%; }
+.tree-node .tree-branch { position:absolute; left:12px; top:50%; width:12px; height:0; border-top:1px solid #444466; }
 .chain-detail { background:#2a1f40; border-radius:8px; padding:12px 16px; margin:6px 0; border-left:4px solid; }
 .chain-detail .cname { font-size:15px; font-weight:bold; }
 .chain-detail .cmeta { font-size:11px; color:#8888a0; margin-top:2px; }
@@ -85,55 +90,72 @@ def score_chain(chain, items):
     return min(100, max(5, int(((signal_score + boost) * 0.6 + trl_score * 0.4) * urgency))), matches, cap
 
 
-def build_tree(chains, industry):
-    """Build a dependency tree for an industry."""
+def build_tree_html(chains, industry, items):
+    """Build a visual dependency tree using HTML/CSS."""
     chain_map = {c["id"]: c for c in chains["chains"]}
     ind_chains = [c for c in chains["chains"] if c["industry"] == industry]
-    
-    # Find roots (chains with no dependencies, or only depends on chains outside industry)
     all_ids = {c["id"] for c in ind_chains}
     roots = [c for c in ind_chains if not any(d in all_ids for d in c.get("depends_on",[]))]
-    # Also include chains that depend on roots from other industries
-    non_roots = [c for c in ind_chains if c not in roots]
     
-    lines = []
+    # Track which chains are already rendered as children
+    rendered = set()
     
-    def render_node(chain, prefix="", is_last=True):
-        connector = "└── " if is_last else "├── "
-        role_symbol = "◆" if chain["role"] == "primary" else "◇"
+    def render_node(chain, depth=0):
+        rendered.add(chain["id"])
+        score, _, _ = score_chain(chain, items)
         t = TIER[chain["tier"]]
-        bar = "█" * int(chain["trl"]) + "░" * (9 - int(chain["trl"]))
-        lines.append(f'{prefix}{connector}<span class="primary">{role_symbol} {chain["name"]}</span> <span class="trl" style="color:{t["color"]}">TRL {chain["trl"]:.1f} [{bar}]</span>')
+        is_root = depth == 0
+        role_icon = "◆" if chain["role"] == "primary" else "◇"
+        trl_pct = chain["trl"] / 9
         
-        # Show children
+        # Child chains
         children = [chain_map[d] for d in chain.get("drives",[]) if d in all_ids]
-        for i, child in enumerate(children):
-            child_prefix = prefix + ("    " if is_last else "│   ")
-            render_node(child, child_prefix, i == len(children) - 1)
-    
-    for i, root in enumerate(roots):
-        t = TIER[root["tier"]]
-        bar = "█" * int(root["trl"]) + "░" * (9 - int(root["trl"]))
-        tier_badge = f'<span style="color:{t["color"]}">[{t["label"]}]</span>'
-        lines.append(f'<span class="root">◆ {root["name"]}</span> {tier_badge} <span class="trl" style="color:{t["color"]}">TRL {root["trl"]:.1f} [{bar}]</span>')
+        has_children = len(children) > 0
         
-        children = [chain_map[d] for d in root.get("drives",[]) if d in all_ids]
-        for j, child in enumerate(children):
-            render_node(child, "", j == len(children) - 1)
+        # Indent
+        margin = depth * 24
         
-        if i < len(roots) - 1:
-            lines.append("")
+        # Build HTML
+        node_class = "tree-node root-node" if is_root else "tree-node"
+        
+        role_color = t["color"] if chain["role"] == "primary" else "#8888a0"
+        
+        html = f'<div class="{node_class}" style="margin-left:{margin}px;border-left-color:{t["color"]};">'
+        
+        # Tree connector lines for non-root nodes
+        if not is_root:
+            html += '<div class="tree-line"></div><div class="tree-branch"></div>'
+        
+        # Content
+        html += f'<span class="dot" style="background:{t["color"]};"></span>'
+        html += f'<span style="color:{role_color};">{role_icon}</span> '
+        html += f'<span class="name">{chain["name"]}</span>'
+        html += f'<span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">TRL {chain["trl"]:.1f}</span>'
+        html += f'<span class="score" style="color:{t["color"]};">{score}</span>'
+        html += '</div>'
+        
+        # Render children
+        for child in children:
+            html += render_node(child, depth + 1)
+        
+        return html
     
-    # Add chains that don't fit in the tree (depend on outside)
-    for c in non_roots:
-        if c not in roots and not any(c["id"] in chain_map[r["id"]].get("drives",[]) for r in roots):
+    # Render all root trees
+    full_html = '<div class="tree-container">'
+    for root in roots:
+        full_html += render_node(root, 0)
+    
+    # Orphan chains (depend on outside)
+    for c in ind_chains:
+        if c["id"] not in rendered:
+            score, _, _ = score_chain(c, items)
             t = TIER[c["tier"]]
-            bar = "█" * int(c["trl"]) + "░" * (9 - int(c["trl"]))
             ext_deps = [chain_map[d]["name"] for d in c.get("depends_on",[]) if d in chain_map and chain_map[d]["industry"] != industry]
-            dep_note = f' <span class="arrow">(依赖: {", ".join(ext_deps)})</span>' if ext_deps else ""
-            lines.append(f'<span class="root">◆ {c["name"]}</span> <span style="color:{t["color"]}">[{t["label"]}]</span> <span class="trl" style="color:{t["color"]}">TRL {c["trl"]:.1f} [{bar}]</span>{dep_note}')
+            dep_note = f' <span style="color:#8888a0;font-size:11px;">← {", ".join(ext_deps)}</span>' if ext_deps else ""
+            full_html += f'<div class="tree-node root-node" style="border-left-color:{t["color"]};margin-top:8px;"><span class="dot" style="background:{t["color"]};"></span>◆ <span class="name">{c["name"]}</span><span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">TRL {c["trl"]:.1f}</span>{dep_note}<span class="score" style="color:{t["color"]};">{score}</span></div>'
     
-    return "\n".join(lines)
+    full_html += '</div>'
+    return full_html
 
 
 def render_prediction_section(chains):
@@ -216,9 +238,9 @@ def main():
         st.markdown(f'<div class="ind-title">{IND[ind_key]}</div>', unsafe_allow_html=True)
         
         # Dependency tree
-        tree = build_tree(chains, ind_key)
+        tree = build_tree_html(chains, ind_key, items)
         if tree.strip():
-            st.markdown(f'<div class="tree">{tree}</div>', unsafe_allow_html=True)
+            st.markdown(tree, unsafe_allow_html=True)
         
         # Chain details (expanded)
         ind_chains = [c for c in chains["chains"] if c["industry"] == ind_key]
