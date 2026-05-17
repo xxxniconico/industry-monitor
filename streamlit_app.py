@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""Streamlit Cloud entry point — runs dashboard/app.py via import."""
-import sys, os, runpy
-
-repo_root = os.path.dirname(os.path.abspath(__file__))
-os.chdir(repo_root)
-sys.path.insert(0, repo_root)
-
-# Run dashboard/app.py as if it were __main__
-runpy.run_path(os.path.join(repo_root, "dashboard", "app.py"), run_name="__main__")
+"""Streamlit Cloud entry point"""
+import sys, os
+_dp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dashboard", "app.py")
+_code = compile(open(_dp).read(), _dp, "exec")
+# Set __file__ to dashboard/app.py so ROOT = Path(__file__).parent.parent works
+_ns = {"__name__": "__main__", "__file__": _dp}
+exec(_code, _ns)
