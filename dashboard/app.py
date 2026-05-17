@@ -309,18 +309,6 @@ def render_causal_chains(causal_data, ind_key, items):
         if thesis:
             html += f'<div class="causal-thesis">💡 {thesis}</div>'
 
-        # Counter signals + alternative triggers (chain-level meta)
-        meta_items = []
-        for node in order:
-            cs = node.get("counter_signal")
-            if cs:
-                meta_items.append(f'<span class="meta-badge meta-counter">{cs}</span>')
-            at = node.get("alternative_triggers")
-            if at:
-                meta_items.append(f'<span class="meta-badge meta-alt">{at}</span>')
-        if meta_items:
-            html += '<div class="causal-meta">' + "".join(meta_items) + '</div>'
-
         # Compute chain-level stats (used by both analysis + progress bar)
         n_total = len(order)
         n_trig = sum(1 for s in node_statuses.values() if s == "triggered")
