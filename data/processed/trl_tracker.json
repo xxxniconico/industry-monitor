@@ -1,10 +1,10 @@
 {
   "source": "trl_estimator",
-  "processed_at": "2026-05-17T05:56:16Z",
-  "total": 1205,
+  "processed_at": "2026-05-17T06:25:33Z",
+  "total": 1240,
   "industry_avg_trl": {
     "AI": 4.3,
-    "medical": 4.5,
+    "medical": 4.6,
     "space": 6.1,
     "drone": 5.5
   },
@@ -9422,6 +9422,321 @@
       "collector": "rss",
       "trl": 7,
       "rationale": "regulatory milestone (RSS)"
+    },
+    {
+      "id": "a0e31448f182d235",
+      "title": "WHO warns nicotine pouch brands targeting youth as sales surge",
+      "url": "https://www.who.int/news/item/15-05-2026-who-warns-nicotine-pouch-brands-targeting-youth-as-sales-surge",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "27cffbc1306665ff",
+      "title": "Follow-up message by the WHO Director-General to the people of Tenerife regarding the hantavirus response",
+      "url": "https://www.who.int/news/item/14-05-2026-follow-up-message-by-the-who-director-general-to-the-people-of-tenerife-regarding-the-hantavirus-response",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "467918bac5ccb485",
+      "title": "Tunisia validated by WHO as having eliminated trachoma as a public health problem",
+      "url": "https://www.who.int/news/item/14-05-2026-tunisia-validated-by-who-as-having-eliminated-trachoma-as-a-public-health-problem",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "f281e924159d0867",
+      "title": "Global health gains face threat of reversal",
+      "url": "https://www.who.int/news/item/13-05-2026-global-health-gains-face-threat-of-reversal",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "d769096dbe91e8a2",
+      "title": "Message by the WHO Director-General to the people of Tenerife regarding the hantavirus response",
+      "url": "https://www.who.int/news/item/09-05-2026-message-by-the-who-director-general-to-the-people-of-tenerife-regarding-the-hantavirus-response",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "pilot or study (RSS)"
+    },
+    {
+      "id": "cea984eb90137589",
+      "title": "WHO’s response to hantavirus cases linked to a cruise ship",
+      "url": "https://www.who.int/news/item/07-05-2026-who-s-response-to-hantavirus-cases-linked-to-a-cruise-ship",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "e83d981f5f192756",
+      "title": "Joint call by the President of the ICRC, the Director-General of WHO and the International President of MSF",
+      "url": "https://www.who.int/news/item/04-05-2026-joint-call-by-the-president-of-the-icrc--the-director-general-of-who-and-the-international-president-of-msf",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "518eb42e80eae7ab",
+      "title": "WHO Member States agree to extend negotiations on Pathogen Access and Benefit Sharing annex",
+      "url": "https://www.who.int/news/item/01-05-2026-who-member-states-agree-to-extend-negotiations-on-pathogen-access-and-benefit-sharing-annex",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "0a8a778acaf3d528",
+      "title": "Australia becomes the 30th country to eliminate trachoma as a public health problem",
+      "url": "https://www.who.int/news/item/29-04-2026-australia-becomes-the-30th-country-to-eliminate-trachoma-as-a-public-health-problem",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "31709eb4b6827188",
+      "title": "Efforts to eliminate hepatitis delivers gains but more action needed to meet 2030 targets",
+      "url": "https://www.who.int/news/item/28-04-2026-efforts-to-eliminate-hepatitis-delivers-gains-but-more-action-needed-to-meet-2030-targets",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "77018c2b92f70d4f",
+      "title": "Practicing today for tomorrow’s emergencies – WHO convenes countries and partners to simulate response to major disease outbreak",
+      "url": "https://www.who.int/news/item/27-04-2026-practicing-today-for-tomorrow-s-emergencies-who-convenes-countries-and-partners-to-simulate-response-to-major-disease-outbreak",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "14fbd6184ef72f86",
+      "title": "WHO prequalifies first-ever malaria treatment for newborns and infants, adds new diagnostic tests",
+      "url": "https://www.who.int/news/item/24-04-2026-who-prequalifies-first-ever-malaria-treatment-for-newborns-and-infants-adds-new-diagnostic-tests",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "c350bb552502953b",
+      "title": "Largest catch-up initiative delivers over 100 million childhood vaccinations",
+      "url": "https://www.who.int/news/item/24-04-2026-largest-catch-up-initiative-delivers-over-100-million-childhood-vaccinations",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "79c8169f7f6a8cb2",
+      "title": "Algeria eliminates trachoma as a public health problem",
+      "url": "https://www.who.int/news/item/23-04-2026-algeria-eliminates-trachoma-as-a-public-health-problem",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "e5abf5f402e92bfb",
+      "title": "WHO reports measurable health impact in 2025 amid transition to new strategy",
+      "url": "https://www.who.int/news/item/23-04-2026-who-reports-measurable-health-impact-in-2025-amid-transition-to-new-strategy",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "00490646fb830e06",
+      "title": "WHO certifies the Bahamas for eliminating mother-to-child transmission of HIV",
+      "url": "https://www.who.int/news/item/22-04-2026-who-certifies-the-bahamas-for-eliminating-mother-to-child-transmission-of-hiv",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "390f9c15c6028a3d",
+      "title": "After three years of conflict, Sudan faces a deeper health crisis",
+      "url": "https://www.who.int/news/item/14-04-2026-after-three-years-of-conflict--sudan-faces-a-deeper-health-crisis",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "972ee1a2edcb376d",
+      "title": "First-ever WHO Forum unites 800+ Collaborating Centres for stronger scientific collaboration",
+      "url": "https://www.who.int/news/item/09-04-2026-first-ever-who-forum-unites-800--collaborating-centres-for-stronger-scientific-collaboration",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "e749c3966c3194e3",
+      "title": "WHO and France shift One Health vision to action with new high-impact initiatives",
+      "url": "https://www.who.int/news/item/07-04-2026-who-and-france-shift-one-health-vision-to-action-with-new-high-impact-initiatives",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "a4caec532239e185",
+      "title": "WHO calls for action: “Together for health. Stand with science.” to mark World Health Day",
+      "url": "https://www.who.int/news/item/06-04-2026-who-calls-for-action---together-for-health.-stand-with-science.--to-mark-world-health-day",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "24d8d79591e9f4c6",
+      "title": "WHO Member States agree to extend negotiations on key annex to the Pandemic Agreement",
+      "url": "https://www.who.int/news/item/28-03-2026-who-member-states-agree-to-extend-negotiations-on-key-annex-to-the-pandemic-agreement",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "b61d2d9a673ce1a8",
+      "title": "Encouraging progress in inclusive health policies for refugees and migrants",
+      "url": "https://www.who.int/news/item/26-03-2026-encouraging-progress-in-inclusive-health-policies-for-refugees-and-migrants",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "64226688c226db3c",
+      "title": "WHO recommends new diagnostic tools to help end TB",
+      "url": "https://www.who.int/news/item/24-03-2026-who-recommends-new-diagnostic-tools-to-help-end-tb",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "caa52725f94b66b8",
+      "title": "Progress in reducing child deaths slows as 4.9 million children die before age five",
+      "url": "https://www.who.int/news/item/18-03-2026-progress-in-reducing-child-deaths-slows-as-4.9-million-children-die-before-age-five",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "0c686885b3b771a6",
+      "title": "Conflict deepens health crisis across Middle East, WHO says",
+      "url": "https://www.who.int/news/item/11-03-2026-conflict-deepens-health-crisis-across-middle-east--who-says",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "8a8815937b3ca1b7",
+      "title": "Doceree launches Daily Command, an AI platform for brand teams co-built by pharma leaders",
+      "url": "https://www.fiercepharma.com/sponsored/doceree-launches-daily-command-ai-platform-brand-teams-co-built-pharma-leaders",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 8,
+      "rationale": "product launch (RSS)"
+    },
+    {
+      "id": "18b66393615f2bb0",
+      "title": "Master Protocols in Oncology: A Biostatistics Execution Perspective",
+      "url": "https://www.fiercepharma.com/resource/master-protocols-oncology-biostatistics-execution-perspective",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "pilot or study (RSS)"
+    },
+    {
+      "id": "17d37c648d1d2748",
+      "title": "How medication intelligence scales trust in healthcare tech innovation",
+      "url": "https://www.fiercepharma.com/resource/how-medication-intelligence-scales-trust-healthcare-tech-innovation",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "642c83f7f80f19ac",
+      "title": "Intelligent Automation has Changed Patient Support. Human Engagement Still Defines It.",
+      "url": "https://www.fiercepharma.com/premium/webinar/1380846",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "138867c78fafeb47",
+      "title": "Unified Biopharma AI CRM x MDM Solutions Must Have These Critical Capabilities",
+      "url": "https://www.fiercepharma.com/resource/unified-biopharma-ai-crm-x-mdm-solutions-must-have-these-critical-capabilities",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "1198a36ecf9bafea",
+      "title": "Integrated CDO capabilities reduce early development complexity",
+      "url": "https://www.fiercepharma.com/sponsored/integrated-cdo-capabilities-reduce-early-development-complexity",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "03c5da1aec4e237a",
+      "title": "Targeted Protein Degradation and Novel Modalities: Getting on the Frontline",
+      "url": "https://www.fiercepharma.com/sponsored/targeted-protein-degradation-and-novel-modalities-getting-frontline",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "54f7785c4d343ce3",
+      "title": "The Action Gap: Why Healthcare Engagement is Failing the Next-Step Moment",
+      "url": "https://www.fiercepharma.com/resource/action-gap-why-healthcare-keeps-mistaking-attention-progress",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
+    },
+    {
+      "id": "06747e568fc1c8e8",
+      "title": "Molecular Residual Disease: From Detection to Trial-Ready Application",
+      "url": "https://www.fiercepharma.com/premium/webinar/1380783",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "pilot or study (RSS)"
+    },
+    {
+      "id": "5b7c6757a8453804",
+      "title": "Patient First Starts with Process First: Transforming R&D with Celonis Process Intelligence and AI",
+      "url": "https://www.fiercepharma.com/premium/webinar/1380771",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "industry news (RSS)"
     },
     {
       "id": "6ef290568494d943",

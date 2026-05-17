@@ -10,7 +10,7 @@ from pathlib import Path
 import feedparser
 import requests
 
-USER_AGENT = "IndustryMonitor/1.0 (contact: industry-monitor@local)"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "data" / "raw" / "rss"
 
 FEEDS = [
@@ -24,8 +24,13 @@ FEEDS = [
     {"name": "OpenAI Blog", "url": "https://openai.com/blog/rss.xml", "industry": "AI"},
     {"name": "STAT News", "url": "https://www.statnews.com/feed/", "industry": "medical"},
     {
-        "name": "FDA News",
-        "url": "https://www.fda.gov/about-fda/contact-fda/rss-feeds/fda-news-releases/rss.xml",
+        "name": "WHO News",
+        "url": "https://www.who.int/rss-feeds/news-english.xml",
+        "industry": "medical",
+    },
+    {
+        "name": "FiercePharma",
+        "url": "https://www.fiercepharma.com/rss.xml",
         "industry": "medical",
     },
     {
