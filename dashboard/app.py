@@ -63,11 +63,14 @@ hr.div { border-color:#333355; margin:18px 0; }
 
 @st.cache_data(ttl=60)
 def load_all():
-    sp, cp = PROCESSED / "signals.json", MODELS / "tech_chains.json"
-    if not sp.exists(): return None, None, None
+    sp = PROCESSED / "signals.json"; cp = MODELS / "tech_chains.json"
+    scp = MODELS / "s_curve.json"; pp = MODELS / "porter.json"
+    if not sp.exists(): return None, None, None, None, None
     signals = json.loads(sp.read_text())
     chains = json.loads(cp.read_text()) if cp.exists() else {"chains":[]}
-    return signals, chains, signals.get("processed_at","")
+    s_curve = json.loads(scp.read_text()) if scp.exists() else {}
+    porter = json.loads(pp.read_text()) if pp.exists() else {}
+    return signals, chains, s_curve, porter, signals.get("processed_at","")
 
 
 def score_chain(chain, items):
@@ -233,7 +236,7 @@ def render_conclusion(chains, items):
 
 
 def main():
-    signals, chains, processed_at = load_all()
+    signals, chains, s_curve, porter, processed_at = load_all()
     
     st.markdown('<h1 style="color:#c2ef4e;margin-bottom:0;">📡 行业趋势监控</h1>', unsafe_allow_html=True)
     st.markdown(f'<span style="color:#8888a0;font-size:13px;">依赖树 · 三级分层 · 远期预测 ｜ {processed_at[:16] if processed_at else "—"}</span>', unsafe_allow_html=True)
@@ -246,6 +249,28 @@ def main():
     # ── CONCLUSION ──
     c = render_conclusion(chains, items)
     st.markdown(f'<div class="conclusion"><h3>📊 综合研判</h3><div class="body">{c}</div></div>', unsafe_allow_html=True)
+    
+    # ── FRAMEWORK SNAPSHOT ──
+    if s_curve and porter:
+        st.markdown('<h3 style="color:#c2ef4e;">📐 框架分析</h3>', unsafe_allow_html=True)
+        inds = s_curve.get("industries", {})
+        port = porter.get("industries", {})
+        cols = st.columns(4)
+        for i, (ind_key, label) in enumerate([("AI","🤖 AI"),("medical","🏥 医疗"),("space","🚀 航天"),("drone","🚁 低空")]):
+            sc = inds.get(ind_key, {})
+            pf = port.get(ind_key, {})
+            phase = sc.get("label", "—")
+            # Count increasing forces
+            inc = sum(1 for f in pf.values() if isinstance(f,dict) and f.get("trend")=="↑")
+            with cols[i]:
+                st.markdown(f"""
+                <div style="background:#251e38;border-radius:8px;padding:12px;border-top:3px solid {TIER['short']['color'] if ind_key=='AI' else TIER['medium']['color']};">
+                  <b style="color:#c2ef4e;">{label}</b><br>
+                  <span style="font-size:12px;color:#a0a0b0;">📍 {phase}</span><br>
+                  <span style="font-size:11px;color:#8888a0;">五力↑趋势: {inc}/6</span><br>
+                  <span style="font-size:10px;color:#666688;">→ {sc.get('next_phase_trigger','')[:50]}…</span>
+                </div>
+                """, unsafe_allow_html=True)
     
     # ── INDUSTRY TREES ──
     for ind_key in ["AI", "medical", "space", "drone"]:
