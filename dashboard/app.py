@@ -752,6 +752,10 @@ def render_conclusion(chains, items, alerts, trl_tracker, causal_data, node_scor
     active = [(t,c) for t,c in by_type.most_common() if c>0 and t!="市场"]
     if active:
         lines.append(f"活跃类型：{' · '.join(f'{t} {c}' for t,c in active[:5])}。")
+
+    # Signal source breakdown
+    src_types = Counter(s.get("collector","?") for s in items)
+    lines.append(f"📰 数据源：{' · '.join(f'{k} {v}' for k,v in src_types.most_common(4))}。")
     
     # Global alerts
     if global_alerts:
@@ -796,12 +800,7 @@ def render_conclusion(chains, items, alerts, trl_tracker, causal_data, node_scor
                 triggered.append(n["label"][:15])
         if triggered:
             lines.append(f"→ 已触发节点：{' · '.join(triggered[:3])}。")
-    
-    # ── Signal source highlight ──
-    from collections import Counter
-    src_types = Counter(s.get("collector","?") for s in items)
-    lines.append(f"📰 数据源：{' · '.join(f'{k} {v}' for k,v in src_types.most_common(4))}。")
-    
+
     return "<br>".join(lines)
 
 
