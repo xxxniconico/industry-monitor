@@ -107,10 +107,15 @@ hr.div { border-color:#362d59; margin:22px 0; }
 .causal-meta .meta-alt::before { content:"🔄 备选路径: "; color:#6090d0; font-weight:600; }
 /* Porter force badges */
 .causal-node .n-porter { display:flex; flex-wrap:wrap; gap:2px; justify-content:center; margin-top:2px; }
-.causal-node .n-porter .pf-badge { font-size:7px; padding:1px 4px; border-radius:3px; white-space:nowrap; }
+.causal-node .n-porter .pf-badge { font-size:9px; padding:2px 5px; border-radius:3px; white-space:nowrap; }
 .pf-accelerate { background:#1a2a1a; color:#8ecf8e; }
 .pf-resist { background:#2a1a1a; color:#e0a0a0; }
 .pf-feedback { background:#1a1a2a; color:#a0a0e0; }
+/* Chain analysis block */
+.chain-analysis { background:#191e30; border-radius:10px; padding:16px 20px; margin:12px 0 4px; border:1px solid #2a3050; }
+.chain-analysis .ca-title { color:#c2ef4e; font-size:15px; font-weight:600; margin-bottom:10px; }
+.chain-analysis .ca-section { color:#c8c8d0; font-size:13px; line-height:1.65; margin:8px 0; padding:4px 0; border-bottom:1px solid #222840; }
+.chain-analysis .ca-section:last-child { border-bottom:none; }
 /* Framework cards */
 .framework-card { background:#221b35; border-radius:12px; padding:20px 24px; margin:12px 0; border:1px solid #362d59; box-shadow:rgba(0,0,0,0.08) 0px 4px 12px; }
 .framework-card h4 { color:#c2ef4e; font-size:16px; font-weight:600; margin:0 0 6px 0; }
@@ -316,11 +321,71 @@ def render_causal_chains(causal_data, ind_key, items):
         if meta_items:
             html += '<div class="causal-meta">' + "".join(meta_items) + '</div>'
 
-        # Chain progress bar
+        # Compute chain-level stats (used by both analysis + progress bar)
         n_total = len(order)
         n_trig = sum(1 for s in node_statuses.values() if s == "triggered")
         n_appr = sum(1 for s in node_statuses.values() if s == "approaching")
         n_pend = n_total - n_trig - n_appr
+
+        # ── Chain Analysis Block ──
+        triggered_nodes = [(n, node_statuses[n["id"]], node_final_scores[n["id"]]) for n in order if node_statuses[n["id"]] == "triggered"]
+        approaching_nodes = [(n, node_statuses[n["id"]], node_final_scores[n["id"]]) for n in order if node_statuses[n["id"]] == "approaching"]
+        # Porter force summary
+        all_forces = {}
+        for n in order:
+            for f in n.get("porter_forces", []):
+                key = f"{f['direction']} {f['force']}"
+                all_forces.setdefault(key, []).append(f.get("note",""))
+        
+        html += '<div class="chain-analysis">'
+        html += '<div class="ca-title">📊 链分析</div>'
+        
+        # Position
+        html += '<div class="ca-section">'
+        html += f'<strong>📍 当前位置:</strong> {n_total}节点链，{n_trig}🟢触发 {n_appr}🟡逼近 {n_pend}⚪待触发 (完成度 {int((n_trig+n_appr*0.5)/n_total*100)}%)'
+        if triggered_nodes:
+            html += '<br><span style="color:#4ecf4e;">🟢 已触发: </span>' + " · ".join(f"T+{n.get('lag_months',0)}月 {n['label']}" for n,_,_ in triggered_nodes)
+        if approaching_nodes:
+            html += '<br><span style="color:#efc24e;">🟡 逼近中: </span>' + " · ".join(f"T+{n.get('lag_months',0)}月 {n['label']}" for n,_,_ in approaching_nodes)
+        html += '</div>'
+        
+        # Porter forces
+        if all_forces:
+            html += '<div class="ca-section"><strong>📐 结构力场:</strong> '
+            force_lines = []
+            for key, notes in all_forces.items():
+                dir_icon = {"↗":"🟢","↘":"🔴","↻":"🔵"}.get(key[0],"")
+                force_lines.append(f'{dir_icon} {key} {"、".join(notes[:2])}'[:100])
+            html += "<br>".join(force_lines)
+            html += '</div>'
+        
+        # Risks
+        risks = []
+        for n in order:
+            cs = n.get("counter_signal")
+            if cs: risks.append(f"⚠️ {n['label'][:12]}: {cs}")
+            at = n.get("alternative_triggers")
+            if at: risks.append(f"🔄 {n['label'][:12]}: {at}")
+        if risks:
+            html += '<div class="ca-section"><strong>⚠️ 风险与备选:</strong> '
+            html += "<br>".join(r[:120] for r in risks[:4])
+            html += '</div>'
+        
+        # Investment highlights
+        invest_highlights = []
+        for n in order:
+            themes = n.get("investable_themes", [])
+            if themes:
+                best = max(themes, key=lambda t: {"growth":3,"early":2,"emerging":1,"declining":0,"vision":0}.get(t.get("stage",""),0))
+                invest_highlights.append(f"T+{n.get('lag_months',0)}月 → {best['theme']} ({best.get('tam','?')})")
+        if invest_highlights:
+            html += '<div class="ca-section"><strong>💰 投资主线:</strong> '
+            html += " · ".join(invest_highlights[:5])
+            html += '</div>'
+        
+        html += '</div>'
+
+        # Chain progress bar
         pct_trig = n_trig / n_total * 100
         pct_appr = n_appr / n_total * 100
         pct_pend = n_pend / n_total * 100
