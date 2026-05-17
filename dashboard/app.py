@@ -327,7 +327,7 @@ def render_causal_chains(causal_data, ind_key, items):
         n_appr = sum(1 for s in node_statuses.values() if s == "approaching")
         n_pend = n_total - n_trig - n_appr
 
-        # ── Chain Analysis Block ──
+        # ── Chain Analysis Block (collapsed) ──
         triggered_nodes = [(n, node_statuses[n["id"]], node_final_scores[n["id"]]) for n in order if node_statuses[n["id"]] == "triggered"]
         approaching_nodes = [(n, node_statuses[n["id"]], node_final_scores[n["id"]]) for n in order if node_statuses[n["id"]] == "approaching"]
         # Porter force summary
@@ -337,8 +337,16 @@ def render_causal_chains(causal_data, ind_key, items):
                 key = f"{f['direction']} {f['force']}"
                 all_forces.setdefault(key, []).append(f.get("note",""))
         
-        html += '<div class="chain-analysis">'
-        html += '<div class="ca-title">📊 链分析</div>'
+        # Summary line for the collapsed state
+        summary_parts = []
+        if n_trig: summary_parts.append(f"{n_trig}🟢触发")
+        if n_appr: summary_parts.append(f"{n_appr}🟡逼近")
+        summary_parts.append(f"完成度{int((n_trig+n_appr*0.5)/n_total*100)}%")
+        chain_summary = " · ".join(summary_parts)
+        
+        html += f'<details class="chain-analysis" style="cursor:pointer;">'
+        html += f'<summary class="ca-title" style="color:#c2ef4e;font-size:13px;">📊 链分析 <span style="color:#8888a0;font-weight:normal;font-size:12px;">{chain_summary}</span></summary>'
+        html += '<div style="margin-top:8px;">'
         
         # Position
         html += '<div class="ca-section">'
@@ -384,6 +392,7 @@ def render_causal_chains(causal_data, ind_key, items):
             html += '</div>'
         
         html += '</div>'
+        html += '</details>'
 
         # Chain progress bar
         pct_trig = n_trig / n_total * 100
