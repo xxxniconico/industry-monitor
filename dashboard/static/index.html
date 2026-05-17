@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Industry Monitor</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --border: #2d3a4d;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --accent: #3b82f6;
+      --accent2: #22c55e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    }
+    header h1 { margin: 0; font-size: 1.5rem; font-weight: 600; }
+    header p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.9rem; }
+    main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .metric {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .metric .val { font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+    .metric .lbl { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 768px) { .grid2 { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 { margin: 0 0 1rem; font-size: 1rem; font-weight: 600; }
+    .bar-row { margin-bottom: 0.6rem; }
+    .bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.2rem; }
+    .bar-track { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+    .bar-fill.green { background: var(--accent2); }
+    .filters {
+      display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; align-items: center;
+    }
+    .filters label { font-size: 0.85rem; color: var(--muted); }
+    .filters select, .filters input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 500; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .err {
+      background: #3f1d1d;
+      border: 1px solid #7f2d2d;
+      color: #fca5a5;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .err code { display: block; margin-top: 0.5rem; background: #1a0a0a; padding: 0.75rem; border-radius: 4px; }
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .tab {
+      padding: 0.5rem 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      background: var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Industry Monitor</h1>
+    <p>跨行业趋势监控 · AI / 医疗 / 航天 / 低空经济</p>
+  </header>
+  <main>
+    <div id="loading">正在加载数据…</div>
+    <div id="error" class="err" style="display:none"></div>
+    <div id="app" style="display:none">
+      <div class="metrics" id="metrics"></div>
+      <div class="tabs">
+        <div class="tab active" data-tab="overview">总览</div>
+        <div class="tab" data-tab="signals">信号</div>
+        <div class="tab" data-tab="trl">TRL</div>
+      </div>
+      <div id="panel-overview" class="panel active">
+        <div class="grid2">
+          <div class="card"><h2>信号类型</h2><div id="chart-type"></div></div>
+          <div class="card"><h2>行业分布</h2><div id="chart-industry"></div></div>
+        </div>
+        <div class="card"><h2>行业平均 TRL</h2><div id="chart-trl"></div></div>
+      </div>
+      <div id="panel-signals" class="panel">
+        <div class="card">
+          <div class="filters">
+            <label>行业 <select id="f-industry"><option value="">全部</option></select></label>
+            <label>信号 <select id="f-type"><option value="">全部</option></select></label>
+            <label>搜索 <input id="f-search" type="search" placeholder="标题关键词" /></label>
+          </div>
+          <div style="overflow-x:auto">
+            <table>
+              <thead><tr><th>标题</th><th>信号</th><th>行业</th><th>来源</th><th>时间</th></tr></thead>
+              <tbody id="tbl-signals"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="panel-trl" class="panel">
+        <div class="card"><h2>高 TRL 条目 (≥7)</h2><div id="tbl-trl"></div></div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const INDUSTRY = { AI: "AI", medical: "医疗", space: "航天", drone: "低空经济" };
+    const SIGNAL_ORDER = ["技术链", "资本", "技术", "监管", "市场", "人才", "基建"];
+    let signals = [], trlMap = {}, trlAvg = {};
+
+    function el(id) { return document.getElementById(id); }
+
+    function showError(msg, cmd) {
+      el("loading").style.display = "none";
+      el("error").style.display = "block";
+      el("error").innerHTML = msg + (cmd ? `<code>${cmd}</code>` : "");
+    }
+
+    function barChart(container, counts, maxVal) {
+      container.innerHTML = "";
+      const max = maxVal || Math.max(...Object.values(counts), 1);
+      for (const [label, n] of Object.entries(counts)) {
+        const pct = Math.round((n / max) * 100);
+        container.innerHTML += `
+          <div class="bar-row">
+            <div class="bar-label"><span>${label}</span><span>${n}</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+          </div>`;
+      }
+    }
+
+    function renderMetrics(data) {
+      el("metrics").innerHTML = `
+        <div class="metric"><div class="val">${data.total}</div><div class="lbl">信号总数</div></div>
+        <div class="metric"><div class="val">${Object.keys(data.by_industry || {}).length}</div><div class="lbl">行业</div></div>
+        <div class="metric"><div class="val">${(data.processed_at || "").slice(0, 10)}</div><div class="lbl">处理日期</div></div>
+        <div class="metric"><div class="val">${(data.by_type?.技术 || 0)}</div><div class="lbl">技术类信号</div></div>`;
+    }
+
+    function renderOverview(data) {
+      const byType = {};
+      SIGNAL_ORDER.forEach(t => { byType[t] = data.by_type?.[t] || 0; });
+      barChart(el("chart-type"), byType);
+
+      const byInd = {};
+      for (const [k, v] of Object.entries(data.by_industry || {}))
+        byInd[INDUSTRY[k] || k] = v;
+      barChart(el("chart-industry"), byInd);
+
+      const trlLabels = {};
+      for (const [k, v] of Object.entries(trlAvg))
+        trlLabels[INDUSTRY[k] || k] = v;
+      barChart(el("chart-trl"), trlLabels, 9);
+    }
+
+    function fillFilters() {
+      const inds = [...new Set(signals.map(s => s.industry))].sort();
+      const types = [...new Set(signals.map(s => s.signal_type))];
+      const si = el("f-industry"), st = el("f-type");
+      inds.forEach(i => { const o = document.createElement("option"); o.value = i; o.textContent = INDUSTRY[i] || i; si.appendChild(o); });
+      types.forEach(t => { const o = document.createElement("option"); o.value = t; o.textContent = t; st.appendChild(o); });
+    }
+
+    function renderTable() {
+      const fi = el("f-industry").value;
+      const ft = el("f-type").value;
+      const q = (el("f-search").value || "").toLowerCase();
+      let rows = signals.filter(s => {
+        if (fi && s.industry !== fi) return false;
+        if (ft && s.signal_type !== ft) return false;
+        if (q && !s.title.toLowerCase().includes(q)) return false;
+        return true;
+      }).slice(0, 150);
+      el("tbl-signals").innerHTML = rows.map(s => `
+        <tr>
+          <td>${s.url ? `<a href="${s.url}" target="_blank">${esc(s.title)}</a>` : esc(s.title)}</td>
+          <td><span class="badge">${esc(s.signal_type)}</span></td>
+          <td>${esc(INDUSTRY[s.industry] || s.industry)}</td>
+          <td>${esc(s.collector)}</td>
+          <td>${esc((s.published || "").slice(0, 10))}</td>
+        </tr>`).join("");
+    }
+
+    function renderTrl() {
+      const high = signals
+        .map(s => ({ ...s, trl: trlMap[s.id]?.trl, rationale: trlMap[s.id]?.rationale }))
+        .filter(s => s.trl >= 7)
+        .sort((a, b) => b.trl - a.trl)
+        .slice(0, 50);
+      el("tbl-trl").innerHTML = high.length ? `<table><thead><tr><th>标题</th><th>TRL</th><th>行业</th><th>依据</th></tr></thead><tbody>${
+        high.map(s => `<tr><td>${s.url ? `<a href="${s.url}" target="_blank">${esc(s.title)}</a>` : esc(s.title)}</td><td>${s.trl}</td><td>${esc(INDUSTRY[s.industry] || s.industry)}</td><td>${esc(s.rationale || "")}</td></tr>`).join("")
+      }</tbody></table>` : "<p style='color:var(--muted)'>无 TRL ≥ 7 的条目</p>";
+    }
+
+    function esc(s) {
+      const d = document.createElement("div");
+      d.textContent = s || "";
+      return d.innerHTML;
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+        tab.classList.add("active");
+        el("panel-" + tab.dataset.tab).classList.add("active");
+      });
+    });
+
+    ["f-industry", "f-type", "f-search"].forEach(id => {
+      el(id).addEventListener("input", renderTable);
+      el(id).addEventListener("change", renderTable);
+    });
+
+    async function load() {
+      try {
+        const [sigRes, trlRes] = await Promise.all([
+          fetch("/data/processed/signals.json"),
+          fetch("/data/processed/trl_tracker.json"),
+        ]);
+        if (!sigRes.ok) throw new Error("无法读取 signals.json (HTTP " + sigRes.status + ")");
+        const sigData = await sigRes.json();
+        signals = sigData.signals || [];
+        if (trlRes.ok) {
+          const trlData = await trlRes.json();
+          trlAvg = trlData.industry_avg_trl || {};
+          (trlData.items || []).forEach(i => { trlMap[i.id] = i; });
+        }
+        el("loading").style.display = "none";
+        el("app").style.display = "block";
+        renderMetrics(sigData);
+        renderOverview(sigData);
+        fillFilters();
+        renderTable();
+        renderTrl();
+      } catch (e) {
+        showError(
+          "加载失败：" + e.message + "<br><br>请先在项目根目录启动本地服务器（不要用 file:// 直接打开）：",
+          "cd ~/industry-monitor && chmod +x dashboard/serve.sh && ./dashboard/serve.sh"
+        );
+      }
+    }
+    load();
+  </script>
+</body>
+</html>
