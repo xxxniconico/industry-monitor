@@ -15,9 +15,9 @@ MODELS = ROOT / "data" / "models"
 
 IND = {"AI": "🤖 AI", "medical": "🏥 医疗", "space": "🚀 航天", "drone": "🚁 低空"}
 SIG_EMOJI = {"技术链":"🧬","资本":"💰","技术":"🔬","监管":"📋","市场":"📊","人才":"👥","基建":"🏗️"}
-TIER = {"short":{"label":"短期 0-12月","color":"#ef6060","bg":"#3a2020"},
-        "medium":{"label":"中期 1-3年","color":"#efc24e","bg":"#3a3020"},
-        "long":{"label":"长期 3-10年","color":"#4ec2ef","bg":"#203040"}}
+TIER = {"short":{"label":"短期 0-12月","color":"#ef6060","bg":"#3a2020","desc":"供应链瓶颈 · 产能爬坡 · 即刻机会"},
+        "medium":{"label":"中期 1-3年","color":"#efc24e","bg":"#3a3020","desc":"技术替代 · 渗透率拐点 · 布局窗口"},
+        "long":{"label":"长期 3-10年","color":"#4ec2ef","bg":"#203040","desc":"范式转换 · 基础研究 · 前瞻布局"}}
 
 # ── Theme ──
 st.set_page_config(page_title="行业趋势监控", page_icon="📡", layout="wide")
