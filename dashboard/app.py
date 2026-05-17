@@ -98,6 +98,13 @@ hr.div { border-color:#362d59; margin:22px 0; }
 .causal-evidence .ev-node.appr { border-left-color:#efc24e; background:#2a2a1a; color:#e0d0a0; }
 .causal-evidence .ev-node .ev-label { font-weight:600; color:#e5e7eb; display:block; margin-bottom:3px; font-size:13px; }
 .causal-evidence .ev-node .ev-desc { color:#a0a0b8; font-size:12px; }
+/* Counter signals + alternative triggers */
+.causal-meta { margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; }
+.causal-meta .meta-badge { font-size:10px; padding:4px 8px; border-radius:5px; line-height:1.3; max-width:280px; }
+.causal-meta .meta-counter { background:#2a1515; border:1px solid #5a3030; color:#e0a0a0; }
+.causal-meta .meta-counter::before { content:"⚠️ 反信号: "; color:#e06060; font-weight:600; }
+.causal-meta .meta-alt { background:#151a2a; border:1px solid #30405a; color:#a0c0e0; }
+.causal-meta .meta-alt::before { content:"🔄 备选路径: "; color:#6090d0; font-weight:600; }
 /* Framework cards */
 .framework-card { background:#221b35; border-radius:12px; padding:20px 24px; margin:12px 0; border:1px solid #362d59; box-shadow:rgba(0,0,0,0.08) 0px 4px 12px; }
 .framework-card h4 { color:#c2ef4e; font-size:16px; font-weight:600; margin:0 0 6px 0; }
@@ -154,6 +161,8 @@ def compute_node_score(node, items):
     if not kw:
         return 0.0, []
     now = datetime.now(timezone.utc)
+    # Per-node decay lambda: fast (AI apps) = 30, normal = 60, slow (semiconductor mfg) = 90, structural = 120
+    lamb = node.get("decay_lambda", 60)
     scored = []
     distinct_kw = set()
     for s in items:
@@ -169,7 +178,7 @@ def compute_node_score(node, items):
             age_days = max(0, (now - dt).total_seconds() / 86400)
         except Exception:
             age_days = 365
-        freshness = math.exp(-age_days / FRESHNESS_LAMBDA)
+        freshness = math.exp(-age_days / lamb)
         scored.append((s, conf * type_w * freshness, hit))
     if not scored:
         return 0.0, []
@@ -179,20 +188,30 @@ def compute_node_score(node, items):
     return total, [s for s, _, _ in scored[:5]]
 
 
-def eval_node_status(node, items, parent_scores=None):
-    """Full scoring model → (status, score, evidence)."""
+def eval_node_status(node, items, parent_scores=None, child_scores=None):
+    """Full scoring model → (status, score, evidence).
+    
+    Improvements over v1:
+    - Continuous upstream factor (not hard 0.3/0.7 cutoffs)
+    - Reverse inference: strong children → weak upstream boost
+    """
     score, evidence = compute_node_score(node, items)
-    # Upstream validation
+    # Upstream validation — continuous: 0.3 + 0.7*(min_parent/2.0), capped at 1.0
     upstream = 1.0
     if parent_scores:
         ps = parent_scores.get(node["id"], [])
         if ps:
             mp = min(ps)
-            if mp < 0.5:
-                upstream = 0.3   # parent completely dead → heavy suppress
-            elif mp < 2.0:
-                upstream = 0.7   # parent only approaching → moderate suppress
-    final = score * upstream
+            upstream = min(1.0, 0.3 + 0.7 * (mp / 2.0))
+    # Reverse inference: if node has zero score but children are strong, infer upstream activity
+    reverse_boost = 0.0
+    if child_scores and score < 0.5:
+        cs = child_scores.get(node["id"], [])
+        if cs:
+            avg_child = sum(cs) / len(cs)
+            if avg_child > 1.0:
+                reverse_boost = avg_child * 0.3  # boost up to ~0.9 for very strong children
+    final = max(score, reverse_boost) * upstream
     if final >= 2.0:
         return "triggered", round(final, 2), evidence
     elif final >= 0.5:
@@ -236,11 +255,13 @@ def render_causal_chains(causal_data, ind_key, items):
 
         # Build reverse dependency map for upstream validation
         parent_map = {}  # node_id → [parent_node_ids]
+        child_map = {}   # node_id → [child_node_ids]
         for node in order:
             for child in node.get("children", []):
                 cid = child.get("node")
                 if cid:
                     parent_map.setdefault(cid, []).append(node["id"])
+                    child_map.setdefault(node["id"], []).append(cid)
 
         # First pass: score all nodes without upstream (to get raw scores)
         raw_scores = {}
@@ -250,7 +271,7 @@ def render_causal_chains(causal_data, ind_key, items):
             raw_scores[node["id"]] = score
             node_evidence[node["id"]] = evidence
 
-        # Second pass: compute final status with upstream validation
+        # Second pass: compute final status with upstream validation + reverse inference
         node_statuses = {}
         node_final_scores = {}
         for node in order:
@@ -258,7 +279,11 @@ def render_causal_chains(causal_data, ind_key, items):
             parent_scores_map = {}
             for pid in parent_map.get(node["id"], []):
                 parent_scores_map.setdefault(node["id"], []).append(raw_scores.get(pid, 0))
-            status, score, evidence = eval_node_status(node, items, parent_scores_map)
+            # Collect child scores (for reverse inference)
+            child_scores_map = {}
+            for cid in child_map.get(node["id"], []):
+                child_scores_map.setdefault(node["id"], []).append(raw_scores.get(cid, 0))
+            status, score, evidence = eval_node_status(node, items, parent_scores_map, child_scores_map)
             node_statuses[node["id"]] = status
             node_final_scores[node["id"]] = score
 
@@ -272,6 +297,18 @@ def render_causal_chains(causal_data, ind_key, items):
         thesis = chain.get("thesis", "")
         if thesis:
             html += f'<div class="causal-thesis">💡 {thesis}</div>'
+
+        # Counter signals + alternative triggers (chain-level meta)
+        meta_items = []
+        for node in order:
+            cs = node.get("counter_signal")
+            if cs:
+                meta_items.append(f'<span class="meta-badge meta-counter">{cs}</span>')
+            at = node.get("alternative_triggers")
+            if at:
+                meta_items.append(f'<span class="meta-badge meta-alt">{at}</span>')
+        if meta_items:
+            html += '<div class="causal-meta">' + "".join(meta_items) + '</div>'
 
         # Chain progress bar
         n_total = len(order)

@@ -92,7 +92,9 @@
               "cagr": "40%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 90,
+          "counter_signal": "台积电宣布推迟CoWoS扩产；地震/停电停产"
         },
         {
           "id": "gb200_accel",
@@ -181,7 +183,9 @@
               "cagr": "60%",
               "stage": "emerging"
             }
-          ]
+          ],
+          "decay_lambda": 60,
+          "counter_signal": "英伟达宣布GB200再次延迟；美国收紧对华出口管制"
         },
         {
           "id": "hbm4_ramp",
@@ -266,7 +270,9 @@
               "cagr": "35%",
               "stage": "emerging"
             }
-          ]
+          ],
+          "decay_lambda": 90,
+          "counter_signal": "SK海力士宣布HBM4量产推迟至2027；火灾/地缘中断"
         },
         {
           "id": "cluster_ramp",
@@ -353,7 +359,10 @@
               "cagr": "45%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 60,
+          "counter_signal": "hyperscaler宣布削减AI capex；算力过剩导致ROI下降",
+          "alternative_triggers": "主权AI竞赛(中东/东南亚)驱动独立于hyperscaler的集群建设"
         },
         {
           "id": "optical_1t6",
@@ -437,7 +446,8 @@
               "cagr": "50%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "liquid_40pct",
@@ -517,7 +527,8 @@
               "cagr": "40%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "optical_ratio",
@@ -599,7 +610,8 @@
               "cagr": "50%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "inference_10x",
@@ -682,7 +694,10 @@
               "cagr": "40%",
               "stage": "growth"
             }
-          ]
+          ],
+          "decay_lambda": 30,
+          "counter_signal": "推理需求增速超过成本降速，总账单不降反升",
+          "alternative_triggers": "算法突破(如DeepSeek式创新)绕过硬件供给需求；模型蒸馏技术成熟"
         },
         {
           "id": "agent_90pct",
@@ -760,7 +775,10 @@
               "cagr": "30%",
               "stage": "growth"
             }
-          ]
+          ],
+          "decay_lambda": 30,
+          "counter_signal": "Agent失控事件导致监管刹车；开源Agent安全漏洞",
+          "alternative_triggers": "开源Agent框架(CrewAI/AutoGen)独立突破；非AI芯片的专用Agent硬件"
         }
       ],
       "thesis": "AI芯片链「总阀门」CoWoS一旦松动，从GPU→光模块→液冷→推理→Agent应用全链路加速。配比扩张是放大器：GPU:光模块每从1:4.5→1:8，光模块市场增速超过GPU。"
@@ -856,7 +874,8 @@
               "cagr": "45%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "siph_cost_half",
@@ -938,7 +957,8 @@
               "cagr": "-10%",
               "stage": "declining"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "siph_800g_std",
@@ -1000,7 +1020,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "cpo_production",
@@ -1082,7 +1103,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "optical_interconnect_chip",
@@ -1156,7 +1178,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "硅光用CMOS工艺替代InP材料→成本降至1/2后传统方案加速淘汰。中国厂商(旭创自研良率95%)成本优势质变，全球硅光市场CAGR 44%，2028年达6亿美元。"
@@ -1247,7 +1270,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 30
         },
         {
           "id": "edge_ai_boom",
@@ -1328,7 +1352,8 @@
               "cagr": "30%",
               "stage": "growth"
             }
-          ]
+          ],
+          "decay_lambda": 30
         },
         {
           "id": "datacenter_restructure",
@@ -1408,7 +1433,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "quantum_advantage",
@@ -1489,7 +1515,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "drug_discovery_revolution",
@@ -1561,7 +1588,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         }
       ],
       "thesis": "Transformer统治8年后，下一代架构(Mamba/SSM)若突破→推理效率5-10倍提升→边缘AI普及→$500B数据中心投资面临重构。量子计算同步进化→新药分子模拟周期3年→3月。"
@@ -1656,7 +1684,9 @@
               "cagr": "50%",
               "stage": "emerging"
             }
-          ]
+          ],
+          "decay_lambda": 90,
+          "counter_signal": "AI设计药物Phase 3失败 → 行业信任危机"
         },
         {
           "id": "ai_engine_core",
@@ -1737,7 +1767,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "fda_ai_framework",
@@ -1817,7 +1848,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "pipeline_30pct",
@@ -1899,7 +1931,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "rnd_cost_10x",
@@ -1973,7 +2006,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "首个AI设计药物Phase 3阳性→AI从「辅助」变「核心引擎」→新药研发10年→3年→研发成本降至1/10。CRO模式(Covance/药明)面临降维打击。"
@@ -2066,7 +2100,8 @@
               "cagr": "35%",
               "stage": "growth"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "mrna_insurance",
@@ -2145,7 +2180,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "mrna_chronic",
@@ -2225,7 +2261,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "mrna_standard",
@@ -2304,7 +2341,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "vaccine_market_50x",
@@ -2376,7 +2414,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "mRNA平台从COVID验证→癌症疫苗获批→成本$1000→$100/剂→医保覆盖→从传染病扩展到慢性病。全球疫苗市场$100B→$500B，个性化治疗从富人专属变公共卫生工具。"
@@ -2471,7 +2510,8 @@
               "cagr": "50%",
               "stage": "emerging"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "sickle_cured",
@@ -2552,7 +2592,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "allogeneic_cart",
@@ -2632,7 +2673,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "common_disease_edit",
@@ -2712,7 +2754,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "chronic_spend_disrupted",
@@ -2785,7 +2828,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "Casgevy(2023获批)验证ex vivo路径→体内编辑(in vivo)是下一跳→从抽血编辑回输升级到一针治愈。通用型CAR-T价格$50万→$5万→从血液肿瘤扩展到实体瘤。"
@@ -2873,7 +2917,9 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60,
+          "counter_signal": "口服GLP-1安全性问题(甲状腺癌)；医保拒付"
         },
         {
           "id": "glp1_capacity_2x",
@@ -2953,7 +2999,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "glp1_200B_to_1000B",
@@ -3035,7 +3082,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "food_industry_shift",
@@ -3114,7 +3162,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "obesity_death_decline",
@@ -3190,7 +3239,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "口服GLP-1获批→从每周注射变每日口服→产能翻倍消除缺货→年消费$200亿→$1000亿。10亿肥胖人口中2亿获处方→食品饮料行业被迫低糖转型→每年减10万+肥胖死亡。"
@@ -3284,7 +3334,10 @@
               "cagr": "20%",
               "stage": "growth"
             }
-          ]
+          ],
+          "decay_lambda": 120,
+          "counter_signal": "Starship试飞失败导致FAA停飞令",
+          "alternative_triggers": "中国长征九号/蓝箭朱雀三号实现同级别能力"
         },
         {
           "id": "leo_capacity_10x",
@@ -3364,7 +3417,8 @@
               "cagr": "30%",
               "stage": "early"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "leo_100_sats",
@@ -3444,7 +3498,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "orbital_manufacturing",
@@ -3521,7 +3576,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "direct_to_cell",
@@ -3596,7 +3652,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "lunar_base_groundbreak",
@@ -3678,7 +3735,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         },
         {
           "id": "cislunar_economy",
@@ -3754,7 +3812,8 @@
               "cagr": "—",
               "stage": "vision"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "Starship上面级回收成功→发射成本$2,700→$200/kg→低轨年运力100→1000+吨。在轨制造/太空数据中心从科幻变工程→月球南极基地开工→2030s地月经济成形。"
@@ -3845,7 +3904,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "leo_global_cover",
@@ -3928,7 +3988,8 @@
               "cagr": "30%",
               "stage": "growth"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "direct_to_cell_2",
@@ -4009,7 +4070,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "new_users_50M",
@@ -4090,7 +4152,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "telecom_disrupted",
@@ -4164,7 +4227,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "星座成本$500/kg→千星批量部署→全球100%陆地覆盖→手机直连卫星→5亿偏远人口首次上网→电信运营商被迫从「建塔」转「租星」。"
@@ -4255,7 +4319,9 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120,
+          "counter_signal": "固态电池量产跳票；液态锂电池突破替代路径"
         },
         {
           "id": "evtol_range_250",
@@ -4336,7 +4402,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "second_tc",
@@ -4419,7 +4486,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "air_taxi_commercial",
@@ -4499,7 +4567,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 60
         },
         {
           "id": "evtol_replace_trips",
@@ -4579,7 +4648,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 90
         },
         {
           "id": "autonomous_evtol",
@@ -4653,7 +4723,8 @@
               "cagr": "—",
               "stage": "—"
             }
-          ]
+          ],
+          "decay_lambda": 120
         }
       ],
       "thesis": "固态电池400Wh/kg量产→eVTOL航程50→250km→城际飞行商业化→大湾区空中出租车→每年替代10亿次地面出行→中国50+城市开通航线。"
