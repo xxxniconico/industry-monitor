@@ -94,7 +94,19 @@
             }
           ],
           "decay_lambda": 90,
-          "counter_signal": "台积电宣布推迟CoWoS扩产；地震/停电停产"
+          "counter_signal": "台积电宣布推迟CoWoS扩产；地震/停电停产",
+          "porter_forces": [
+            {
+              "force": "供应商力",
+              "direction": "↗",
+              "note": "台积电扩产=释放瓶颈"
+            },
+            {
+              "force": "供应商力",
+              "direction": "↘",
+              "note": "独家垄断95%=涨价风险"
+            }
+          ]
         },
         {
           "id": "gb200_accel",
@@ -185,7 +197,19 @@
             }
           ],
           "decay_lambda": 60,
-          "counter_signal": "英伟达宣布GB200再次延迟；美国收紧对华出口管制"
+          "counter_signal": "英伟达宣布GB200再次延迟；美国收紧对华出口管制",
+          "porter_forces": [
+            {
+              "force": "新进入者",
+              "direction": "↘",
+              "note": "英伟达护城河深，AMD/Intel难追赶"
+            },
+            {
+              "force": "买方力",
+              "direction": "↗",
+              "note": "hyperscaler抢货=需求拉动"
+            }
+          ]
         },
         {
           "id": "hbm4_ramp",
@@ -272,7 +296,19 @@
             }
           ],
           "decay_lambda": 90,
-          "counter_signal": "SK海力士宣布HBM4量产推迟至2027；火灾/地缘中断"
+          "counter_signal": "SK海力士宣布HBM4量产推迟至2027；火灾/地缘中断",
+          "porter_forces": [
+            {
+              "force": "供应商力",
+              "direction": "↘",
+              "note": "SK海力士/三星/美光三家垄断"
+            },
+            {
+              "force": "替代品",
+              "direction": "↗",
+              "note": "SOCAMM LPDDR5X在推理场景替代HBM"
+            }
+          ]
         },
         {
           "id": "cluster_ramp",
@@ -362,7 +398,19 @@
           ],
           "decay_lambda": 60,
           "counter_signal": "hyperscaler宣布削减AI capex；算力过剩导致ROI下降",
-          "alternative_triggers": "主权AI竞赛(中东/东南亚)驱动独立于hyperscaler的集群建设"
+          "alternative_triggers": "主权AI竞赛(中东/东南亚)驱动独立于hyperscaler的集群建设",
+          "porter_forces": [
+            {
+              "force": "买方力",
+              "direction": "↗",
+              "note": "hyperscaler追加订单=加速"
+            },
+            {
+              "force": "新进入者",
+              "direction": "↘",
+              "note": "xAI/Meta自建集群绕过传统云厂商"
+            }
+          ]
         },
         {
           "id": "optical_1t6",
@@ -447,7 +495,19 @@
               "stage": "early"
             }
           ],
-          "decay_lambda": 60
+          "decay_lambda": 60,
+          "porter_forces": [
+            {
+              "force": "竞争强度",
+              "direction": "↗",
+              "note": "旭创/Coherent竞争推快迭代"
+            },
+            {
+              "force": "替代品",
+              "direction": "↘",
+              "note": "CPO若提前商用替代可插拔模块"
+            }
+          ]
         },
         {
           "id": "liquid_40pct",
@@ -697,7 +757,19 @@
           ],
           "decay_lambda": 30,
           "counter_signal": "推理需求增速超过成本降速，总账单不降反升",
-          "alternative_triggers": "算法突破(如DeepSeek式创新)绕过硬件供给需求；模型蒸馏技术成熟"
+          "alternative_triggers": "算法突破(如DeepSeek式创新)绕过硬件供给需求；模型蒸馏技术成熟",
+          "porter_forces": [
+            {
+              "force": "竞争强度",
+              "direction": "↗",
+              "note": "DeepSeek/Qwen等开源模型压价"
+            },
+            {
+              "force": "替代品",
+              "direction": "↗",
+              "note": "模型蒸馏/量化绕过硬件需求"
+            }
+          ]
         },
         {
           "id": "agent_90pct",
@@ -778,7 +850,19 @@
           ],
           "decay_lambda": 30,
           "counter_signal": "Agent失控事件导致监管刹车；开源Agent安全漏洞",
-          "alternative_triggers": "开源Agent框架(CrewAI/AutoGen)独立突破；非AI芯片的专用Agent硬件"
+          "alternative_triggers": "开源Agent框架(CrewAI/AutoGen)独立突破；非AI芯片的专用Agent硬件",
+          "porter_forces": [
+            {
+              "force": "替代品",
+              "direction": "↗",
+              "note": "Agent替代人工=需求爆发"
+            },
+            {
+              "force": "互补生态",
+              "direction": "↘",
+              "note": "MCP协议碎片化=生态未成熟"
+            }
+          ]
         }
       ],
       "thesis": "AI芯片链「总阀门」CoWoS一旦松动，从GPU→光模块→液冷→推理→Agent应用全链路加速。配比扩张是放大器：GPU:光模块每从1:4.5→1:8，光模块市场增速超过GPU。"
@@ -1686,7 +1770,19 @@
             }
           ],
           "decay_lambda": 90,
-          "counter_signal": "AI设计药物Phase 3失败 → 行业信任危机"
+          "counter_signal": "AI设计药物Phase 3失败 → 行业信任危机",
+          "porter_forces": [
+            {
+              "force": "新进入者",
+              "direction": "↗",
+              "note": "Isomorphic/Recursion颠覆传统药企"
+            },
+            {
+              "force": "互补生态",
+              "direction": "↘",
+              "note": "FDA审批框架未建立=监管风险"
+            }
+          ]
         },
         {
           "id": "ai_engine_core",
@@ -2511,7 +2607,19 @@
               "stage": "emerging"
             }
           ],
-          "decay_lambda": 120
+          "decay_lambda": 120,
+          "porter_forces": [
+            {
+              "force": "互补生态",
+              "direction": "↘",
+              "note": "递送技术(LNP/AAV)未成熟"
+            },
+            {
+              "force": "替代品",
+              "direction": "↘",
+              "note": "小分子/抗体药仍是金标准"
+            }
+          ]
         },
         {
           "id": "sickle_cured",
@@ -2919,7 +3027,19 @@
             }
           ],
           "decay_lambda": 60,
-          "counter_signal": "口服GLP-1安全性问题(甲状腺癌)；医保拒付"
+          "counter_signal": "口服GLP-1安全性问题(甲状腺癌)；医保拒付",
+          "porter_forces": [
+            {
+              "force": "买方力",
+              "direction": "↗",
+              "note": "10亿肥胖人口=海量需求"
+            },
+            {
+              "force": "竞争强度",
+              "direction": "↗",
+              "note": "诺和诺德vs礼来双寡头竞赛"
+            }
+          ]
         },
         {
           "id": "glp1_capacity_2x",
@@ -3337,7 +3457,19 @@
           ],
           "decay_lambda": 120,
           "counter_signal": "Starship试飞失败导致FAA停飞令",
-          "alternative_triggers": "中国长征九号/蓝箭朱雀三号实现同级别能力"
+          "alternative_triggers": "中国长征九号/蓝箭朱雀三号实现同级别能力",
+          "porter_forces": [
+            {
+              "force": "新进入者",
+              "direction": "↘",
+              "note": "SpaceX先发优势+成本壁垒"
+            },
+            {
+              "force": "互补生态",
+              "direction": "↗",
+              "note": "在轨制造/太空旅游需求拉动"
+            }
+          ]
         },
         {
           "id": "leo_capacity_10x",
@@ -4321,7 +4453,19 @@
             }
           ],
           "decay_lambda": 120,
-          "counter_signal": "固态电池量产跳票；液态锂电池突破替代路径"
+          "counter_signal": "固态电池量产跳票；液态锂电池突破替代路径",
+          "porter_forces": [
+            {
+              "force": "替代品",
+              "direction": "↗",
+              "note": "固态替代液态锂电池"
+            },
+            {
+              "force": "新进入者",
+              "direction": "↗",
+              "note": "丰田/宁德时代跨界进入"
+            }
+          ]
         },
         {
           "id": "evtol_range_250",

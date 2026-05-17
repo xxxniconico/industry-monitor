@@ -105,6 +105,12 @@ hr.div { border-color:#362d59; margin:22px 0; }
 .causal-meta .meta-counter::before { content:"⚠️ 反信号: "; color:#e06060; font-weight:600; }
 .causal-meta .meta-alt { background:#151a2a; border:1px solid #30405a; color:#a0c0e0; }
 .causal-meta .meta-alt::before { content:"🔄 备选路径: "; color:#6090d0; font-weight:600; }
+/* Porter force badges */
+.causal-node .n-porter { display:flex; flex-wrap:wrap; gap:2px; justify-content:center; margin-top:2px; }
+.causal-node .n-porter .pf-badge { font-size:7px; padding:1px 4px; border-radius:3px; white-space:nowrap; }
+.pf-accelerate { background:#1a2a1a; color:#8ecf8e; }
+.pf-resist { background:#2a1a1a; color:#e0a0a0; }
+.pf-feedback { background:#1a1a2a; color:#a0a0e0; }
 /* Framework cards */
 .framework-card { background:#221b35; border-radius:12px; padding:20px 24px; margin:12px 0; border:1px solid #362d59; box-shadow:rgba(0,0,0,0.08) 0px 4px 12px; }
 .framework-card h4 { color:#c2ef4e; font-size:16px; font-weight:600; margin:0 0 6px 0; }
@@ -380,6 +386,14 @@ def render_causal_chains(causal_data, ind_key, items):
                         stage_emoji = {"emerging":"🌱","early":"🌿","growth":"🌳","declining":"🍂","vision":"🔮"}.get(stage,"")
                         html += f'<div class="ti-tam">{stage_emoji} {stage} · {tam} · {cagr}</div>'
                     html += '</div>'
+            # Porter force badges
+            pf = node.get("porter_forces", [])
+            if pf:
+                html += '<div class="n-porter">'
+                for f in pf:
+                    cls = "pf-accelerate" if f["direction"]=="↗" else ("pf-resist" if f["direction"]=="↘" else "pf-feedback")
+                    html += f'<span class="pf-badge {cls}">{f["direction"]} {f["force"]}</span>'
+                html += '</div>'
             html += '</div>'
 
             if i < len(order) - 1:
