@@ -1,9 +1,9 @@
 {
   "source": "cross_signal_engine",
-  "processed_at": "2026-05-17T12:30:10Z",
+  "processed_at": "2026-05-17T23:20:41Z",
   "global_alerts": [
-    "💰 全行业资本信号 210 条，处于历史活跃水平",
-    "📋 监管信号密集 (67条)，多行业政策窗口可能同时打开"
+    "💰 全行业资本信号 206 条，处于历史活跃水平",
+    "📋 监管信号密集 (66条)，多行业政策窗口可能同时打开"
   ],
   "hot_chains": [
     {
@@ -40,7 +40,7 @@
   "industry_alerts": [
     {
       "industry": "AI",
-      "total_signals": 1401,
+      "total_signals": 1392,
       "active_signals": [
         "技术链",
         "资本",
@@ -52,7 +52,7 @@
       ],
       "confluence_level": "🟢 强共振",
       "confluence_detail": "7 类信号同时活跃: 技术链, 资本, 技术, 监管, 市场, 人才, 基建",
-      "weighted_score": 171.2,
+      "weighted_score": 169.6,
       "s_curve_phase": "早期大众·增长期",
       "special_alerts": [
         "💰+🧬 资本与技术链共振 → 拐点临近",
@@ -82,11 +82,11 @@
       ],
       "signal_counts": {
         "市场": 893,
-        "资本": 158,
-        "技术链": 154,
+        "资本": 155,
+        "技术链": 149,
         "基建": 95,
         "技术": 58,
-        "监管": 39,
+        "监管": 38,
         "人才": 4
       }
     },
@@ -158,22 +158,22 @@
           "next_trigger": "Starship 商用后单次部署 100+ 卫星，星座成本降至 $500/kg"
         },
         {
-          "name": "Starship 复用",
-          "matches": 6,
-          "trl": 7.5,
-          "next_trigger": "Starship 商用发射（上面级成功回收）"
-        },
-        {
           "name": "Artemis 月球基地",
-          "matches": 6,
+          "matches": 7,
           "trl": 5.0,
           "next_trigger": "Artemis 3 载人登月成功（当前规划 2027）"
+        },
+        {
+          "name": "Starship 复用",
+          "matches": 5,
+          "trl": 7.5,
+          "next_trigger": "Starship 商用发射（上面级成功回收）"
         }
       ],
       "signal_counts": {
-        "市场": 75,
+        "市场": 76,
         "基建": 2,
-        "资本": 2,
+        "资本": 1,
         "技术链": 1
       }
     },

@@ -1,11 +1,11 @@
 {
   "source": "trl_estimator",
-  "processed_at": "2026-05-17T12:30:10Z",
-  "total": 1777,
+  "processed_at": "2026-05-17T23:20:41Z",
+  "total": 1768,
   "industry_avg_trl": {
     "AI": 6.3,
     "medical": 4.9,
-    "space": 5.7,
+    "space": 5.6,
     "drone": 5.3
   },
   "items": [
@@ -9244,6 +9244,51 @@
       "rationale": "news from OpenAI Blog"
     },
     {
+      "id": "02ada07c15f46d03",
+      "title": "STAT+: U.K. advocacy groups threaten court action over a key provision in the pharma trade deal with the U.S.",
+      "url": "https://www.statnews.com/pharmalot/2026/05/17/uk-advocates-threaten-court-action-over-pharma-trade-deal-with-us/?utm_campaign=rss",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "news from STAT News"
+    },
+    {
+      "id": "10a1fab4780896b8",
+      "title": "In Ebola outbreak, a number of Americans in the Congo believed to have had exposure to suspected cases",
+      "url": "https://www.statnews.com/2026/05/17/ebola-outbreak-congo-americans-exposure-suspected-cases/?utm_campaign=rss",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "news from STAT News"
+    },
+    {
+      "id": "0691471caa854498",
+      "title": "When should you get a mammogram? Conflicting advice makes it hard to know",
+      "url": "https://www.statnews.com/2026/05/17/when-should-you-get-a-mammogram-conflicting-advice/?utm_campaign=rss",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "news from STAT News"
+    },
+    {
+      "id": "0553243f77aa92f8",
+      "title": "STAT+: The hantavirus outbreak is prompting Covid flashbacks — including the conspiracies",
+      "url": "https://www.statnews.com/2026/05/17/hantavirus-outbreak-cruise-ship-covid-flashbacks-conspiracy-theories/?utm_campaign=rss",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "news from STAT News"
+    },
+    {
+      "id": "9f8d5dac73d59757",
+      "title": "STAT+: Sen. Bill Cassidy loses primary as race heads to run-off in win for Trump",
+      "url": "https://www.statnews.com/2026/05/17/bill-cassidy-loses-louisiana-primary-after-maga-maha-opposition/?utm_campaign=rss",
+      "industry": "medical",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "news from STAT News"
+    },
+    {
       "id": "a41c8e8672b6c9eb",
       "title": "WHO declares Ebola outbreak an international public health emergency",
       "url": "https://www.statnews.com/2026/05/17/who-ebola-drc-uganda-bundibugyo-pheic-public-health-emergency/?utm_campaign=rss",
@@ -9373,51 +9418,6 @@
       "id": "27c4074f9f6db54b",
       "title": "STAT+: Top U.S. officials pressured Germany to pay more for prescription drugs",
       "url": "https://www.statnews.com/2026/05/15/trump-administration-presses-germany-presciption-drug-prices/?utm_campaign=rss",
-      "industry": "medical",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "news from STAT News"
-    },
-    {
-      "id": "133eb90bb2f39d7d",
-      "title": "Opinion: Tributes to Craig Venter and the genomics race are missing something important",
-      "url": "https://www.statnews.com/2026/05/15/craig-venter-obituaries-human-genome-coding-race/?utm_campaign=rss",
-      "industry": "medical",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "news from STAT News"
-    },
-    {
-      "id": "b8198f23fef38b62",
-      "title": "Why isn’t alcohol seen as a public health emergency?",
-      "url": "https://www.statnews.com/2026/05/15/alcohol-as-public-health-emergency-status-report-alex-hogan/?utm_campaign=rss",
-      "industry": "medical",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "news from STAT News"
-    },
-    {
-      "id": "df0479a636134402",
-      "title": "Opinion: I’m 73. I wish my pills wouldn’t keep changing colors and shapes",
-      "url": "https://www.statnews.com/2026/05/15/pills-changing-colors-shape-generics-confusion/?utm_campaign=rss",
-      "industry": "medical",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "news from STAT News"
-    },
-    {
-      "id": "04dfcaf9da7e2092",
-      "title": "PSA screening for prostate cancer reduces disease-specific deaths, new review shows",
-      "url": "https://www.statnews.com/2026/05/14/psa-tests-reduce-risk-prostate-cancer-deaths-new-study-cochrane-review/?utm_campaign=rss",
-      "industry": "medical",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "news from STAT News"
-    },
-    {
-      "id": "1cda13fd8dafc27c",
-      "title": "Supreme Court preserves access to widely used abortion pill, while lawsuit plays out",
-      "url": "https://www.statnews.com/2026/05/14/supreme-court-preserves-access-abortion-pill-mifepristone/?utm_campaign=rss",
       "industry": "medical",
       "collector": "rss",
       "trl": 5,
@@ -11098,6 +11098,51 @@
       "rationale": "news from Semiconductor Engineering"
     },
     {
+      "id": "fb58d72832aff1ff",
+      "title": "Apple’s Siri revamp could include auto-deleting chats",
+      "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 6,
+      "rationale": "product launch"
+    },
+    {
+      "id": "1e24248a8b1072d1",
+      "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
+      "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "clinical/research update"
+    },
+    {
+      "id": "f1ee0692d166909d",
+      "title": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
+      "url": "https://techcrunch.com/2026/05/17/if-youre-giving-a-commencement-speech-in-2026-maybe-dont-mention-ai/",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from TechCrunch"
+    },
+    {
+      "id": "d5a7d0eb2bbd9505",
+      "title": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
+      "url": "https://techcrunch.com/2026/05/17/techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive/",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from TechCrunch"
+    },
+    {
+      "id": "1ab112a1783c4498",
+      "title": "For Eclipse, the $2.5B Cerebras win is just the start of realizing its  physical-world thesis",
+      "url": "https://techcrunch.com/2026/05/17/for-eclipse-the-2-5b-cerebras-win-is-just-the-start-of-realizing-its-physical-world-thesis/",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from TechCrunch"
+    },
+    {
       "id": "302020456d998f52",
       "title": "The haves and have nots of the AI gold rush",
       "url": "https://techcrunch.com/2026/05/16/the-haves-and-have-nots-of-the-ai-gold-rush/",
@@ -11233,51 +11278,6 @@
       "rationale": "news from TechCrunch"
     },
     {
-      "id": "64e915d96e0393ad",
-      "title": "Runway started by helping filmmakers — now it wants to beat Google at AI",
-      "url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from TechCrunch"
-    },
-    {
-      "id": "3ec8b09162b35605",
-      "title": "Even GoPro is pivoting to defense",
-      "url": "https://techcrunch.com/2026/05/15/even-gopro-is-pivoting-to-defense/",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from TechCrunch"
-    },
-    {
-      "id": "8fc9fe7ce78772ea",
-      "title": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
-      "url": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 6,
-      "rationale": "product launch"
-    },
-    {
-      "id": "b1e81d0d37dea63b",
-      "title": "Osaurus brings both local and cloud AI models to your Mac",
-      "url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from TechCrunch"
-    },
-    {
-      "id": "5598aba11396e6a7",
-      "title": "Indian Uber rival Rapido raises $240M at $3B valuation",
-      "url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from TechCrunch"
-    },
-    {
       "id": "ae6438674f1de4c4",
       "title": "Meet the Pioneers – British Transport Police",
       "url": "https://www.suasnews.com/2026/05/meet-the-pioneers-british-transport-police/",
@@ -11366,6 +11366,42 @@
       "collector": "rss",
       "trl": 4,
       "rationale": "news from sUAS News"
+    },
+    {
+      "id": "76d1f571e02ce6bb",
+      "title": "Watch NASA's new Mars helicopter rotor break the speed of sound (video)",
+      "url": "https://www.space.com/astronomy/mars/watch-nasas-new-mars-helicopter-rotor-break-the-speed-of-sound-video",
+      "industry": "space",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Space.com"
+    },
+    {
+      "id": "548e95ed233c7687",
+      "title": "Venus and a slender crescent moon steal the show after sunset on May 18",
+      "url": "https://www.space.com/stargazing/venus-and-a-slender-crescent-moon-steal-the-show-after-sunset-on-may-18-2026",
+      "industry": "space",
+      "collector": "rss",
+      "trl": 5,
+      "rationale": "chain keyword 'moon'"
+    },
+    {
+      "id": "e72a9bf3c09a54a0",
+      "title": "SpaceX Dragon capsule delivers science and supplies to space station",
+      "url": "https://www.space.com/space-exploration/international-space-station/spacex-dragon-capsule-delivers-science-and-supplies-to-space-station",
+      "industry": "space",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Space.com"
+    },
+    {
+      "id": "5c6e40555d35e9e6",
+      "title": "Watch an asteroid the size of a blue whale hurtle towards Earth live online May 18",
+      "url": "https://www.space.com/astronomy/asteroids/watch-an-asteroid-the-size-of-a-blue-whale-hurtle-towards-earth-live-online-may-18",
+      "industry": "space",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Space.com"
     },
     {
       "id": "907882333a87ca8f",
@@ -11782,42 +11818,6 @@
       "rationale": "news from Space.com"
     },
     {
-      "id": "9bb904811232bb6d",
-      "title": "Mesmerizing vortexes swirl near an Antarctic volcano | Space photo of the day for May 12, 2026",
-      "url": "https://www.space.com/astronomy/earth/mesmerizing-vortexes-swirl-near-an-antarctic-volcano-space-photo-of-the-day-for-may-12-2026",
-      "industry": "space",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Space.com"
-    },
-    {
-      "id": "dc49fec4ad68be5e",
-      "title": "Star Catcher just raised $65 million to build the world's first power grid in space — with lasers",
-      "url": "https://www.space.com/technology/star-catcher-just-raised-usd65-million-to-build-the-worlds-first-power-grid-in-space-with-lasers",
-      "industry": "space",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Space.com"
-    },
-    {
-      "id": "61ad2b913a0893ce",
-      "title": "Thousands of deaths per year caused by invisible wildfire pollutant, satellite data shows",
-      "url": "https://www.space.com/science/climate-change/a-hidden-wildfire-pollutant-causes-thousands-of-excess-deaths-per-year-satellite-data-shows",
-      "industry": "space",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Space.com"
-    },
-    {
-      "id": "af9617d5ccfcfc48",
-      "title": "SpaceX fuels up Starship V3 megarocket for 1st time ahead of crucial test flight (photos)",
-      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-fuels-up-starship-v3-megarocket-for-1st-time-ahead-of-crucial-test-flight-photos",
-      "industry": "space",
-      "collector": "rss",
-      "trl": 7,
-      "rationale": "chain keyword 'starship'"
-    },
-    {
       "id": "67368b8bd1cb6d77",
       "title": "A revolutionary cancer treatment could transform autoimmune disease",
       "url": "https://arstechnica.com/science/2026/05/a-revolutionary-cancer-treatment-could-transform-autoimmune-disease/",
@@ -11998,6 +11998,60 @@
       "rationale": "news from Ars Technica"
     },
     {
+      "id": "f40e6fbd3f425044",
+      "title": "Samsung 990 Pro gets discount of over $200 from recent highs — grab the 2TB model for $429.99",
+      "url": "https://www.tomshardware.com/pc-components/samsung-990-pro-gets-discount-of-over-usd200-from-recent-highs-grab-the-2tb-model-for-usd429-99",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Tom's Hardware"
+    },
+    {
+      "id": "905ad2db41223f6b",
+      "title": "Japan can’t make robot wolves fast enough to counter the rise in bear attacks that have killed 13 humans this year — $4,000+ animatronic Monster Wolf features intense LEDs and makes loud noises",
+      "url": "https://www.tomshardware.com/maker-stem/robot-kits/japan-cant-make-robot-wolves-fast-enough-to-counter-the-rise-in-bear-attacks-that-have-killed-13-humans-this-year-usd4-000-animatronic-monster-wolf-features-intense-leds-and-makes-loud-noises",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Tom's Hardware"
+    },
+    {
+      "id": "e4b5c948d62929b2",
+      "title": "ASML to equip India’s first commercial chip fab — $11 billion Dholera project targets 50,000 wafers a month",
+      "url": "https://www.tomshardware.com/tech-industry/asml-partners-with-tata-electronics-to-equip-indias-first-commercial-semiconductor-fab",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Tom's Hardware"
+    },
+    {
+      "id": "eafad2789fc405df",
+      "title": "LinkedIn user hides AI prompt injection in bio to force recruitment spam to be sent in Olde English prose — bots also manipulated to address user as ‘My Lord’",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/linkedin-recruitment-spam-becomes-olde-english-prose-after-user-hides-ai-prompt-injection-in-bio-bots-also-also-manipulated-to-address-user-as-my-lord",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Tom's Hardware"
+    },
+    {
+      "id": "155030f7e59f8861",
+      "title": "Russia’s Mikron is selling framed test wafers with up to 120,000 processors as souvenirs — 12 designs, priced around $170 each, sold alongside $2 vials of cleanroom air",
+      "url": "https://www.tomshardware.com/tech-industry/semiconductors/russias-mikron-is-selling-framed-test-wafers-with-up-to-120-000-processors-as-souvenirs-12-designs-priced-around-usd170-each-sold-alongside-usd2-vials-of-cleanroom-air",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Tom's Hardware"
+    },
+    {
+      "id": "c2dce423f3194df0",
+      "title": "Jay Forrester filed the first practical computer RAM patent 75 years ago this week — his Magnetic Core Memory patent would be granted five years later",
+      "url": "https://www.tomshardware.com/tech-industry/jay-forrester-filed-the-first-practical-ram-patent-75-years-ago-this-week",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from Tom's Hardware"
+    },
+    {
       "id": "a469f89fecf518fa",
       "title": "Forza Horizon 6 boots up in just 4 seconds instead of 90 with new Advanced Shader Delivery tech and AMD GPUs — Microsoft claims 95% reduction in gaming load times",
       "url": "https://www.tomshardware.com/pc-components/gpu-drivers/forza-horizon-6-boots-up-in-just-4-seconds-instead-of-90-with-new-advanced-shader-delivery-tech-and-amd-gpus-microsoft-claims-95-percent-reduction-in-gaming-load-times",
@@ -12017,7 +12071,7 @@
     },
     {
       "id": "bdec04e25a25a494",
-      "title": "Josef Prusa warns Chinese 3D printing software poses massive security risks — Bambu Lab allegedly violates AGPL license with an un-auditable network 'black box'",
+      "title": "Josef Prusa says Bambu Lab allegedly violates AGPL license with an un-auditable network 'black box' — warns Chinese 3D printing software poses massive security risks",
       "url": "https://www.tomshardware.com/3d-printing/josef-prusa-warns-chinese-3d-printing-software-poses-massive-security-risks-bambu-lab-allegedly-violates-agpl-license-with-an-un-auditable-network-black-box",
       "industry": "AI",
       "collector": "rss",
@@ -12388,60 +12442,6 @@
       "id": "be92ee718c5e8870",
       "title": "AMD reaches 46% of server x86 CPU revenue — Intel still controls 70% of the consumer PC market share",
       "url": "https://www.tomshardware.com/pc-components/cpus/amd-reaches-46-percent-of-server-x86-cpu-revenue-intel-still-controls-70-percent-of-the-consumer-pc-market-share",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Tom's Hardware"
-    },
-    {
-      "id": "05cff058fce145aa",
-      "title": "$499 case turns your PC into a liquid cooling masterpiece for your wall — Portal Advanced comes with an integrated distribution plate and reservoir to start of your build",
-      "url": "https://www.tomshardware.com/pc-components/pc-cases/usd499-case-turns-your-pc-into-a-liquid-cooling-masterpiece-for-your-wall-portal-advanced-comes-with-an-integrated-distribution-plate-and-reservoir-to-start-of-your-build",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 8,
-      "rationale": "chain keyword 'liquid cooling'"
-    },
-    {
-      "id": "6490b514380a812e",
-      "title": "Bitcoin trader recovers $400,000 using Claude AI after getting 'stoned' and losing wallet password 11 years ago — bot tried 3.5 trillion passwords before decrypting an old wallet backup",
-      "url": "https://www.tomshardware.com/tech-industry/cryptocurrency/bitcoin-trader-recovers-usd400-000-using-claude-ai-after-losing-wallet-password-11-years-ago-bot-tried-3-5-trillion-passwords-before-decrypting-an-old-wallet-backup",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Tom's Hardware"
-    },
-    {
-      "id": "3fb9baefc2e639b5",
-      "title": "Louis Rossmann taunts Bambu Lab by hosting banned 3D Printer firmware fork, dares $1 billion company to sue him — more creators pledge support and boycotts, Snapmaker donates equipment to embattled developer",
-      "url": "https://www.tomshardware.com/3d-printing/louis-rossmann-taunts-bambu-lab-by-hosting-banned-3d-printer-firmware-fork-dares-usd1-billion-company-to-sue-him-more-creators-pledge-support-and-boycotts-snapmaker-donates-equipment-to-embattled-developer",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "chain keyword 'ssm'"
-    },
-    {
-      "id": "e61b1bda5e823c80",
-      "title": "This $329.99 32GB Corsair Pro Overclocking kit is the cheapest DDR5 RAM on sale right now — ultra-fast 6400 MT/s memory upgrade for your gaming PC comes with $70 price drop that makes it $40 cheaper than its next-best rival",
-      "url": "https://www.tomshardware.com/pc-components/ddr5/this-usd329-99-32gb-corsair-pro-overclocking-kit-is-the-cheapest-ddr5-ram-on-sale-right-now-ultra-fast-6400-mt-s-memory-upgrade-for-your-gaming-pc-comes-with-usd70-price-drop-that-makes-it-usd40-cheaper-than-its-next-best-rival",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Tom's Hardware"
-    },
-    {
-      "id": "cf71f07e6cef443a",
-      "title": "49,000 Lake Tahoe residents could be left powerless as AI data centers inhale electricity supply — power company looking to redirect power to 12 data centers, high demand plus a regulatory limbo equals a dim situation",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/49-000-lake-tahoe-residents-could-be-left-powerless-as-ai-data-centers-inhale-electricity-supply-power-company-looking-to-redirect-power-to-12-data-centers-high-demand-plus-a-regulatory-limbo-equals-a-dim-situation",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from Tom's Hardware"
-    },
-    {
-      "id": "db3b30080cd1961b",
-      "title": "Klipsch Pro Media Lumina Review: Slimmer subwoofer, even slimmer bass",
-      "url": "https://www.tomshardware.com/speakers/klipsch-pro-media-lumina-review",
       "industry": "AI",
       "collector": "rss",
       "trl": 4,
@@ -13438,6 +13438,15 @@
       "rationale": "news from EE Times"
     },
     {
+      "id": "3a2acf792dce97a8",
+      "title": "Dell XPS 14 2026 Review Thin and Light Done Right",
+      "url": "https://www.servethehome.com/dell-xps-14-2026-review-thin-and-light-done-right-intel/",
+      "industry": "AI",
+      "collector": "rss",
+      "trl": 4,
+      "rationale": "news from ServeTheHome"
+    },
+    {
       "id": "4c109181b3a86ab9",
       "title": "BZIZU Realtek RTL8127 PCIe 10GbE Network Adapter Review",
       "url": "https://www.servethehome.com/bzizu-realtek-rtl8127-pcie-10gbe-network-adapter-review/",
@@ -13481,15 +13490,6 @@
       "collector": "rss",
       "trl": 6,
       "rationale": "product launch"
-    },
-    {
-      "id": "675c18e406cff1f5",
-      "title": "Striking Back at AI Memory Pricing… Using AI",
-      "url": "https://www.servethehome.com/striking-back-at-ai-memory-pricing-using-ai/",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from ServeTheHome"
     },
     {
       "id": "56d9984b29c6d0c7",
@@ -15103,94 +15103,13 @@
       "rationale": "news from BusinessKorea"
     },
     {
-      "id": "ac20a6733245917f",
-      "title": "Homeplus desperate for loan from creditor Meritz amid financial crisis",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/homeplus-desperate-for-loan-from-creditor-meritz-amid-financial-crisis?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 7,
-      "rationale": "regulatory approval"
-    },
-    {
-      "id": "e1c1b11f6ff34d80",
-      "title": "Prime minister hints at compulsory arbitration over Samsung union strike",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/prime-minister-hints-at-compulsory-arbitration-over-samsung-union-strike?utm_source=rss",
+      "id": "6fc41925cb5dfb4b",
+      "title": "AI's World Cup debut: Real-time data set to reshape football",
+      "url": "https://www.koreatimes.co.kr/business/tech-science/20260518/ais-world-cup-debut-real-time-data-set-to-reshape-football?utm_source=rss",
       "industry": "AI",
       "collector": "rss",
       "trl": 5,
-      "rationale": "clinical/research update"
-    },
-    {
-      "id": "987aea189204b75a",
-      "title": "Proposed ban on new chip clusters in capital area raises concerns",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/proposed-ban-on-new-chip-clusters-in-capital-area-raises-concerns?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 6,
-      "rationale": "product launch"
-    },
-    {
-      "id": "74e787c95d0cf4eb",
-      "title": "HD Hyundai XiteSolution's forklifts attract MENA customers",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/hd-hyundai-xitesolutions-forklifts-attract-mena-customers?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "clinical/research update"
-    },
-    {
-      "id": "e75d5b11fbf85140",
-      "title": "KT&G draws global investors' attention amid record tobacco sales",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/ktg-draws-global-investors-attention-amid-record-tobacco-sales?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from The Korea Times Tech"
-    },
-    {
-      "id": "e18e5b475931ff05",
-      "title": "BC Card strengthens customer protection through new security patents",
-      "url": "https://www.koreatimes.co.kr/business/banking-finance/20260517/bc-card-strengthens-customer-protection-through-new-security-patents?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from The Korea Times Tech"
-    },
-    {
-      "id": "eba96ec707bab66b",
-      "title": "Korean bill seeks strict watermark mandate on AI-generated content",
-      "url": "https://www.koreatimes.co.kr/business/tech-science/20260517/korean-bill-seeks-strict-watermark-mandate-on-ai-generated-content?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from The Korea Times Tech"
-    },
-    {
-      "id": "24dea7ae72e2f1a4",
-      "title": "KORAIL chief signals 1st fare hike in 15 years amid mounting debt",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/korail-chief-signals-1st-fare-hike-in-15-years-amid-mounting-debt?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 6,
-      "rationale": "product launch"
-    },
-    {
-      "id": "a5a11611764618a9",
-      "title": "NEOWIZ’s Round8 Studio accelerates hiring push after success of Lies of P",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/neowizs-round8-studio-accelerates-hiring-push-after-success-of-lies-of-p?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 5,
-      "rationale": "clinical/research update"
-    },
-    {
-      "id": "fca17a5e1c5ef56e",
-      "title": "Operating profits of top companies exceed $104 bil. in Q1",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/operating-profits-of-top-companies-exceed-104-bil-in-q1?utm_source=rss",
-      "industry": "AI",
-      "collector": "rss",
-      "trl": 4,
-      "rationale": "news from The Korea Times Tech"
+      "rationale": "pilot/demonstration"
     },
     {
       "id": "176bb1748006cc77",
@@ -15644,7 +15563,7 @@
     },
     {
       "id": "71c795e926c4d53a",
-      "title": "Long March 8 | SpaceSail Polar Group TBD",
+      "title": "Long March 8 | SpaceSail Polar Group #9",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/aef8f8ea-522b-4bdb-9d57-212bbe981946/",
       "industry": "space",
       "collector": "launch_library",
@@ -15661,15 +15580,6 @@
       "rationale": "launch event"
     },
     {
-      "id": "470f7d85906c86e9",
-      "title": "Starship | Flight 12",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ed83366c-872c-4484-97c1-bc74832304fc/",
-      "industry": "space",
-      "collector": "launch_library",
-      "trl": 7,
-      "rationale": "chain keyword 'starship'"
-    },
-    {
       "id": "49d24bc88a716ea2",
       "title": "Falcon 9 Block 5 | Starlink Group 17-42",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/7ba18bcb-c711-4329-9fc1-7ac017fadfff/",
@@ -15679,13 +15589,13 @@
       "rationale": "chain keyword 'starlink'"
     },
     {
-      "id": "5a3ebda34d7efaa6",
-      "title": "South Korean ADD Solid-Fuel SLV | Demo Flight",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/9e27a1ed-e81a-4918-b32b-0380cf3a9f8f/",
+      "id": "470f7d85906c86e9",
+      "title": "Starship | Flight 12",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ed83366c-872c-4484-97c1-bc74832304fc/",
       "industry": "space",
       "collector": "launch_library",
-      "trl": 8,
-      "rationale": "launch event"
+      "trl": 7,
+      "rationale": "chain keyword 'starship'"
     },
     {
       "id": "1e62d592c89abb6d",
@@ -15751,15 +15661,6 @@
       "rationale": "chain keyword 'leo'"
     },
     {
-      "id": "ca9d963f401e19fa",
-      "title": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
-      "industry": "space",
-      "collector": "launch_library",
-      "trl": 8,
-      "rationale": "launch event"
-    },
-    {
       "id": "65082139ebdfa5dd",
       "title": "GSLV Mk II | GISAT-1A (EOS-05)",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/17d0ec68-f466-4916-9dc5-16123eda6484/",
@@ -15781,6 +15682,15 @@
       "id": "2e142388195e71fb",
       "title": "Long March 2F/G | Shenzhou 23",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a0e0f590-1cb4-4b6b-845c-0087633af132/",
+      "industry": "space",
+      "collector": "launch_library",
+      "trl": 8,
+      "rationale": "launch event"
+    },
+    {
+      "id": "5a3ebda34d7efaa6",
+      "title": "South Korean ADD Solid-Fuel SLV | Demo Flight",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9e27a1ed-e81a-4918-b32b-0380cf3a9f8f/",
       "industry": "space",
       "collector": "launch_library",
       "trl": 8,
@@ -15821,6 +15731,60 @@
       "collector": "launch_library",
       "trl": 8,
       "rationale": "launch event"
+    },
+    {
+      "id": "02d671fea5393332",
+      "title": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
+      "industry": "space",
+      "collector": "launch_library",
+      "trl": 8,
+      "rationale": "launch event"
+    },
+    {
+      "id": "fb58d72832aff1ff",
+      "title": "Apple’s Siri revamp could include auto-deleting chats",
+      "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+      "industry": "AI",
+      "collector": "vc_news",
+      "trl": 5,
+      "rationale": "venture funding"
+    },
+    {
+      "id": "1e24248a8b1072d1",
+      "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
+      "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+      "industry": "AI",
+      "collector": "vc_news",
+      "trl": 5,
+      "rationale": "venture funding"
+    },
+    {
+      "id": "f1ee0692d166909d",
+      "title": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
+      "url": "https://techcrunch.com/2026/05/17/if-youre-giving-a-commencement-speech-in-2026-maybe-dont-mention-ai/",
+      "industry": "AI",
+      "collector": "vc_news",
+      "trl": 5,
+      "rationale": "venture funding"
+    },
+    {
+      "id": "d5a7d0eb2bbd9505",
+      "title": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
+      "url": "https://techcrunch.com/2026/05/17/techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive/",
+      "industry": "AI",
+      "collector": "vc_news",
+      "trl": 5,
+      "rationale": "venture funding"
+    },
+    {
+      "id": "1ab112a1783c4498",
+      "title": "For Eclipse, the $2.5B Cerebras win is just the start of realizing its  physical-world thesis",
+      "url": "https://techcrunch.com/2026/05/17/for-eclipse-the-2-5b-cerebras-win-is-just-the-start-of-realizing-its-physical-world-thesis/",
+      "industry": "AI",
+      "collector": "vc_news",
+      "trl": 5,
+      "rationale": "venture funding"
     },
     {
       "id": "302020456d998f52",
@@ -15956,51 +15920,6 @@
       "collector": "vc_news",
       "trl": 5,
       "rationale": "venture funding"
-    },
-    {
-      "id": "64e915d96e0393ad",
-      "title": "Runway started by helping filmmakers — now it wants to beat Google at AI",
-      "url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
-      "industry": "AI",
-      "collector": "vc_news",
-      "trl": 5,
-      "rationale": "venture funding"
-    },
-    {
-      "id": "3ec8b09162b35605",
-      "title": "Even GoPro is pivoting to defense",
-      "url": "https://techcrunch.com/2026/05/15/even-gopro-is-pivoting-to-defense/",
-      "industry": "AI",
-      "collector": "vc_news",
-      "trl": 5,
-      "rationale": "venture funding"
-    },
-    {
-      "id": "8fc9fe7ce78772ea",
-      "title": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
-      "url": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
-      "industry": "AI",
-      "collector": "vc_news",
-      "trl": 5,
-      "rationale": "venture funding"
-    },
-    {
-      "id": "b1e81d0d37dea63b",
-      "title": "Osaurus brings both local and cloud AI models to your Mac",
-      "url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
-      "industry": "AI",
-      "collector": "vc_news",
-      "trl": 5,
-      "rationale": "venture funding"
-    },
-    {
-      "id": "5598aba11396e6a7",
-      "title": "Indian Uber rival Rapido raises $240M at $3B valuation",
-      "url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
-      "industry": "AI",
-      "collector": "vc_news",
-      "trl": 7,
-      "rationale": "late-stage funding"
     }
   ],
   "warnings": []

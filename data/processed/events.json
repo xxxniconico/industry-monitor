@@ -1,22 +1,22 @@
 {
   "source": "events",
-  "processed_at": "2026-05-17T12:30:10Z",
-  "total": 1777,
+  "processed_at": "2026-05-17T23:20:41Z",
+  "total": 1768,
   "events": [
     {
-      "id": "09befed73329b8f9",
-      "date": "2026-06-10T00:53:59Z",
-      "title": "H3-30 | H3-30 Test Flight",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/e1a3b702-464f-435d-8c1f-ade9be196b77/",
+      "id": "02d671fea5393332",
+      "date": "2026-06-30T00:00:00Z",
+      "title": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
       "industry": "space",
       "signal_type": "市场",
       "collector": "launch_library"
     },
     {
-      "id": "ca9d963f401e19fa",
-      "date": "2026-05-31T00:00:00Z",
-      "title": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
+      "id": "09befed73329b8f9",
+      "date": "2026-06-10T00:53:59Z",
+      "title": "H3-30 | H3-30 Test Flight",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/e1a3b702-464f-435d-8c1f-ade9be196b77/",
       "industry": "space",
       "signal_type": "市场",
       "collector": "launch_library"
@@ -44,6 +44,15 @@
       "date": "2026-05-31T00:00:00Z",
       "title": "Long March 2F/G | Shenzhou 23",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a0e0f590-1cb4-4b6b-845c-0087633af132/",
+      "industry": "space",
+      "signal_type": "市场",
+      "collector": "launch_library"
+    },
+    {
+      "id": "5a3ebda34d7efaa6",
+      "date": "2026-05-31T00:00:00Z",
+      "title": "South Korean ADD Solid-Fuel SLV | Demo Flight",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9e27a1ed-e81a-4918-b32b-0380cf3a9f8f/",
       "industry": "space",
       "signal_type": "市场",
       "collector": "launch_library"
@@ -139,10 +148,10 @@
       "collector": "launch_library"
     },
     {
-      "id": "5a3ebda34d7efaa6",
-      "date": "2026-05-20T05:00:00Z",
-      "title": "South Korean ADD Solid-Fuel SLV | Demo Flight",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/9e27a1ed-e81a-4918-b32b-0380cf3a9f8f/",
+      "id": "470f7d85906c86e9",
+      "date": "2026-05-20T22:30:00Z",
+      "title": "Starship | Flight 12",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ed83366c-872c-4484-97c1-bc74832304fc/",
       "industry": "space",
       "signal_type": "市场",
       "collector": "launch_library"
@@ -157,15 +166,6 @@
       "collector": "launch_library"
     },
     {
-      "id": "470f7d85906c86e9",
-      "date": "2026-05-19T22:30:00Z",
-      "title": "Starship | Flight 12",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ed83366c-872c-4484-97c1-bc74832304fc/",
-      "industry": "space",
-      "signal_type": "市场",
-      "collector": "launch_library"
-    },
-    {
       "id": "4a57cc5330626b67",
       "date": "2026-05-19T03:52:00Z",
       "title": "Vega-C | Solar wind Magnetosphere Ionosphere Link Explorer (SMILE)",
@@ -173,6 +173,42 @@
       "industry": "space",
       "signal_type": "市场",
       "collector": "launch_library"
+    },
+    {
+      "id": "6fc41925cb5dfb4b",
+      "date": "2026-05-17T23:17:03Z",
+      "title": "AI's World Cup debut: Real-time data set to reshape football",
+      "url": "https://www.koreatimes.co.kr/business/tech-science/20260518/ais-world-cup-debut-real-time-data-set-to-reshape-football?utm_source=rss",
+      "industry": "AI",
+      "signal_type": "技术链",
+      "collector": "rss"
+    },
+    {
+      "id": "02ada07c15f46d03",
+      "date": "2026-05-17T23:01:00Z",
+      "title": "STAT+: U.K. advocacy groups threaten court action over a key provision in the pharma trade deal with the U.S.",
+      "url": "https://www.statnews.com/pharmalot/2026/05/17/uk-advocates-threaten-court-action-over-pharma-trade-deal-with-us/?utm_campaign=rss",
+      "industry": "medical",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "10a1fab4780896b8",
+      "date": "2026-05-17T21:45:09Z",
+      "title": "In Ebola outbreak, a number of Americans in the Congo believed to have had exposure to suspected cases",
+      "url": "https://www.statnews.com/2026/05/17/ebola-outbreak-congo-americans-exposure-suspected-cases/?utm_campaign=rss",
+      "industry": "medical",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "3a2acf792dce97a8",
+      "date": "2026-05-17T21:00:50Z",
+      "title": "Dell XPS 14 2026 Review Thin and Light Done Right",
+      "url": "https://www.servethehome.com/dell-xps-14-2026-review-thin-and-light-done-right-intel/",
+      "industry": "AI",
+      "signal_type": "基建",
+      "collector": "rss"
     },
     {
       "id": "cb8400346eaa0f0f",
@@ -184,6 +220,24 @@
       "collector": "rss"
     },
     {
+      "id": "fb58d72832aff1ff",
+      "date": "2026-05-17T20:15:00Z",
+      "title": "Apple’s Siri revamp could include auto-deleting chats",
+      "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "rss"
+    },
+    {
+      "id": "fb58d72832aff1ff",
+      "date": "2026-05-17T20:15:00Z",
+      "title": "Apple’s Siri revamp could include auto-deleting chats",
+      "url": "https://techcrunch.com/2026/05/17/apples-siri-revamp-could-include-auto-deleting-chats/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "vc_news"
+    },
+    {
       "id": "44dd58f58914727b",
       "date": "2026-05-17T20:09:01Z",
       "title": "코오롱티슈진, 이사진 전면 개편 독립성 강화",
@@ -193,102 +247,201 @@
       "collector": "rss"
     },
     {
+      "id": "1e24248a8b1072d1",
+      "date": "2026-05-17T19:46:34Z",
+      "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
+      "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "rss"
+    },
+    {
+      "id": "1e24248a8b1072d1",
+      "date": "2026-05-17T19:46:34Z",
+      "title": "Why trust is a big question at the Elon Musk-OpenAI trial",
+      "url": "https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "vc_news"
+    },
+    {
+      "id": "0691471caa854498",
+      "date": "2026-05-17T19:04:45Z",
+      "title": "When should you get a mammogram? Conflicting advice makes it hard to know",
+      "url": "https://www.statnews.com/2026/05/17/when-should-you-get-a-mammogram-conflicting-advice/?utm_campaign=rss",
+      "industry": "medical",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "0553243f77aa92f8",
+      "date": "2026-05-17T18:07:58Z",
+      "title": "STAT+: The hantavirus outbreak is prompting Covid flashbacks — including the conspiracies",
+      "url": "https://www.statnews.com/2026/05/17/hantavirus-outbreak-cruise-ship-covid-flashbacks-conspiracy-theories/?utm_campaign=rss",
+      "industry": "medical",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "f40e6fbd3f425044",
+      "date": "2026-05-17T16:45:27Z",
+      "title": "Samsung 990 Pro gets discount of over $200 from recent highs — grab the 2TB model for $429.99",
+      "url": "https://www.tomshardware.com/pc-components/samsung-990-pro-gets-discount-of-over-usd200-from-recent-highs-grab-the-2tb-model-for-usd429-99",
+      "industry": "AI",
+      "signal_type": "技术链",
+      "collector": "rss"
+    },
+    {
+      "id": "f1ee0692d166909d",
+      "date": "2026-05-17T16:32:04Z",
+      "title": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
+      "url": "https://techcrunch.com/2026/05/17/if-youre-giving-a-commencement-speech-in-2026-maybe-dont-mention-ai/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "rss"
+    },
+    {
+      "id": "f1ee0692d166909d",
+      "date": "2026-05-17T16:32:04Z",
+      "title": "If you’re giving a commencement speech in 2026, maybe don’t mention AI",
+      "url": "https://techcrunch.com/2026/05/17/if-youre-giving-a-commencement-speech-in-2026-maybe-dont-mention-ai/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "vc_news"
+    },
+    {
+      "id": "905ad2db41223f6b",
+      "date": "2026-05-17T16:06:04Z",
+      "title": "Japan can’t make robot wolves fast enough to counter the rise in bear attacks that have killed 13 humans this year — $4,000+ animatronic Monster Wolf features intense LEDs and makes loud noises",
+      "url": "https://www.tomshardware.com/maker-stem/robot-kits/japan-cant-make-robot-wolves-fast-enough-to-counter-the-rise-in-bear-attacks-that-have-killed-13-humans-this-year-usd4-000-animatronic-monster-wolf-features-intense-leds-and-makes-loud-noises",
+      "industry": "AI",
+      "signal_type": "技术链",
+      "collector": "rss"
+    },
+    {
+      "id": "d5a7d0eb2bbd9505",
+      "date": "2026-05-17T16:05:00Z",
+      "title": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
+      "url": "https://techcrunch.com/2026/05/17/techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "rss"
+    },
+    {
+      "id": "d5a7d0eb2bbd9505",
+      "date": "2026-05-17T16:05:00Z",
+      "title": "TechCrunch Mobility: The AI skills arms race is coming for automotive",
+      "url": "https://techcrunch.com/2026/05/17/techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "vc_news"
+    },
+    {
+      "id": "e4b5c948d62929b2",
+      "date": "2026-05-17T15:02:00Z",
+      "title": "ASML to equip India’s first commercial chip fab — $11 billion Dholera project targets 50,000 wafers a month",
+      "url": "https://www.tomshardware.com/tech-industry/asml-partners-with-tata-electronics-to-equip-indias-first-commercial-semiconductor-fab",
+      "industry": "AI",
+      "signal_type": "基建",
+      "collector": "rss"
+    },
+    {
+      "id": "1ab112a1783c4498",
+      "date": "2026-05-17T15:00:00Z",
+      "title": "For Eclipse, the $2.5B Cerebras win is just the start of realizing its  physical-world thesis",
+      "url": "https://techcrunch.com/2026/05/17/for-eclipse-the-2-5b-cerebras-win-is-just-the-start-of-realizing-its-physical-world-thesis/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "rss"
+    },
+    {
+      "id": "76d1f571e02ce6bb",
+      "date": "2026-05-17T15:00:00Z",
+      "title": "Watch NASA's new Mars helicopter rotor break the speed of sound (video)",
+      "url": "https://www.space.com/astronomy/mars/watch-nasas-new-mars-helicopter-rotor-break-the-speed-of-sound-video",
+      "industry": "space",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "1ab112a1783c4498",
+      "date": "2026-05-17T15:00:00Z",
+      "title": "For Eclipse, the $2.5B Cerebras win is just the start of realizing its  physical-world thesis",
+      "url": "https://techcrunch.com/2026/05/17/for-eclipse-the-2-5b-cerebras-win-is-just-the-start-of-realizing-its-physical-world-thesis/",
+      "industry": "AI",
+      "signal_type": "资本",
+      "collector": "vc_news"
+    },
+    {
       "id": "71c795e926c4d53a",
-      "date": "2026-05-17T14:40:00Z",
-      "title": "Long March 8 | SpaceSail Polar Group TBD",
+      "date": "2026-05-17T14:42:00Z",
+      "title": "Long March 8 | SpaceSail Polar Group #9",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/aef8f8ea-522b-4bdb-9d57-212bbe981946/",
       "industry": "space",
       "signal_type": "市场",
       "collector": "launch_library"
     },
     {
-      "id": "ac20a6733245917f",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "Homeplus desperate for loan from creditor Meritz amid financial crisis",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/homeplus-desperate-for-loan-from-creditor-meritz-amid-financial-crisis?utm_source=rss",
+      "id": "eafad2789fc405df",
+      "date": "2026-05-17T14:28:05Z",
+      "title": "LinkedIn user hides AI prompt injection in bio to force recruitment spam to be sent in Olde English prose — bots also manipulated to address user as ‘My Lord’",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/linkedin-recruitment-spam-becomes-olde-english-prose-after-user-hides-ai-prompt-injection-in-bio-bots-also-also-manipulated-to-address-user-as-my-lord",
       "industry": "AI",
       "signal_type": "技术链",
       "collector": "rss"
     },
     {
-      "id": "e1c1b11f6ff34d80",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "Prime minister hints at compulsory arbitration over Samsung union strike",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/prime-minister-hints-at-compulsory-arbitration-over-samsung-union-strike?utm_source=rss",
+      "id": "9f8d5dac73d59757",
+      "date": "2026-05-17T14:12:53Z",
+      "title": "STAT+: Sen. Bill Cassidy loses primary as race heads to run-off in win for Trump",
+      "url": "https://www.statnews.com/2026/05/17/bill-cassidy-loses-louisiana-primary-after-maga-maha-opposition/?utm_campaign=rss",
+      "industry": "medical",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "548e95ed233c7687",
+      "date": "2026-05-17T14:00:00Z",
+      "title": "Venus and a slender crescent moon steal the show after sunset on May 18",
+      "url": "https://www.space.com/stargazing/venus-and-a-slender-crescent-moon-steal-the-show-after-sunset-on-may-18-2026",
+      "industry": "space",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "e72a9bf3c09a54a0",
+      "date": "2026-05-17T13:53:03Z",
+      "title": "SpaceX Dragon capsule delivers science and supplies to space station",
+      "url": "https://www.space.com/space-exploration/international-space-station/spacex-dragon-capsule-delivers-science-and-supplies-to-space-station",
+      "industry": "space",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "5c6e40555d35e9e6",
+      "date": "2026-05-17T13:00:00Z",
+      "title": "Watch an asteroid the size of a blue whale hurtle towards Earth live online May 18",
+      "url": "https://www.space.com/astronomy/asteroids/watch-an-asteroid-the-size-of-a-blue-whale-hurtle-towards-earth-live-online-may-18",
+      "industry": "space",
+      "signal_type": "市场",
+      "collector": "rss"
+    },
+    {
+      "id": "155030f7e59f8861",
+      "date": "2026-05-17T12:55:00Z",
+      "title": "Russia’s Mikron is selling framed test wafers with up to 120,000 processors as souvenirs — 12 designs, priced around $170 each, sold alongside $2 vials of cleanroom air",
+      "url": "https://www.tomshardware.com/tech-industry/semiconductors/russias-mikron-is-selling-framed-test-wafers-with-up-to-120-000-processors-as-souvenirs-12-designs-priced-around-usd170-each-sold-alongside-usd2-vials-of-cleanroom-air",
       "industry": "AI",
       "signal_type": "技术链",
       "collector": "rss"
     },
     {
-      "id": "987aea189204b75a",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "Proposed ban on new chip clusters in capital area raises concerns",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/proposed-ban-on-new-chip-clusters-in-capital-area-raises-concerns?utm_source=rss",
+      "id": "c2dce423f3194df0",
+      "date": "2026-05-17T12:29:52Z",
+      "title": "Jay Forrester filed the first practical computer RAM patent 75 years ago this week — his Magnetic Core Memory patent would be granted five years later",
+      "url": "https://www.tomshardware.com/tech-industry/jay-forrester-filed-the-first-practical-ram-patent-75-years-ago-this-week",
       "industry": "AI",
       "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "74e787c95d0cf4eb",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "HD Hyundai XiteSolution's forklifts attract MENA customers",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/hd-hyundai-xitesolutions-forklifts-attract-mena-customers?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "e75d5b11fbf85140",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "KT&G draws global investors' attention amid record tobacco sales",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/ktg-draws-global-investors-attention-amid-record-tobacco-sales?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
-      "id": "e18e5b475931ff05",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "BC Card strengthens customer protection through new security patents",
-      "url": "https://www.koreatimes.co.kr/business/banking-finance/20260517/bc-card-strengthens-customer-protection-through-new-security-patents?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "eba96ec707bab66b",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "Korean bill seeks strict watermark mandate on AI-generated content",
-      "url": "https://www.koreatimes.co.kr/business/tech-science/20260517/korean-bill-seeks-strict-watermark-mandate-on-ai-generated-content?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "24dea7ae72e2f1a4",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "KORAIL chief signals 1st fare hike in 15 years amid mounting debt",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/korail-chief-signals-1st-fare-hike-in-15-years-amid-mounting-debt?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "a5a11611764618a9",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "NEOWIZ’s Round8 Studio accelerates hiring push after success of Lies of P",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/neowizs-round8-studio-accelerates-hiring-push-after-success-of-lies-of-p?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
-      "id": "fca17a5e1c5ef56e",
-      "date": "2026-05-17T12:27:03Z",
-      "title": "Operating profits of top companies exceed $104 bil. in Q1",
-      "url": "https://www.koreatimes.co.kr/business/companies/20260517/operating-profits-of-top-companies-exceed-104-bil-in-q1?utm_source=rss",
-      "industry": "AI",
-      "signal_type": "资本",
       "collector": "rss"
     },
     {
@@ -321,7 +474,7 @@
     {
       "id": "bdec04e25a25a494",
       "date": "2026-05-17T11:20:00Z",
-      "title": "Josef Prusa warns Chinese 3D printing software poses massive security risks — Bambu Lab allegedly violates AGPL license with an un-auditable network 'black box'",
+      "title": "Josef Prusa says Bambu Lab allegedly violates AGPL license with an un-auditable network 'black box' — warns Chinese 3D printing software poses massive security risks",
       "url": "https://www.tomshardware.com/3d-printing/josef-prusa-warns-chinese-3d-printing-software-poses-massive-security-risks-bambu-lab-allegedly-violates-agpl-license-with-an-un-auditable-network-black-box",
       "industry": "AI",
       "signal_type": "技术链",
@@ -1840,15 +1993,6 @@
       "collector": "rss"
     },
     {
-      "id": "64e915d96e0393ad",
-      "date": "2026-05-15T14:00:00Z",
-      "title": "Runway started by helping filmmakers — now it wants to beat Google at AI",
-      "url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
       "id": "f6fbe3e0227dd25e",
       "date": "2026-05-15T14:00:00Z",
       "title": "Auroras over Australia look like sci-fi from space | Space photo of the day for May 15, 2026",
@@ -1856,15 +2000,6 @@
       "industry": "space",
       "signal_type": "市场",
       "collector": "rss"
-    },
-    {
-      "id": "64e915d96e0393ad",
-      "date": "2026-05-15T14:00:00Z",
-      "title": "Runway started by helping filmmakers — now it wants to beat Google at AI",
-      "url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "vc_news"
     },
     {
       "id": "ce3611c506902d16",
@@ -1957,24 +2092,6 @@
       "collector": "rss"
     },
     {
-      "id": "3ec8b09162b35605",
-      "date": "2026-05-15T13:14:13Z",
-      "title": "Even GoPro is pivoting to defense",
-      "url": "https://techcrunch.com/2026/05/15/even-gopro-is-pivoting-to-defense/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
-      "id": "3ec8b09162b35605",
-      "date": "2026-05-15T13:14:13Z",
-      "title": "Even GoPro is pivoting to defense",
-      "url": "https://techcrunch.com/2026/05/15/even-gopro-is-pivoting-to-defense/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "vc_news"
-    },
-    {
       "id": "73bed7b6e5857220",
       "date": "2026-05-15T13:09:01Z",
       "title": "함영주의 1조원 결단, 하나금융-두나무 손잡고 'K-블록체인' 주도한다",
@@ -2029,15 +2146,6 @@
       "collector": "rss"
     },
     {
-      "id": "8fc9fe7ce78772ea",
-      "date": "2026-05-15T13:00:00Z",
-      "title": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
-      "url": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
       "id": "4853dd6148983789",
       "date": "2026-05-15T13:00:00Z",
       "title": "James Webb Space Telescope maps our universe's largest structure in unprecedented detail",
@@ -2072,15 +2180,6 @@
       "industry": "AI",
       "signal_type": "基建",
       "collector": "rss"
-    },
-    {
-      "id": "8fc9fe7ce78772ea",
-      "date": "2026-05-15T13:00:00Z",
-      "title": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
-      "url": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "vc_news"
     },
     {
       "id": "144b793deb65b564",
@@ -2126,24 +2225,6 @@
       "industry": "AI",
       "signal_type": "资本",
       "collector": "rss"
-    },
-    {
-      "id": "b1e81d0d37dea63b",
-      "date": "2026-05-15T12:19:48Z",
-      "title": "Osaurus brings both local and cloud AI models to your Mac",
-      "url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
-      "id": "b1e81d0d37dea63b",
-      "date": "2026-05-15T12:19:48Z",
-      "title": "Osaurus brings both local and cloud AI models to your Mac",
-      "url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "vc_news"
     },
     {
       "id": "5fb54bc9256e190c",
@@ -2270,24 +2351,6 @@
       "industry": "AI",
       "signal_type": "基建",
       "collector": "rss"
-    },
-    {
-      "id": "5598aba11396e6a7",
-      "date": "2026-05-15T11:24:12Z",
-      "title": "Indian Uber rival Rapido raises $240M at $3B valuation",
-      "url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
-      "id": "5598aba11396e6a7",
-      "date": "2026-05-15T11:24:12Z",
-      "title": "Indian Uber rival Rapido raises $240M at $3B valuation",
-      "url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
-      "industry": "AI",
-      "signal_type": "资本",
-      "collector": "vc_news"
     },
     {
       "id": "3a77c6795f5e7828",
@@ -2452,33 +2515,6 @@
       "collector": "rss"
     },
     {
-      "id": "133eb90bb2f39d7d",
-      "date": "2026-05-15T08:30:00Z",
-      "title": "Opinion: Tributes to Craig Venter and the genomics race are missing something important",
-      "url": "https://www.statnews.com/2026/05/15/craig-venter-obituaries-human-genome-coding-race/?utm_campaign=rss",
-      "industry": "medical",
-      "signal_type": "市场",
-      "collector": "rss"
-    },
-    {
-      "id": "b8198f23fef38b62",
-      "date": "2026-05-15T08:30:00Z",
-      "title": "Why isn’t alcohol seen as a public health emergency?",
-      "url": "https://www.statnews.com/2026/05/15/alcohol-as-public-health-emergency-status-report-alex-hogan/?utm_campaign=rss",
-      "industry": "medical",
-      "signal_type": "市场",
-      "collector": "rss"
-    },
-    {
-      "id": "df0479a636134402",
-      "date": "2026-05-15T08:30:00Z",
-      "title": "Opinion: I’m 73. I wish my pills wouldn’t keep changing colors and shapes",
-      "url": "https://www.statnews.com/2026/05/15/pills-changing-colors-shape-generics-confusion/?utm_campaign=rss",
-      "industry": "medical",
-      "signal_type": "市场",
-      "collector": "rss"
-    },
-    {
       "id": "632bd4985eb3776f",
       "date": "2026-05-15T08:30:00Z",
       "title": "ECO 2026: SURMOUNT-MAINTAIN proves tirzepatide sustains weight loss long term",
@@ -2614,15 +2650,6 @@
       "collector": "rss"
     },
     {
-      "id": "04dfcaf9da7e2092",
-      "date": "2026-05-15T00:00:00Z",
-      "title": "PSA screening for prostate cancer reduces disease-specific deaths, new review shows",
-      "url": "https://www.statnews.com/2026/05/14/psa-tests-reduce-risk-prostate-cancer-deaths-new-study-cochrane-review/?utm_campaign=rss",
-      "industry": "medical",
-      "signal_type": "市场",
-      "collector": "rss"
-    },
-    {
       "id": "821b7400a4c763d3",
       "date": "2026-05-15T00:00:00Z",
       "title": "Guide DNA — not RNA — expands the CRISPR toolkit",
@@ -2710,15 +2737,6 @@
       "url": "https://www.semiconductor-digest.com/toshiba-starts-sample-shipments-of-new-smartmcd-series-ic-with-built-in-mosfets-for-motor-drive/?utm_source=rss&utm_medium=rss&utm_campaign=toshiba-starts-sample-shipments-of-new-smartmcd-series-ic-with-built-in-mosfets-for-motor-drive",
       "industry": "AI",
       "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "1cda13fd8dafc27c",
-      "date": "2026-05-14T21:49:18Z",
-      "title": "Supreme Court preserves access to widely used abortion pill, while lawsuit plays out",
-      "url": "https://www.statnews.com/2026/05/14/supreme-court-preserves-access-abortion-pill-mifepristone/?utm_campaign=rss",
-      "industry": "medical",
-      "signal_type": "市场",
       "collector": "rss"
     },
     {
@@ -3901,24 +3919,6 @@
       "collector": "rss"
     },
     {
-      "id": "05cff058fce145aa",
-      "date": "2026-05-14T10:20:00Z",
-      "title": "$499 case turns your PC into a liquid cooling masterpiece for your wall — Portal Advanced comes with an integrated distribution plate and reservoir to start of your build",
-      "url": "https://www.tomshardware.com/pc-components/pc-cases/usd499-case-turns-your-pc-into-a-liquid-cooling-masterpiece-for-your-wall-portal-advanced-comes-with-an-integrated-distribution-plate-and-reservoir-to-start-of-your-build",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "6490b514380a812e",
-      "date": "2026-05-14T10:19:56Z",
-      "title": "Bitcoin trader recovers $400,000 using Claude AI after getting 'stoned' and losing wallet password 11 years ago — bot tried 3.5 trillion passwords before decrypting an old wallet backup",
-      "url": "https://www.tomshardware.com/tech-industry/cryptocurrency/bitcoin-trader-recovers-usd400-000-using-claude-ai-after-losing-wallet-password-11-years-ago-bot-tried-3-5-trillion-passwords-before-decrypting-an-old-wallet-backup",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
       "id": "fcaa02b66cabfb9e",
       "date": "2026-05-14T10:00:00Z",
       "title": "The Tesla Semi could be a big deal for electric trucking",
@@ -3937,15 +3937,6 @@
       "collector": "rss"
     },
     {
-      "id": "3fb9baefc2e639b5",
-      "date": "2026-05-14T10:00:00Z",
-      "title": "Louis Rossmann taunts Bambu Lab by hosting banned 3D Printer firmware fork, dares $1 billion company to sue him — more creators pledge support and boycotts, Snapmaker donates equipment to embattled developer",
-      "url": "https://www.tomshardware.com/3d-printing/louis-rossmann-taunts-bambu-lab-by-hosting-banned-3d-printer-firmware-fork-dares-usd1-billion-company-to-sue-him-more-creators-pledge-support-and-boycotts-snapmaker-donates-equipment-to-embattled-developer",
-      "industry": "AI",
-      "signal_type": "监管",
-      "collector": "rss"
-    },
-    {
       "id": "35d5ba8a20976586",
       "date": "2026-05-14T10:00:00Z",
       "title": "“We are working on subscription models across multiple CPOs” – Wilhelm Henriksson, Plugsurfing",
@@ -3961,24 +3952,6 @@
       "url": "https://www.eetimes.com/indian-ferrite-industry-rides-ev-demand-amid-china-supply-concerns/",
       "industry": "AI",
       "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "e61b1bda5e823c80",
-      "date": "2026-05-14T09:48:27Z",
-      "title": "This $329.99 32GB Corsair Pro Overclocking kit is the cheapest DDR5 RAM on sale right now — ultra-fast 6400 MT/s memory upgrade for your gaming PC comes with $70 price drop that makes it $40 cheaper than its next-best rival",
-      "url": "https://www.tomshardware.com/pc-components/ddr5/this-usd329-99-32gb-corsair-pro-overclocking-kit-is-the-cheapest-ddr5-ram-on-sale-right-now-ultra-fast-6400-mt-s-memory-upgrade-for-your-gaming-pc-comes-with-usd70-price-drop-that-makes-it-usd40-cheaper-than-its-next-best-rival",
-      "industry": "AI",
-      "signal_type": "技术链",
-      "collector": "rss"
-    },
-    {
-      "id": "cf71f07e6cef443a",
-      "date": "2026-05-14T09:40:00Z",
-      "title": "49,000 Lake Tahoe residents could be left powerless as AI data centers inhale electricity supply — power company looking to redirect power to 12 data centers, high demand plus a regulatory limbo equals a dim situation",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/49-000-lake-tahoe-residents-could-be-left-powerless-as-ai-data-centers-inhale-electricity-supply-power-company-looking-to-redirect-power-to-12-data-centers-high-demand-plus-a-regulatory-limbo-equals-a-dim-situation",
-      "industry": "AI",
-      "signal_type": "基建",
       "collector": "rss"
     },
     {
@@ -4357,15 +4330,6 @@
       "url": "https://www.semiconductor-digest.com/accurate-gas-control-systems-introduces-cryosure-platform-to-solve-diborane-instability-challenges-threatening-next-generation-semiconductor-yields/?utm_source=rss&utm_medium=rss&utm_campaign=accurate-gas-control-systems-introduces-cryosure-platform-to-solve-diborane-instability-challenges-threatening-next-generation-semiconductor-yields",
       "industry": "AI",
       "signal_type": "基建",
-      "collector": "rss"
-    },
-    {
-      "id": "db3b30080cd1961b",
-      "date": "2026-05-13T18:14:36Z",
-      "title": "Klipsch Pro Media Lumina Review: Slimmer subwoofer, even slimmer bass",
-      "url": "https://www.tomshardware.com/speakers/klipsch-pro-media-lumina-review",
-      "industry": "AI",
-      "signal_type": "技术链",
       "collector": "rss"
     },
     {
@@ -4873,15 +4837,6 @@
       "collector": "rss"
     },
     {
-      "id": "675c18e406cff1f5",
-      "date": "2026-05-12T22:00:22Z",
-      "title": "Striking Back at AI Memory Pricing… Using AI",
-      "url": "https://www.servethehome.com/striking-back-at-ai-memory-pricing-using-ai/",
-      "industry": "AI",
-      "signal_type": "基建",
-      "collector": "rss"
-    },
-    {
       "id": "3ef2fa451af2ca8d",
       "date": "2026-05-12T21:11:44Z",
       "title": "Cohu Receives Multiple Orders for Testing Next-Generation GaN Power Devices for AI Data Centers",
@@ -5107,15 +5062,6 @@
       "collector": "rss"
     },
     {
-      "id": "9bb904811232bb6d",
-      "date": "2026-05-12T14:00:00Z",
-      "title": "Mesmerizing vortexes swirl near an Antarctic volcano | Space photo of the day for May 12, 2026",
-      "url": "https://www.space.com/astronomy/earth/mesmerizing-vortexes-swirl-near-an-antarctic-volcano-space-photo-of-the-day-for-may-12-2026",
-      "industry": "space",
-      "signal_type": "市场",
-      "collector": "rss"
-    },
-    {
       "id": "2dfe3245773870e8",
       "date": "2026-05-12T14:00:00Z",
       "title": "Mahindra to expand passenger EV line-up, ramp up production capacity",
@@ -5152,30 +5098,12 @@
       "collector": "rss"
     },
     {
-      "id": "dc49fec4ad68be5e",
-      "date": "2026-05-12T13:00:00Z",
-      "title": "Star Catcher just raised $65 million to build the world's first power grid in space — with lasers",
-      "url": "https://www.space.com/technology/star-catcher-just-raised-usd65-million-to-build-the-worlds-first-power-grid-in-space-with-lasers",
-      "industry": "space",
-      "signal_type": "资本",
-      "collector": "rss"
-    },
-    {
       "id": "965636ad9889af4e",
       "date": "2026-05-12T12:57:39Z",
       "title": "Toyota and Hyroad to scale H2 trucking in California",
       "url": "https://www.electrive.com/2026/05/12/toyota-and-hyroad-to-scale-h2-trucking-in-california/",
       "industry": "drone",
       "signal_type": "技术",
-      "collector": "rss"
-    },
-    {
-      "id": "61ad2b913a0893ce",
-      "date": "2026-05-12T12:00:00Z",
-      "title": "Thousands of deaths per year caused by invisible wildfire pollutant, satellite data shows",
-      "url": "https://www.space.com/science/climate-change/a-hidden-wildfire-pollutant-causes-thousands-of-excess-deaths-per-year-satellite-data-shows",
-      "industry": "space",
-      "signal_type": "市场",
       "collector": "rss"
     },
     {
@@ -5203,15 +5131,6 @@
       "url": "https://www.electrive.com/2026/05/12/iveco-bus-to-build-electric-buses-for-limoges-metropolitan-area/",
       "industry": "drone",
       "signal_type": "技术",
-      "collector": "rss"
-    },
-    {
-      "id": "af9617d5ccfcfc48",
-      "date": "2026-05-12T10:00:00Z",
-      "title": "SpaceX fuels up Starship V3 megarocket for 1st time ahead of crucial test flight (photos)",
-      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-fuels-up-starship-v3-megarocket-for-1st-time-ahead-of-crucial-test-flight-photos",
-      "industry": "space",
-      "signal_type": "市场",
       "collector": "rss"
     },
     {
