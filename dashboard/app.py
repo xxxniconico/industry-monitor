@@ -733,85 +733,108 @@ def render_prediction_section(chains):
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-def render_conclusion(chains, items, alerts, trl_tracker):
-    """Dynamic conclusion from signal data + cross-signal alerts + chain scores."""
-    chain_map = {c["id"]: c for c in chains["chains"]}
-    scored = [(c, *score_chain(c, items, chain_map)) for c in chains["chains"]]
-    scored.sort(key=lambda x: -x[2])
-    
-    # Top chains by tier
-    short_chains = [(c,s,m,cap) for c,s,m,cap in scored if c["tier"]=="short"]
-    medium_chains = [(c,s,m,cap) for c,s,m,cap in scored if c["tier"]=="medium"]
-    long_preds = [c for c in chains["chains"] if c.get("prediction")]
-    
+def render_conclusion(chains, items, alerts, trl_tracker, causal_data, node_scores_all):
+    """Dynamic conclusion from causal chain scores + cross-signal alerts."""
     # Signal distribution
     by_type = Counter(s.get("signal_type","") for s in items)
     by_ind = Counter(s.get("industry","") for s in items)
     
-    # Cross-signal confluence (from alerts)
+    # Cross-signal confluence
     ind_alerts = {ia["industry"]: ia for ia in alerts.get("industry_alerts", [])}
     global_alerts = alerts.get("global_alerts", [])
     hot_chains = alerts.get("hot_chains", [])
-    
-    # Industry avg TRL
     ind_trl = trl_tracker.get("industry_avg_trl", {})
     
     lines = []
+    lines.append(f"**{len(items)} 条信号**（技术链 {by_type.get('技术链',0)} · 资本 {by_type.get('资本',0)} · 基建 {by_type.get('基建',0)} · 市场 {by_type.get('市场',0)}）。")
     
-    # ── Header: signal volume ──
-    lines.append(f"**{len(items)} 条信号。**")
-    active_types = [t for t,c in by_type.most_common() if c > 0 and t != "市场"]
-    if active_types:
-        lines.append(f"活跃信号类型：{' · '.join(f'{t}({c})' for t,c in by_type.most_common() if t in active_types[:4])}。")
+    # Active signal types
+    active = [(t,c) for t,c in by_type.most_common() if c>0 and t!="市场"]
+    if active:
+        lines.append(f"活跃类型：{' · '.join(f'{t} {c}' for t,c in active[:5])}。")
     
-    # ── Cross-signal confluence ──
+    # Global alerts
     if global_alerts:
-        lines.append(f"🌐 **全局告警：**{'; '.join(global_alerts[:2])}。")
+        lines.append(f"🌐 全局告警：{'; '.join(global_alerts[:2])}。")
+    
+    # ── Causal chain status from actual scoring ──
+    chain_status = []
+    for chain in causal_data.get("chains", []):
+        nodes = chain.get("nodes", [])
+        if not nodes: continue
+        scores = node_scores_all.get(chain["id"], {})
+        n_trig = sum(1 for nid,st in scores.items() if st=="triggered")
+        n_appr = sum(1 for nid,st in scores.items() if st=="approaching")
+        if n_trig + n_appr > 0:
+            chain_status.append((chain, n_trig, n_appr, len(nodes)))
+    
+    chain_status.sort(key=lambda x: -(x[1]*2 + x[2]))  # triggered counts 2x
+    
+    if chain_status:
+        parts = []
+        for chain, n_trig, n_appr, n_total in chain_status[:4]:
+            parts.append(f"{chain['label'][:20]}（{n_trig}🟢{n_appr}🟡）")
+        lines.append(f"📡 因果链活跃：{' · '.join(parts)}。")
     
     # ── Industry resonance ──
-    resonance_parts = []
+    resonance = []
     for ind_key, label in [("AI","AI"),("medical","医疗"),("space","航天"),("drone","低空")]:
         ia = ind_alerts.get(ind_key)
         if ia and ia.get("confluence_level","").startswith("🟢"):
-            resonance_parts.append(f"{label}({ia['confluence_level']})")
-    if resonance_parts:
-        lines.append(f"📡 **行业共振：**{' · '.join(resonance_parts)}。")
+            resonance.append(f"{label}")
+    if resonance:
+        lines.append(f"行业共振：{' · '.join(resonance)}。")
     
-    # ── Short-term focus ──
-    if short_chains:
-        c, s, m, cap = short_chains[0]
-        lines.append(f"⚡ **短期核心：**<b>{c['name']}</b>（机会分 {s}），{'驱动 ' + str(len(c.get('drives',[]))) + ' 条下游链' if c.get('drives') else '独立链'}。")
-        if c.get("next_trigger"):
-            lines.append(f"&nbsp;&nbsp;&nbsp;→ 下一触发：{c['next_trigger'][:80]}。")
+    # ── Hottest chain details ──
+    if chain_status:
+        c, n_trig, n_appr, n_total = chain_status[0]
+        lines.append(f"🔥 最活跃链：**{c['label']}**（{n_total}节点中 {n_trig}触发 {n_appr}逼近，完成度 {int((n_trig+n_appr*0.5)/n_total*100)}%）。")
+        # Find triggered nodes
+        triggered = []
+        for n in c["nodes"]:
+            if node_scores_all.get(c["id"],{}).get(n["id"])=="triggered":
+                triggered.append(n["label"][:15])
+        if triggered:
+            lines.append(f"→ 已触发节点：{' · '.join(triggered[:3])}。")
     
-    # ── Medium-term watch ──
-    if medium_chains:
-        c, s, m, cap = medium_chains[0]
-        lines.append(f"🔭 **中期布局：**<b>{c['name']}</b>（机会分 {s}），当前 TRL {c['trl']:.1f}。")
+    # ── Signal source highlight ──
+    from collections import Counter
+    src_types = Counter(s.get("collector","?") for s in items)
+    lines.append(f"📰 数据源：{' · '.join(f'{k} {v}' for k,v in src_types.most_common(4))}。")
     
-    # ── Long-term predictions ──
-    if long_preds:
-        lines.append(f"🔮 **远期预测：**{len(long_preds)} 条链有明确突破路径。")
-    
-    # ── Industry TRL snapshot ──
-    trl_parts = [f"{IND.get(k,k)}({v:.1f})" for k,v in ind_trl.items() if k in IND]
-    if trl_parts:
-        lines.append(f"📐 **行业 TRL 均值：**{' · '.join(trl_parts)}。")
-    
-    # ── Dependency highlight ──
-    primary_roots = [c for c in chains["chains"] if c["role"]=="primary" and not c.get("depends_on")]
-    if primary_roots:
-        root = primary_roots[0]
-        driven = [chain_map[d]["name"] for d in root.get("drives",[]) if d in chain_map]
-        if driven:
-            lines.append(f"🔗 **主依赖链：**{root['name']} → {' → '.join(driven[:3])}。{root['name']} 是当前 {root['industry']} 硬件链的总阀门。")
-    
-    # ── Hot chains from alerts ──
-    if hot_chains:
-        hc = hot_chains[0]
-        lines.append(f"🔥 **最热技术链：**{hc['name']}（{hc['matches']} 条信号命中）。")
-    
-    return "\n".join(lines)
+    return "<br>".join(lines)
+
+
+def compute_all_chain_scores(causal_data, items):
+    """Pre-compute all node scores for the conclusion."""
+    result = {}
+    for chain in causal_data.get("chains", []):
+        nodes = chain.get("nodes", [])
+        node_map = {n["id"]: n for n in nodes}
+        # Build parent/child maps
+        parent_map = {}
+        child_map = {}
+        for n in nodes:
+            for ch in n.get("children", []):
+                cid = ch.get("node")
+                if cid:
+                    parent_map.setdefault(cid, []).append(n["id"])
+                    child_map.setdefault(n["id"], []).append(cid)
+        # First pass: raw scores
+        raw = {}
+        for n in nodes:
+            s, _ = compute_node_score(n, items)
+            raw[n["id"]] = s
+        # Second pass: final status
+        chain_scores = {}
+        for n in nodes:
+            nid = n["id"]
+            ps = {nid: [raw.get(p,0) for p in parent_map.get(nid,[])]} if parent_map.get(nid) else None
+            cs = {nid: [raw.get(c,0) for c in child_map.get(nid,[])]} if child_map.get(nid) else None
+            status, _, _ = eval_node_status(n, items, ps, cs)
+            chain_scores[nid] = status
+        result[chain["id"]] = chain_scores
+    return result
 
 
 def render_framework_cards(porter, s_curve, trl_tracker, alerts):
@@ -1023,7 +1046,8 @@ def main():
     chain_map = {c["id"]: c for c in chains["chains"]}
 
     # ── CONCLUSION ──
-    c = render_conclusion(chains, items, alerts, trl_tracker)
+    node_scores_all = compute_all_chain_scores(causal_data, items)
+    c = render_conclusion(chains, items, alerts, trl_tracker, causal_data, node_scores_all)
     st.markdown(f'<div class="conclusion"><h3>📊 综合研判</h3><div class="body">{c}</div></div>', unsafe_allow_html=True)
 
     # ── FRAMEWORK ANALYSIS ──
