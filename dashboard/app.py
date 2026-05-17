@@ -28,16 +28,19 @@ st.markdown("""<style>
 .ind-section { margin:20px 0; }
 .ind-title { color:#c2ef4e; font-size:22px; font-weight:bold; margin-bottom:2px; border-bottom:1px solid #333355; padding-bottom:6px; }
 .tree-container { padding: 8px 0; }
-.tree-node { position:relative; padding:6px 10px 6px 28px; margin:2px 0; border-radius:6px; background:#221b35; border-left:3px solid transparent; font-size:13px; }
-.tree-node.root-node { background:#251e38; font-weight:bold; padding-left:16px; }
+.tree-node { position:relative; padding:8px 14px; margin:2px 0; border-radius:6px; background:#221b35; border-left:3px solid transparent; font-size:13px; }
+.tree-node.root-node { background:#251e38; padding-left:14px; }
 .tree-node .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:middle; }
-.tree-node .name { color:#d0d0d0; }
-.tree-node.root-node .name { color:#e8e8e8; }
+.tree-node .cname { color:#d0d0d0; font-weight:bold; }
+.tree-node.root-node .cname { color:#e8e8e8; font-size:14px; }
 .tree-node .trl-tag { font-size:10px; margin-left:6px; padding:1px 6px; border-radius:6px; }
-.tree-node .score { float:right; font-size:16px; font-weight:bold; margin-left:12px; }
+.tree-node .score { float:right; font-size:20px; font-weight:bold; }
+.tree-node .trig { color:#a0a0b0; font-size:11px; margin:4px 0 0 18px; }
+.tree-node .deps { font-size:10px; color:#666688; margin:2px 0 0 18px; }
+.tree-node .deps span { color:#8888a0; }
 .tree-line { position:absolute; left:12px; top:0; bottom:0; width:0; border-left:1px solid #444466; }
-.tree-node:last-child .tree-line { height:50%; }
-.tree-node .tree-branch { position:absolute; left:12px; top:50%; width:12px; height:0; border-top:1px solid #444466; }
+.tree-node:last-child > .tree-line { height:50%; }
+.tree-node .tree-branch { position:absolute; left:12px; top:24px; width:12px; height:0; border-top:1px solid #444466; }
 .chain-detail { background:#2a1f40; border-radius:8px; padding:12px 16px; margin:6px 0; border-left:4px solid; }
 .chain-detail .cname { font-size:15px; font-weight:bold; }
 .chain-detail .cmeta { font-size:11px; color:#8888a0; margin-top:2px; }
@@ -91,68 +94,79 @@ def score_chain(chain, items):
 
 
 def build_tree_html(chains, industry, items):
-    """Build a visual dependency tree using HTML/CSS."""
+    """Build merged dependency tree with detail inline. No duplicates."""
     chain_map = {c["id"]: c for c in chains["chains"]}
     ind_chains = [c for c in chains["chains"] if c["industry"] == industry]
     all_ids = {c["id"] for c in ind_chains}
     roots = [c for c in ind_chains if not any(d in all_ids for d in c.get("depends_on",[]))]
     
-    # Track which chains are already rendered as children
     rendered = set()
     
     def render_node(chain, depth=0):
+        if chain["id"] in rendered:
+            return ""  # dedup — already shown elsewhere
         rendered.add(chain["id"])
-        score, _, _ = score_chain(chain, items)
+        
+        score, matches, cap = score_chain(chain, items)
         t = TIER[chain["tier"]]
         is_root = depth == 0
         role_icon = "◆" if chain["role"] == "primary" else "◇"
-        trl_pct = chain["trl"] / 9
-        
-        # Child chains
-        children = [chain_map[d] for d in chain.get("drives",[]) if d in all_ids]
-        has_children = len(children) > 0
-        
-        # Indent
+        role_color = t["color"] if chain["role"] == "primary" else "#8888a0"
         margin = depth * 24
         
-        # Build HTML
+        # Detail lines
+        trig = chain["next_trigger"][:85]
+        deps = [chain_map[d]["name"] for d in chain.get("depends_on",[]) if d in chain_map]
+        driven = [chain_map[d]["name"] for d in chain.get("drives",[]) if d in all_ids]
+        
+        dep_parts = []
+        if deps: dep_parts.append(f'<span>↑</span> {", ".join(deps)}')
+        if driven: dep_parts.append(f'<span>↓</span> {", ".join(driven)}')
+        dep_str = " · ".join(dep_parts) if dep_parts else ""
+        
         node_class = "tree-node root-node" if is_root else "tree-node"
         
-        role_color = t["color"] if chain["role"] == "primary" else "#8888a0"
-        
         html = f'<div class="{node_class}" style="margin-left:{margin}px;border-left-color:{t["color"]};">'
-        
-        # Tree connector lines for non-root nodes
         if not is_root:
             html += '<div class="tree-line"></div><div class="tree-branch"></div>'
         
-        # Content
+        # Header row
         html += f'<span class="dot" style="background:{t["color"]};"></span>'
         html += f'<span style="color:{role_color};">{role_icon}</span> '
-        html += f'<span class="name">{chain["name"]}</span>'
-        html += f'<span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">TRL {chain["trl"]:.1f}</span>'
+        html += f'<span class="cname">{chain["name"]}</span>'
+        html += f'<span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">{t["label"]} · TRL {chain["trl"]:.1f}</span>'
         html += f'<span class="score" style="color:{t["color"]};">{score}</span>'
+        
+        # Trigger
+        html += f'<div class="trig">🎯 {trig}{"…" if len(chain["next_trigger"])>85 else ""}</div>'
+        
+        # Deps
+        if dep_str:
+            html += f'<div class="deps">{dep_str}</div>'
+        
         html += '</div>'
         
-        # Render children
+        # Children
+        children = [chain_map[d] for d in chain.get("drives",[]) if d in all_ids]
         for child in children:
             html += render_node(child, depth + 1)
         
         return html
     
-    # Render all root trees
     full_html = '<div class="tree-container">'
     for root in roots:
         full_html += render_node(root, 0)
     
-    # Orphan chains (depend on outside)
+    # Orphans
     for c in ind_chains:
         if c["id"] not in rendered:
-            score, _, _ = score_chain(c, items)
+            score, matches, cap = score_chain(c, items)
             t = TIER[c["tier"]]
             ext_deps = [chain_map[d]["name"] for d in c.get("depends_on",[]) if d in chain_map and chain_map[d]["industry"] != industry]
-            dep_note = f' <span style="color:#8888a0;font-size:11px;">← {", ".join(ext_deps)}</span>' if ext_deps else ""
-            full_html += f'<div class="tree-node root-node" style="border-left-color:{t["color"]};margin-top:8px;"><span class="dot" style="background:{t["color"]};"></span>◆ <span class="name">{c["name"]}</span><span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">TRL {c["trl"]:.1f}</span>{dep_note}<span class="score" style="color:{t["color"]};">{score}</span></div>'
+            dep_note = f' <span style="color:#666688;font-size:10px;">← {" · ".join(ext_deps)}</span>' if ext_deps else ""
+            trig = c["next_trigger"][:70]
+            full_html += f'<div class="tree-node root-node" style="border-left-color:{t["color"]};margin-top:8px;"><span class="dot" style="background:{t["color"]};"></span>◆ <span class="cname">{c["name"]}</span><span class="trl-tag" style="background:{t["bg"]};color:{t["color"]};">{t["label"]} · TRL {c["trl"]:.1f}</span>{dep_note}<span class="score" style="color:{t["color"]};">{score}</span><div class="trig">🎯 {trig}</div></div>'
+            rendered.add(c["id"])
     
     full_html += '</div>'
     return full_html
@@ -237,46 +251,10 @@ def main():
     for ind_key in ["AI", "medical", "space", "drone"]:
         st.markdown(f'<div class="ind-title">{IND[ind_key]}</div>', unsafe_allow_html=True)
         
-        # Dependency tree
+        # Dependency tree (includes all details inline)
         tree = build_tree_html(chains, ind_key, items)
         if tree.strip():
             st.markdown(tree, unsafe_allow_html=True)
-        
-        # Chain details (expanded)
-        ind_chains = [c for c in chains["chains"] if c["industry"] == ind_key]
-        ind_chains.sort(key=lambda c: (0 if c["role"]=="primary" else 1, {"short":0,"medium":1,"long":2}[c["tier"]]))
-        
-        for c in ind_chains:
-            score, matches, cap = score_chain(c, items)
-            t = TIER[c["tier"]]
-            pct = c["trl"] / 9
-            is_primary = c["role"] == "primary"
-            
-            deps = [chain_map[d]["name"] for d in c.get("depends_on",[]) if d in chain_map]
-            driven = [chain_map[d]["name"] for d in c.get("drives",[]) if d in chain_map]
-            
-            cols = st.columns([5, 0.6])
-            with cols[0]:
-                st.markdown(f"""
-                <div class="chain-detail" style="border-left-color:{t['color']};">
-                  <span class="tier-badge" style="background:{t['bg']};color:{t['color']};">{t['label']}</span>
-                  <span class="cname" style="color:{t['color']};">{'◆' if is_primary else '◇'} {c['name']}</span>
-                  <div class="cmeta">{c['chain']}</div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
-                    <span style="font-size:11px;color:#8888a0;">TRL {c['trl']:.1f}</span>
-                    <div style="flex:1;height:5px;background:#333355;border-radius:3px;">
-                      <div style="width:{pct*100}%;height:5px;background:{t['color']};border-radius:3px;"></div>
-                    </div>
-                  </div>
-                  <div class="ctrig">🎯 {c['next_trigger']}</div>
-                  {f'<div class="cdeps">↑ 依赖: {", ".join(deps)}</div>' if deps else ''}
-                  {f'<div class="cdeps">↓ 驱动: {", ".join(driven)}</div>' if driven else ''}
-                </div>
-                """, unsafe_allow_html=True)
-            with cols[1]:
-                st.markdown(f'<div class="cscore" style="color:{t["color"]};text-align:center;">{score}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div style="text-align:center;font-size:10px;color:#8888a0;">信{matches}·资{cap}</div>', unsafe_allow_html=True)
-        
         st.markdown('<br>', unsafe_allow_html=True)
     
     st.markdown('<hr class="div">', unsafe_allow_html=True)
