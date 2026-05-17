@@ -13,6 +13,7 @@ if str(_PROCESSORS) not in sys.path:
 from load_raw import load_all_raw
 from signal_classifier import build_events_payload, build_signals_payload
 from trl_estimator import build_trl_payload
+from cross_signal import generate_alerts_payload
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "data" / "processed"
@@ -37,11 +38,22 @@ def main() -> int:
 
     events_payload = build_events_payload(signals)
     trl_payload = build_trl_payload(items, warnings)
+    
+    # Cross-signal analysis
+    # Need chain data
+    import json
+    chains_path = ROOT / "data" / "models" / "tech_chains.json"
+    s_curve_path = ROOT / "data" / "models" / "s_curve.json"
+    chains = json.loads(chains_path.read_text()) if chains_path.exists() else {"chains": []}
+    s_curve = json.loads(s_curve_path.read_text()) if s_curve_path.exists() else {}
+    
+    alerts_payload = generate_alerts_payload(signals_payload, chains, s_curve)
 
     paths = {
         "signals.json": signals_payload,
         "events.json": events_payload,
         "trl_tracker.json": trl_payload,
+        "alerts.json": alerts_payload,
     }
 
     for name, data in paths.items():

@@ -1,0 +1,108 @@
+{
+  "source": "cross_signal_engine",
+  "processed_at": "2026-05-17T07:42:10Z",
+  "global_alerts": [
+    "📋 监管信号密集 (25条)，多行业政策窗口可能同时打开"
+  ],
+  "hot_chains": [
+    {
+      "name": "推理成本下降",
+      "industry": "AI",
+      "matches": 3,
+      "trl": 7.5
+    }
+  ],
+  "industry_alerts": [
+    {
+      "industry": "AI",
+      "total_signals": 1046,
+      "active_signals": [
+        "资本",
+        "技术",
+        "市场"
+      ],
+      "confluence_level": "🟢 强共振",
+      "confluence_detail": "3 类信号同时活跃: 资本, 技术, 市场",
+      "weighted_score": 109.8,
+      "s_curve_phase": "早期大众·增长期",
+      "special_alerts": [
+        "🔬+💰 技术突破吸引资本 → 创新加速期"
+      ],
+      "top_chains": [
+        {
+          "name": "推理成本下降",
+          "matches": 3,
+          "trl": 7.5,
+          "next_trigger": "推理成本降至当前 1/10 → 免费层成为可能"
+        }
+      ],
+      "signal_counts": {
+        "市场": 974,
+        "资本": 41,
+        "技术": 31
+      }
+    },
+    {
+      "industry": "medical",
+      "total_signals": 115,
+      "active_signals": [
+        "技术",
+        "监管",
+        "市场"
+      ],
+      "confluence_level": "🟢 强共振",
+      "confluence_detail": "3 类信号同时活跃: 技术, 监管, 市场",
+      "weighted_score": 17.2,
+      "s_curve_phase": "早期采纳→早期大众过渡",
+      "special_alerts": [],
+      "top_chains": [],
+      "signal_counts": {
+        "市场": 45,
+        "技术": 44,
+        "监管": 25,
+        "资本": 1
+      }
+    },
+    {
+      "industry": "space",
+      "total_signals": 54,
+      "active_signals": [
+        "市场"
+      ],
+      "confluence_level": "🔵 单信号",
+      "confluence_detail": "仅 市场 活跃",
+      "weighted_score": 5.5,
+      "s_curve_phase": "早期采纳·扩张期",
+      "special_alerts": [],
+      "top_chains": [
+        {
+          "name": "Starship 复用",
+          "matches": 2,
+          "trl": 7.5,
+          "next_trigger": "Starship 商用发射（上面级成功回收）"
+        }
+      ],
+      "signal_counts": {
+        "市场": 53,
+        "资本": 1
+      }
+    },
+    {
+      "industry": "drone",
+      "total_signals": 25,
+      "active_signals": [
+        "市场"
+      ],
+      "confluence_level": "🔵 单信号",
+      "confluence_detail": "仅 市场 活跃",
+      "weighted_score": 2.5,
+      "s_curve_phase": "创新者→早期采纳过渡",
+      "special_alerts": [],
+      "top_chains": [],
+      "signal_counts": {
+        "市场": 24,
+        "资本": 1
+      }
+    }
+  ]
+}
