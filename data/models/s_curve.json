@@ -1,0 +1,70 @@
+{
+  "updated_at": "2026-05-17",
+  "methodology": "基于 S 曲线（Rogers 1962）理论的人工判断。综合市场增速、采纳率、主流媒体报道频率、非行业人士认知度等信号。每季度复审一次。",
+  "phases": {
+    "innovators": {"label": "创新者", "cagr": "<10%", "description": "极少数先行者在用，大众不知晓"},
+    "early_adopters": {"label": "早期采纳", "cagr": "10-30%", "description": "行业内部广泛讨论，主流媒体开始出现"},
+    "early_majority": {"label": "早期大众", "cagr": ">30%", "description": "非行业人士开始谈论，渗透率快速爬升"},
+    "late_majority": {"label": "晚期大众", "cagr": "GDP增速附近", "description": "成熟市场，增速放缓"},
+    "maturity": {"label": "成熟期", "cagr": "<GDP增速", "description": "存量竞争，整合并购"}
+  },
+  "industries": {
+    "AI": {
+      "phase": "early_majority",
+      "label": "早期大众·增长期",
+      "trl_range": "7-9",
+      "growth_signal": "企业采纳率 11%→40%，年增速 >30%",
+      "evidence": [
+        "ChatGPT 8亿周活用户，10%地球人口",
+        "Q1 2026 AI风投 $255B 超2025全年",
+        "42% IT领导者已进行重大运营模式变革",
+        "非技术岗位开始使用AI工具"
+      ],
+      "next_phase_trigger": "企业AI采纳率突破50%，AI成为水电般的基础设施",
+      "estimated_transition": "2028-2030 进入晚期大众"
+    },
+    "medical": {
+      "phase": "early_adopters",
+      "label": "早期采纳→早期大众过渡",
+      "trl_range": "5-8",
+      "growth_signal": "基因编辑首获批、AI制药进入临床、mRNA平台扩展",
+      "evidence": [
+        "Casgevy首个CRISPR疗法FDA批准（2023）",
+        "AI设计药物进入Phase 2/3",
+        "mRNA癌症疫苗进入III期",
+        "25个医疗IPO在港股募资$30B+"
+      ],
+      "next_phase_trigger": "AI制药Phase 3阳性 或 体内基因编辑获批 → 大众认知飞跃",
+      "estimated_transition": "2027-2029 进入早期大众"
+    },
+    "space": {
+      "phase": "early_adopters",
+      "label": "早期采纳·扩张期",
+      "trl_range": "6-9",
+      "growth_signal": "SpaceX主导发射、各国国防驱动卫星需求、太空经济$439B",
+      "evidence": [
+        "SpaceX年发射180-200次",
+        "星链用户快速增长",
+        "中国国网星座启动",
+        "欧洲IRIS²制度化需求",
+        "太空经济CAGR 7%"
+      ],
+      "next_phase_trigger": "Starship商用发射 或 太空制造首份商业订单 → 成本驱动大众化",
+      "estimated_transition": "2028-2032 进入早期大众"
+    },
+    "drone": {
+      "phase": "innovators",
+      "label": "创新者→早期采纳过渡",
+      "trl_range": "5-7",
+      "growth_signal": "亿航首获适航证、美团无人机配送50万+单、大湾区试点",
+      "evidence": [
+        "亿航获全球首张无人驾驶载人适航证（2023）",
+        "美团无人机超52万单",
+        "DJI农业无人机40万+台",
+        "eVTOL票价$5.73/英里 vs 汽车$0.62，尚未大众化"
+      ],
+      "next_phase_trigger": "第二家eVTOL获适航证 + 票价降至汽车2倍以内 → 从演示变商业",
+      "estimated_transition": "2027-2030 进入早期采纳"
+    }
+  }
+}

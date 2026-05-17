@@ -3,136 +3,169 @@
 """Classify raw items into seven industry signal types."""
 
 import hashlib
+import re
 from datetime import datetime, timezone
 
 SIGNAL_TYPES = ["技术链", "资本", "技术", "监管", "市场", "人才", "基建"]
 
-# (signal_type, keywords) — order matters for tie-break via position
-RULES: list[tuple[str, list[str]]] = [
-    ("资本", [
-        "funding", "raised", "investment", "venture", "series a", "series b",
-        "million", "billion", "ipo", "acquisition", "融资", "投资", "并购",
-    ]),
-    ("监管", [
-        "fda", "regulation", "regulatory", "approval", "compliance", "policy",
-        "ban", "license", "监管", "获批", "合规", "政策",
-    ]),
-    ("人才", [
-        "hire", "hiring", "talent", "workforce", "ceo", "appoint", "resign",
-        "layoff", "人才", "招聘", "任命",
-    ]),
-    ("基建", [
-        "datacenter", "data center", "infrastructure", "facility", "fab",
-        "launch pad", "spaceport", "基建", "基础设施", "数据中心",
-    ]),
-    ("技术链", [
-        "supply chain", "semiconductor", "chip", "foundry", "upstream",
-        "downstream", "产业链", "供应链", "晶圆", "代工",
-    ]),
-    ("市场", [
-        "market", "revenue", "sales", "customer", "demand", "pricing",
-        "market share", "市场", "营收", "客户",
-    ]),
-    ("技术", [
-        "paper", "arxiv", "algorithm", "model", "breakthrough", "research",
-        "prototype", "patent", "论文", "算法", "模型", "突破",
-    ]),
-]
-
-COLLECTOR_DEFAULTS = {
+# Source-based primary classification
+SOURCE_SIGNAL = {
     "arxiv": "技术",
     "clinicaltrials": "技术",
-    "launch_library": "基建",
+    "launch_library": "市场",
     "vc_news": "资本",
 }
 
+# RSS feed → signal type mapping
+RSS_FEED_SIGNAL = {
+    "ArXiv CS.AI": "技术",
+    "Stanford HAI": "市场",
+    "MIT Technology Review": "市场",
+    "OpenAI Blog": "市场",
+    "STAT News": "市场",
+    "WHO News": "监管",
+    "FierceBiotech": "市场",
+    "FiercePharma": "市场",
+    "SpaceNews": "市场",
+    "NASA Breaking News": "市场",
+    "DroneDJ": "市场",
+}
+
+# Strong keyword overrides — only high-precision matches
+CAPITAL_KW = [
+    "raised $", "funding round", "series a", "series b", "series c",
+    "closed $", "valuation", "ipo", "acquires", "acquisition",
+    "融资", "亿元", "估值", "IPO", "上市",
+]
+REGULATION_KW = [
+    "fda approved", "fda clearance", "fda clears", "regulatory approval",
+    "banned", "sanction", "export control", "获批", "监管", "政策收紧",
+]
+INFRA_KW = [
+    "datacenter", "data center", "factory", "manufacturing plant",
+    "fabrication", "launch complex", "spaceport", "ground station",
+    "数据中心", "工厂", "发射场",
+]
+TALENT_KW = [
+    "appointed ceo", "hires", "hiring", "layoff", "layoffs", "resigns",
+    "任命", "离职", "裁员",
+]
+TECH_CHAIN_KW = [
+    "supply chain", "chip shortage", "shortage", "bottleneck",
+    "供应链", "产能不足", "供不应求",
+]
 
 def item_id(item: dict) -> str:
-    key = item.get("url") or f"{item['collector']}:{item['title']}"
+    key = item.get("url") or f"{item.get('collector','')}:{item.get('title','')}"
     return hashlib.sha256(key.encode()).hexdigest()[:16]
 
 
-def classify_text(text: str, collector: str) -> tuple[str, float]:
-    text_lower = text.lower()
-    scores: dict[str, int] = {t: 0 for t in SIGNAL_TYPES}
-
-    for signal_type, keywords in RULES:
-        for kw in keywords:
-            if kw in text_lower:
-                scores[signal_type] += 1
-
-    best_type = max(scores, key=lambda k: scores[k])
-    best_score = scores[best_type]
-
-    if best_score == 0:
-        default = COLLECTOR_DEFAULTS.get(collector, "技术")
-        return default, 0.35
-
-    total = sum(scores.values())
-    confidence = round(min(0.95, 0.4 + best_score / max(total, 1) * 0.5), 2)
-    return best_type, confidence
-
-
 def classify_item(item: dict) -> dict:
-    blob = f"{item['title']} {item['summary']}"
-    signal_type, confidence = classify_text(blob, item["collector"])
+    """Classify signal type. Source-based primary, keyword for refinement."""
+    collector = item.get("collector", "")
+    text = f"{item.get('title','')} {item.get('summary','')}"
+    text_lower = text.lower()
+    
+    # Step 1: source-based default
+    feed_name = item.get("source_feed", "")
+    
+    if collector == "rss" and feed_name in RSS_FEED_SIGNAL:
+        signal_type = RSS_FEED_SIGNAL[feed_name]
+        base_confidence = 0.55
+    elif collector in SOURCE_SIGNAL:
+        signal_type = SOURCE_SIGNAL[collector]
+        base_confidence = 0.65
+    else:
+        signal_type = "技术"
+        base_confidence = 0.40
+    
+    # Step 2: keyword overrides (only for non-RSS, or very strong RSS signals)
+    override = None
+    override_conf = 0
+    
+    if collector != "rss":
+        # ArXiv/clinical/vc/launch — use keyword overrides
+        if any(kw.lower() in text_lower for kw in CAPITAL_KW):
+            override, override_conf = "资本", 0.80
+        elif any(kw.lower() in text_lower for kw in REGULATION_KW):
+            override, override_conf = "监管", 0.80
+        elif any(kw.lower() in text_lower for kw in INFRA_KW):
+            override, override_conf = "基建", 0.75
+        elif any(kw.lower() in text_lower for kw in TALENT_KW):
+            override, override_conf = "人才", 0.75
+        elif any(kw.lower() in text_lower for kw in TECH_CHAIN_KW):
+            override, override_conf = "技术链", 0.70
+    else:
+        # RSS — feed name is authoritative; only override for capital
+        if any(kw.lower() in text_lower for kw in ["raised $", "funding round", "series a", "series b", "series c", "closed $", "ipo", "acquisition", "并购"]):
+            override, override_conf = "资本", 0.85
+    
+    if override and override_conf > base_confidence + 0.10:
+        signal_type = override
+        confidence = override_conf
+    else:
+        confidence = base_confidence
+    
+    # Clinical trials special handling
+    if collector == "clinicaltrials":
+        extra = item.get("extra", {})
+        phase = (extra.get("phase") or "").lower()
+        if "phase 3" in phase:
+            signal_type = "市场"
+            confidence = 0.85
+        elif "phase 2" in phase:
+            signal_type = "技术"
+            confidence = 0.75
+    
     return {
         "id": item_id(item),
         "title": item["title"],
-        "url": item["url"],
-        "published": item["published"],
-        "industry": item["industry"],
+        "url": item.get("url", ""),
+        "published": item.get("published", ""),
+        "industry": item.get("industry", ""),
         "signal_type": signal_type,
-        "collector": item["collector"],
-        "confidence": confidence,
+        "collector": collector,
+        "confidence": round(confidence, 2),
     }
 
 
+def classify_all(items: list[dict]) -> list[dict]:
+    return [classify_item(i) for i in items]
+
+
 def build_signals_payload(items: list[dict], warnings: list[str]) -> dict:
-    signals = [classify_item(i) for i in items]
+    signals = classify_all(items)
     by_type = {t: 0 for t in SIGNAL_TYPES}
-    by_industry: dict[str, int] = {}
+    by_industry = {}
 
     for s in signals:
         by_type[s["signal_type"]] = by_type.get(s["signal_type"], 0) + 1
         by_industry[s["industry"]] = by_industry.get(s["industry"], 0) + 1
 
-    payload = {
+    return {
         "source": "signal_classifier",
         "processed_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "total": len(signals),
         "by_type": by_type,
         "by_industry": by_industry,
         "signals": signals,
+        "warnings": warnings if warnings else [],
     }
-    if warnings:
-        payload["warnings"] = warnings
-    return payload
 
 
 def build_events_payload(signals: list[dict]) -> dict:
-    """Timeline of classified items, newest first."""
     dated = [s for s in signals if s.get("published")]
+    dated.sort(key=lambda s: s.get("published", ""), reverse=True)
     undated = [s for s in signals if not s.get("published")]
-
-    def sort_key(s: dict) -> str:
-        return s.get("published") or ""
-
-    dated.sort(key=sort_key, reverse=True)
 
     events = []
     for s in dated + undated:
-        events.append(
-            {
-                "id": s["id"],
-                "date": s.get("published") or "",
-                "title": s["title"],
-                "url": s["url"],
-                "industry": s["industry"],
-                "signal_type": s["signal_type"],
-                "collector": s["collector"],
-            }
-        )
+        events.append({
+            "id": s["id"], "date": s.get("published", ""),
+            "title": s["title"], "url": s.get("url", ""),
+            "industry": s["industry"], "signal_type": s["signal_type"],
+            "collector": s["collector"],
+        })
 
     return {
         "source": "events",

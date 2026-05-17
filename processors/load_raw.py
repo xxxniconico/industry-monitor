@@ -51,11 +51,12 @@ def normalize_item(collector: str, item: dict) -> dict | None:
         "industry": industry,
         "summary": summary,
         "collector": collector,
+        "source_feed": item.get("source_feed", ""),
         "extra": {
             k: v
             for k, v in item.items()
             if k
-            not in ("title", "name", "url", "published", "launch_date", "start_date", "summary", "industry")
+            not in ("title", "name", "url", "published", "launch_date", "start_date", "summary", "industry", "source_feed")
         },
     }
 

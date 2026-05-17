@@ -1,0 +1,134 @@
+{
+  "updated_at": "2026-05-17",
+  "methodology": "基于 Porter 五力 + 互补品模型的人工评估。趋势用 ↑（增强）/↓（减弱）/→（稳定）标注。每半年复审一次。",
+  "industries": {
+    "AI": {
+      "new_entrants": {
+        "intensity": "高",
+        "trend": "↑",
+        "evidence": "开源模型（Llama、Mistral、DeepSeek）大幅降低进入门槛；AI初创从$1M到$30M营收速度是SaaS的5倍"
+      },
+      "supplier_power": {
+        "intensity": "极高",
+        "trend": "↑",
+        "evidence": "NVIDIA GPU垄断（H200/GB200供不应求）；台积电CoWoS独家供应；高端光刻机ASML垄断"
+      },
+      "buyer_power": {
+        "intensity": "中",
+        "trend": "→",
+        "evidence": "云厂商大规模采购有议价权；中小企业议价能力弱；模型API定价竞争激烈"
+      },
+      "substitutes": {
+        "intensity": "低",
+        "trend": "→",
+        "evidence": "AI暂无替代技术；不同模型架构（Transformer/Mamba）是内部竞争非替代"
+      },
+      "rivalry": {
+        "intensity": "极高",
+        "trend": "↑",
+        "evidence": "OpenAI/Anthropic/Google/Meta/DeepSeek 五方混战；模型能力差距在缩小；推理成本每18月降10倍加速竞争"
+      },
+      "complements": {
+        "intensity": "强",
+        "trend": "↑",
+        "evidence": "光模块/液冷/铜连接/先进封装构成互补生态；AI应用层（Agent/Copilot）扩大算力需求"
+      }
+    },
+    "medical": {
+      "new_entrants": {
+        "intensity": "中",
+        "trend": "↑",
+        "evidence": "AI+药物发现降低研发门槛；数字疗法新玩家涌入；但FDA审批仍构成高壁垒"
+      },
+      "supplier_power": {
+        "intensity": "中",
+        "trend": "→",
+        "evidence": "CRO/CDMO供应充足；基因测序仪因美纳垄断松动（华大智造竞争）"
+      },
+      "buyer_power": {
+        "intensity": "极高",
+        "trend": "↑",
+        "evidence": "美国IRA法案压药价；中国集采持续；各国医保控费压力；GLP-1定价谈判"
+      },
+      "substitutes": {
+        "intensity": "中",
+        "trend": "↑",
+        "evidence": "数字疗法替代部分药物；手术机器人替代传统手术；AI诊断替代部分影像医生"
+      },
+      "rivalry": {
+        "intensity": "高",
+        "trend": "↑",
+        "evidence": "专利悬崖驱动M&A；大型药企争抢GLP-1和基因编辑赛道；中国创新药出海加剧全球竞争"
+      },
+      "complements": {
+        "intensity": "强",
+        "trend": "↑",
+        "evidence": "基因测序+AI+基因编辑形成互补三角；远程医疗+可穿戴设备扩大慢性病管理市场"
+      }
+    },
+    "space": {
+      "new_entrants": {
+        "intensity": "低",
+        "trend": "→",
+        "evidence": "SpaceX垄断发射市场；Blue Origin/Rocket Lab在追赶但差距大；中国国家队主导"
+      },
+      "supplier_power": {
+        "intensity": "中",
+        "trend": "↓",
+        "evidence": "SpaceX垂直整合降低对外部供应商依赖；卫星制造从定制化走向标准化"
+      },
+      "buyer_power": {
+        "intensity": "中",
+        "trend": "↑",
+        "evidence": "各国政府和国防部是最大客户；商业客户（通信/遥感）增长但占比仍小"
+      },
+      "substitutes": {
+        "intensity": "低",
+        "trend": "→",
+        "evidence": "地面光纤/5G替代部分卫星通信；高空平台(HAPS)替代低轨卫星场景有限"
+      },
+      "rivalry": {
+        "intensity": "中",
+        "trend": "↑",
+        "evidence": "SpaceX一骑绝尘但各国主权星座（中国国网/欧洲IRIS²）带来竞争"
+      },
+      "complements": {
+        "intensity": "强",
+        "trend": "↑",
+        "evidence": "地面终端/用户设备/应用生态扩大星座价值；在轨服务延长卫星寿命增加ROI"
+      }
+    },
+    "drone": {
+      "new_entrants": {
+        "intensity": "高",
+        "trend": "↑",
+        "evidence": "适航标准未固化→新玩家窗口；汽车企业（小鹏/吉利）跨界进入eVTOL"
+      },
+      "supplier_power": {
+        "intensity": "中",
+        "trend": "↓",
+        "evidence": "电池从宁德时代/比亚迪采购，供应充足；飞控/电机供应商增多；适航认证是真实壁垒"
+      },
+      "buyer_power": {
+        "intensity": "低",
+        "trend": "→",
+        "evidence": "尚未形成规模市场；早期客户（物流企业、高端出行）议价能力有限"
+      },
+      "substitutes": {
+        "intensity": "中",
+        "trend": "→",
+        "evidence": "地面物流/出租车是替代；但城市拥堵为空中交通创造独特价值主张"
+      },
+      "rivalry": {
+        "intensity": "中",
+        "trend": "↑",
+        "evidence": "亿航/峰飞/小鹏/吉利/Joby/Archer全球竞争；中国市场有政策优势"
+      },
+      "complements": {
+        "intensity": "关键",
+        "trend": "→",
+        "evidence": "起降场/UTM空管系统/充电网络是核心互补品；缺乏任一项即无法商用"
+      }
+    }
+  }
+}
