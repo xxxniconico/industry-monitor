@@ -1,40 +1,40 @@
 {
   "source": "cross_signal_engine",
-  "processed_at": "2026-05-17T23:20:41Z",
+  "processed_at": "2026-05-24T23:55:22Z",
   "global_alerts": [
-    "💰 全行业资本信号 206 条，处于历史活跃水平",
-    "📋 监管信号密集 (66条)，多行业政策窗口可能同时打开"
+    "💰 全行业资本信号 209 条，处于历史活跃水平",
+    "📋 监管信号密集 (70条)，多行业政策窗口可能同时打开"
   ],
   "hot_chains": [
     {
       "name": "AI Agent 平台化",
       "industry": "AI",
-      "matches": 63,
+      "matches": 57,
       "trl": 6.0
     },
     {
       "name": "量子计算实用化",
       "industry": "AI",
-      "matches": 16,
+      "matches": 22,
       "trl": 4.5
     },
     {
-      "name": "细胞基因治疗 (CGT)",
-      "industry": "medical",
-      "matches": 12,
-      "trl": 6.5
-    },
-    {
-      "name": "GLP-1/代谢药物",
-      "industry": "medical",
-      "matches": 8,
-      "trl": 9.0
+      "name": "Artemis 月球基地",
+      "industry": "space",
+      "matches": 13,
+      "trl": 5.0
     },
     {
       "name": "低轨星座组网",
       "industry": "space",
-      "matches": 7,
+      "matches": 10,
       "trl": 8.5
+    },
+    {
+      "name": "Starship 复用",
+      "industry": "space",
+      "matches": 9,
+      "trl": 7.5
     }
   ],
   "industry_alerts": [
@@ -52,7 +52,7 @@
       ],
       "confluence_level": "🟢 强共振",
       "confluence_detail": "7 类信号同时活跃: 技术链, 资本, 技术, 监管, 市场, 人才, 基建",
-      "weighted_score": 169.6,
+      "weighted_score": 169.8,
       "s_curve_phase": "早期大众·增长期",
       "special_alerts": [
         "💰+🧬 资本与技术链共振 → 拐点临近",
@@ -63,31 +63,31 @@
       "top_chains": [
         {
           "name": "AI Agent 平台化",
-          "matches": 63,
+          "matches": 57,
           "trl": 6.0,
           "next_trigger": "主流 Agent 框架标准化，单 Agent 任务成功率 >90%"
         },
         {
           "name": "量子计算实用化",
-          "matches": 16,
+          "matches": 22,
           "trl": 4.5,
           "next_trigger": "量子-经典混合在 2+ 实际问题上超越纯经典最优解"
         },
         {
-          "name": "推理成本下降",
-          "matches": 3,
-          "trl": 7.5,
-          "next_trigger": "推理成本降至当前 1/10 → 免费层成为可能"
+          "name": "模型架构范式",
+          "matches": 4,
+          "trl": 4.5,
+          "next_trigger": "新架构在 2+ 主流基准上超越 Transformer"
         }
       ],
       "signal_counts": {
-        "市场": 893,
-        "资本": 155,
-        "技术链": 149,
-        "基建": 95,
-        "技术": 58,
+        "市场": 896,
+        "资本": 150,
+        "技术链": 147,
+        "基建": 93,
+        "技术": 65,
         "监管": 38,
-        "人才": 4
+        "人才": 3
       }
     },
     {
@@ -98,12 +98,11 @@
         "资本",
         "技术",
         "监管",
-        "市场",
-        "人才"
+        "市场"
       ],
       "confluence_level": "🟢 强共振",
-      "confluence_detail": "6 类信号同时活跃: 技术链, 资本, 技术, 监管, 市场, 人才",
-      "weighted_score": 36.9,
+      "confluence_detail": "5 类信号同时活跃: 技术链, 资本, 技术, 监管, 市场",
+      "weighted_score": 37.5,
       "s_curve_phase": "早期采纳→早期大众过渡",
       "special_alerts": [
         "💰+🧬 资本与技术链共振 → 拐点临近",
@@ -112,36 +111,35 @@
       ],
       "top_chains": [
         {
-          "name": "细胞基因治疗 (CGT)",
-          "matches": 12,
-          "trl": 6.5,
-          "next_trigger": "首个体内(in vivo)基因编辑疗法获批（FDA/EMA）"
-        },
-        {
           "name": "GLP-1/代谢药物",
-          "matches": 8,
+          "matches": 7,
           "trl": 9.0,
           "next_trigger": "口服 GLP-1 获批（免注射），年处方量突破 2 亿"
         },
         {
-          "name": "基因编辑体内递送",
-          "matches": 4,
-          "trl": 6,
-          "next_trigger": "首个体内基因编辑疗法获批"
+          "name": "细胞基因治疗 (CGT)",
+          "matches": 6,
+          "trl": 6.5,
+          "next_trigger": "首个体内(in vivo)基因编辑疗法获批（FDA/EMA）"
+        },
+        {
+          "name": "AI 制药临床",
+          "matches": 3,
+          "trl": 6.5,
+          "next_trigger": "首个 AI 设计药物 Phase 3 阳性 → 行业认可"
         }
       ],
       "signal_counts": {
-        "技术": 112,
-        "资本": 40,
-        "市场": 36,
-        "监管": 23,
-        "人才": 5,
-        "技术链": 5
+        "技术": 111,
+        "资本": 48,
+        "市场": 31,
+        "监管": 25,
+        "技术链": 6
       }
     },
     {
       "industry": "space",
-      "total_signals": 80,
+      "total_signals": 81,
       "active_signals": [
         "市场"
       ],
@@ -152,70 +150,64 @@
       "special_alerts": [],
       "top_chains": [
         {
-          "name": "低轨星座组网",
-          "matches": 7,
-          "trl": 8.5,
-          "next_trigger": "Starship 商用后单次部署 100+ 卫星，星座成本降至 $500/kg"
-        },
-        {
           "name": "Artemis 月球基地",
-          "matches": 7,
+          "matches": 13,
           "trl": 5.0,
           "next_trigger": "Artemis 3 载人登月成功（当前规划 2027）"
         },
         {
+          "name": "低轨星座组网",
+          "matches": 10,
+          "trl": 8.5,
+          "next_trigger": "Starship 商用后单次部署 100+ 卫星，星座成本降至 $500/kg"
+        },
+        {
           "name": "Starship 复用",
-          "matches": 5,
+          "matches": 9,
           "trl": 7.5,
           "next_trigger": "Starship 商用发射（上面级成功回收）"
         }
       ],
       "signal_counts": {
-        "市场": 76,
-        "基建": 2,
-        "资本": 1,
-        "技术链": 1
+        "市场": 77,
+        "资本": 2,
+        "监管": 1,
+        "人才": 1
       }
     },
     {
       "industry": "drone",
       "total_signals": 75,
       "active_signals": [
+        "技术链",
         "资本",
         "技术",
         "监管",
-        "市场",
-        "基建"
+        "市场"
       ],
       "confluence_level": "🟢 强共振",
-      "confluence_detail": "5 类信号同时活跃: 资本, 技术, 监管, 市场, 基建",
-      "weighted_score": 10.8,
+      "confluence_detail": "5 类信号同时活跃: 技术链, 资本, 技术, 监管, 市场",
+      "weighted_score": 11.2,
       "s_curve_phase": "创新者→早期采纳过渡",
       "special_alerts": [
-        "📋+💰 监管放松伴随资本涌入 → 政策窗口打开",
-        "💰+🏗️ 资本和基建同步扩张 → 进入实质部署期"
+        "💰+🧬 资本与技术链共振 → 拐点临近",
+        "📋+💰 监管放松伴随资本涌入 → 政策窗口打开"
       ],
       "top_chains": [
         {
-          "name": "eVTOL 适航",
-          "matches": 2,
-          "trl": 7,
-          "next_trigger": "第二家 eVTOL 企业获适航证"
-        },
-        {
           "name": "固态电池",
-          "matches": 2,
+          "matches": 3,
           "trl": 5.5,
           "next_trigger": "400+ Wh/kg 量产车型发布"
         }
       ],
       "signal_counts": {
-        "市场": 32,
-        "技术": 23,
-        "资本": 10,
-        "监管": 5,
-        "基建": 3,
-        "技术链": 2
+        "市场": 29,
+        "技术": 26,
+        "资本": 9,
+        "监管": 6,
+        "技术链": 3,
+        "基建": 2
       }
     }
   ]

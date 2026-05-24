@@ -1,28 +1,22 @@
 #!/bin/bash
-# auto_deploy.sh — 每日采集+流水线 → 提交 → 推送 → Streamlit Cloud 自动部署
+# auto_deploy.sh — 周一采集 + 流水线 + git push → Streamlit Cloud 自动部署
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-VENV_PYTHON="$HOME/.hermes/hermes-agent/venv/bin/python"
+ROOT="/home/xxxsuli/industry-monitor"
+VENV_PYTHON="/home/xxxsuli/.hermes/hermes-agent/venv/bin/python"
+LOG="$ROOT/data/raw/_auto_deploy_log.txt"
+
 cd "$ROOT"
 
-echo "=== auto_deploy $(date -Iseconds) ==="
+echo "=== auto_deploy $(date -Iseconds) ===" | tee "$LOG"
 
 # Step 1: Collect + Pipeline
-echo "--- Collect ---"
-"$VENV_PYTHON" collectors/run_all.py 2>&1 || echo "WARNING: collectors had errors"
+bash "$ROOT/scripts/daily_update.sh" 2>&1 | tee -a "$LOG"
 
-echo "--- Pipeline ---"
-"$VENV_PYTHON" processors/run_pipeline.py 2>&1 || echo "WARNING: pipeline had errors"
+# Step 2: Git push (Streamlit Cloud auto-deploys on push)
+echo "--- Git Push ---" | tee -a "$LOG"
+git add -A 2>&1 | tee -a "$LOG"
+git commit -m "auto: weekly data update $(date +%Y-%m-%d)" 2>&1 | tee -a "$LOG" || true
+git push 2>&1 | tee -a "$LOG"
 
-# Step 2: Commit data files
-git add data/processed/ data/models/causal_chains.json
-
-if git diff --cached --quiet; then
-    echo "No data changes, skipping commit"
-    exit 0
-fi
-
-git commit -m "data: daily auto-update $(date +%Y-%m-%d)"
-git push origin main
-echo "=== Done: pushed to GitHub, Streamlit Cloud will redeploy ==="
+echo "=== Deploy Done $(date -Iseconds) ===" | tee -a "$LOG"

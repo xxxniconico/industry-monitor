@@ -3,8 +3,8 @@
 # 由 cron 调用，一步完成
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-VENV_PYTHON="$HOME/.hermes/hermes-agent/venv/bin/python"
+ROOT="/home/xxxsuli/industry-monitor"
+VENV_PYTHON="/home/xxxsuli/.hermes/hermes-agent/venv/bin/python"
 LOG="$ROOT/data/raw/_daily_update_log.txt"
 
 cd "$ROOT"
